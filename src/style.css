@@ -3,6 +3,10 @@
   font-weight: 900;
 }
 
+body{
+  background-color: #f0f2f5 !important;
+}
+
 .btn-dark {
   text-transform: uppercase;
 }
@@ -157,7 +161,7 @@ body {
   font-family: "Outfit", sans-serif;
   font-weight: 900;
   line-height: 1.2;
-  color: #e99401;
+  color: rgb(var(--v-theme-primary)) !important;
 }
 
 h1, .h1 {
@@ -777,5 +781,9 @@ button:not(:disabled),
 .carrusel-header{
   height: 90vh !important;
 }
+
+
+
+
 
 
