@@ -23,10 +23,8 @@
     </div>
 
 
-    <div class="bg-dark mt-5 my-1">
-        <div>
-            <p class="text-white text-center fs-4 mt-4 m-md-0">Ortopedia App - Todos los derechos Reservados</p>
-        </div>
+    <div class="mt-5 my-1">
+        <FooterHome></FooterHome>
     </div>
 
 </template>
@@ -38,6 +36,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import ProductosHome from '../components/Productos/ProductosHome.vue';
 import EnviosCotizacionesHome from '../components/EnviosCotizacionesHome.vue';
 import CategoriasHome from '../components/CategoriasHome.vue';
+import FooterHome from '../components/Footer/FooterHome.vue';
 
 
 const tabCategoria = shallowRef('tab-1')
