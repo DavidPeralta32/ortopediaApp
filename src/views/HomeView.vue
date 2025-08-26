@@ -14,7 +14,8 @@
         <EnviosCotizacionesHome></EnviosCotizacionesHome>
         <CategoriasHome></CategoriasHome>
         <ProductosHome></ProductosHome>
-        
+        <ProvedoresView></ProvedoresView>
+
     </div>
 
     <div class="boton-flotante">
@@ -30,13 +31,14 @@
 </template>
 
 <script setup>
-import { onMounted, shallowRef } from 'vue'
+import { onMounted, shallowRef,ref } from 'vue'
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ProductosHome from '../components/Productos/ProductosHome.vue';
 import EnviosCotizacionesHome from '../components/EnviosCotizacionesHome.vue';
 import CategoriasHome from '../components/CategoriasHome.vue';
 import FooterHome from '../components/Footer/FooterHome.vue';
+import ProvedoresView from '../components/Provedores/ProvedoresView.vue';
 
 
 const tabCategoria = shallowRef('tab-1')

@@ -97,4 +97,8 @@ watch(group, () => {
   /*max-width: 1200px;*/
   color: #344767 !important;
 }
+
+v-toolbar-subtitle{
+  cursor: pointer;
+}
 </style>
