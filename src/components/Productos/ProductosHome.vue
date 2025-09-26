@@ -12,7 +12,6 @@
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit quae labore odit magnam in
                         autem
                         nesciunt, amet deserunt</p>
-                    <p class="fw-black text-primary fs-3">$299</p>
                     <button type="button" class="btn btn-dark w-100 ">Agregar al Carrito</button>
                 </div>
             </div><!-- FIN GUITARRA -->
@@ -26,7 +25,6 @@
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit quae labore odit magnam in
                         autem
                         nesciunt, amet deserunt</p>
-                    <p class="fw-black text-primary fs-3">$299</p>
                     <button type="button" class="btn btn-dark w-100 ">Agregar al Carrito</button>
                 </div>
             </div><!-- FIN GUITARRA -->
@@ -40,7 +38,6 @@
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit quae labore odit magnam in
                         autem
                         nesciunt, amet deserunt</p>
-                    <p class="fw-black text-primary fs-3">$299</p>
                     <button type="button" class="btn btn-dark w-100 ">Agregar al Carrito</button>
                 </div>
             </div>
@@ -54,7 +51,6 @@
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit quae labore odit magnam in
                         autem
                         nesciunt, amet deserunt</p>
-                    <p class="fw-black text-primary fs-3">$299</p>
                     <button type="button" class="btn btn-dark w-100 ">Agregar al Carrito</button>
                 </div>
             </div>
@@ -68,7 +64,6 @@
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit quae labore odit magnam in
                         autem
                         nesciunt, amet deserunt</p>
-                    <p class="fw-black text-primary fs-3">$299</p>
                     <button type="button" class="btn btn-dark w-100 ">Agregar al Carrito</button>
                 </div>
             </div>

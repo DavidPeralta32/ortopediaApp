@@ -12,7 +12,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/about',
     name: 'About',
     component: () => import('../views/AboutView.vue') // Lazy load
-  }
+  },
+  {
+  path: '/productos',
+  name: 'Productos',
+  component: () => import('../views/Productos/Productos.vue')
+}
 ]
 
 const router = createRouter({

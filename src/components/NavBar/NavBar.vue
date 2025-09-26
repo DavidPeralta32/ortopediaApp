@@ -1,13 +1,13 @@
 <template>
   <v-app-bar color="primary" fixed elevate-on-scroll scroll-behavior="none" class="custom-navbar" flat app>
-    <v-btn icon="mdi-domain" variant="text"></v-btn>
+    <v-btn class="btnHome" icon="mdi-domain" variant="text" href="/"></v-btn>
 
     <v-toolbar-title>INQUIMED</v-toolbar-title>
 
     <template v-if="$vuetify.display.mdAndUp">
       <div style="display: flex; gap: 30px; justify-content: center; align-items: center;">
         <v-toolbar-subtitle @click="abrirDialogNosotros()">Nosotros</v-toolbar-subtitle>
-        <v-toolbar-subtitle>Productos</v-toolbar-subtitle>
+        <v-toolbar-subtitle @click="goToProductos()">Productos</v-toolbar-subtitle>
         <v-toolbar-subtitle>Contacto</v-toolbar-subtitle>
       </div>
     </template>
@@ -46,18 +46,17 @@
     </v-list>
   </v-navigation-drawer>
 
-  <v-main>
-  </v-main>
+
 
 
   <!-- Dialog Conpartir Link de Dispositivo-->
   <v-dialog v-model="dialogNosotros" width="auto" max-width="850" persistent transition="dialog-bottom-transition">
-    <v-card  prepend-icon="mdi-share-variant-outline" title="Nosotros">
+    <v-card  prepend-icon="mdi-information" title="Nosotros">
       <v-divider></v-divider>
       <v-card>
         <v-tabs v-model="tab" align-tabs="center" bg-color="blue-darken-1" stacked>
           <v-tab value="tab-1">
-            <v-icon icon="mdi-phone"></v-icon>
+            <v-icon icon="mdi-information-variant"></v-icon>
 
             Proposito
           </v-tab>
@@ -69,7 +68,7 @@
           </v-tab>
 
           <v-tab value="tab-3">
-            <v-icon icon="mdi-account-box"></v-icon>
+            <v-icon icon="mdi-toolbox-outline"></v-icon>
 
             Servicio
           </v-tab>
@@ -125,7 +124,11 @@
           <v-tabs-window-item value="tab-3">
             <v-card>
               <v-card-text style="margin: 16px;">
-
+                <h4 style="font-size: 18px;">¿Que ofrecemos?</h4>
+                <br>
+                <p>
+                  ORTOPEDIA BLANDA , MATERIAL DE OSTEOSINTISESIS, MEDICINA DEPORTIVA, REEMPLAZO ARTICULAR, CONSUMIBLES HOSPITALARIOS, MATERIA PARA LAPAROSCOPIA, EQUIPOS ELECTRONICOS, MATERIAL DE CURACION, INSTRUMENTALES MEDICOS Y MOBILIARIO MEDICO. 
+                </p>
               </v-card-text>
             </v-card>
           </v-tabs-window-item>
@@ -146,6 +149,10 @@
 
 <script setup>
 import { ref, watch } from 'vue'
+import { useRouter } from 'vue-router' 
+
+const router = useRouter()
+
 
 const dialogNosotros = ref(false);
 
@@ -184,6 +191,10 @@ watch(group, () => {
 const abrirDialogNosotros = () => {
   dialogNosotros.value = true;
 }
+
+const goToProductos = () =>{
+ router.push({ name: 'Productos' })
+}
 </script>
 
 <style scoped>
@@ -205,5 +216,9 @@ const abrirDialogNosotros = () => {
 
 v-toolbar-subtitle {
   cursor: pointer;
+}
+
+.btnHome:hover{
+  color: black;
 }
 </style>
