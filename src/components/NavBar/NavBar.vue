@@ -1,6 +1,6 @@
 <template>
   <v-app-bar color="primary" fixed elevate-on-scroll scroll-behavior="none" class="custom-navbar" flat app>
-    <v-btn class="btnHome" icon="mdi-domain" variant="text" href="/"></v-btn>
+    <v-btn class="btnHome" icon="mdi-domain" variant="text" :to="{ name: 'Home' }"></v-btn>
 
     <v-toolbar-title>INQUIMED</v-toolbar-title>
 
@@ -24,7 +24,9 @@
 
     <!-- Si es pantalla pequeña, muestra un botón hamburguesa -->
     <template v-else>
-      <v-btn icon="mdi-menu" variant="text" @click="drawerUserCarrito = !drawerUserCarrito"></v-btn>
+      <v-btn icon variant="text" @click="drawerUserCarrito = !drawerUserCarrito">
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
     </template>
 
 
@@ -35,10 +37,10 @@
 
   <!-- Drawer lateral que aparece al dar clic en la hamburguesa -->
   <v-navigation-drawer v-model="drawerUserCarrito" temporary location="right"
-    style="height: auto; max-height: fit-content; ">
+    style="height: auto; max-height: fit-content;">
     <v-list>
       <v-list-item prepend-icon="mdi-information" title="Nosotros" @click="abrirDialogNosotros()"></v-list-item>
-      <v-list-item prepend-icon="mdi-store" title="Productos"></v-list-item>
+      <v-list-item prepend-icon="mdi-store" title="Productos" @click="goToProductos()"></v-list-item>
       <v-list-item prepend-icon="mdi-account-box" title="Contacto"></v-list-item>
 
       <v-list-item prepend-icon="mdi-cart-variant" title="Carrito"></v-list-item>
@@ -51,7 +53,7 @@
 
   <!-- Dialog Conpartir Link de Dispositivo-->
   <v-dialog v-model="dialogNosotros" width="auto" max-width="850" persistent transition="dialog-bottom-transition">
-    <v-card  prepend-icon="mdi-information" title="Nosotros">
+    <v-card prepend-icon="mdi-information" title="Nosotros">
       <v-divider></v-divider>
       <v-card>
         <v-tabs v-model="tab" align-tabs="center" bg-color="blue-darken-1" stacked>
@@ -97,9 +99,10 @@
             <v-card>
               <v-card-text style="margin: 16px;">
                 <p style="font-size: 16px; font-weight: bold;">
-                  Somos un aliado medico, una persona confiable y organizada, resolutiva, cercana pero profesional, flexible e
+                  Somos un aliado medico, una persona confiable y organizada, resolutiva, cercana pero profesional,
+                  flexible e
                   imparcial, claro y directo, transparentes y comprometidos.
-                </p >
+                </p>
                 <br>
                 <v-row>
                   <v-col cols="12" md="4">
@@ -108,15 +111,15 @@
 
                   <v-col cols="12" md="8">
                     <ol>
-                  <li>OFRECEMOS UN CATALOGO ABIERTO Y FLEXIBLE POR DEMANDA</li>
-                  <li>PLATAFORMA DIGITAL CON COTIZACION INMEDIATA Y COMUNICACION</li>
-                  <li>SERVICIO DE ASESORIA PERSONALIZADA</li>
-                  <li>ENTREGA EXPRESS</li>
-                  <li>PROGRAMAS DE ABASTECIMIENTO AUTOMATICO</li>
-                </ol>
+                      <li>OFRECEMOS UN CATALOGO ABIERTO Y FLEXIBLE POR DEMANDA</li>
+                      <li>PLATAFORMA DIGITAL CON COTIZACION INMEDIATA Y COMUNICACION</li>
+                      <li>SERVICIO DE ASESORIA PERSONALIZADA</li>
+                      <li>ENTREGA EXPRESS</li>
+                      <li>PROGRAMAS DE ABASTECIMIENTO AUTOMATICO</li>
+                    </ol>
                   </v-col>
                 </v-row>
-                
+
               </v-card-text>
             </v-card>
           </v-tabs-window-item>
@@ -127,7 +130,9 @@
                 <h4 style="font-size: 18px;">¿Que ofrecemos?</h4>
                 <br>
                 <p>
-                  ORTOPEDIA BLANDA , MATERIAL DE OSTEOSINTISESIS, MEDICINA DEPORTIVA, REEMPLAZO ARTICULAR, CONSUMIBLES HOSPITALARIOS, MATERIA PARA LAPAROSCOPIA, EQUIPOS ELECTRONICOS, MATERIAL DE CURACION, INSTRUMENTALES MEDICOS Y MOBILIARIO MEDICO. 
+                  ORTOPEDIA BLANDA , MATERIAL DE OSTEOSINTISESIS, MEDICINA DEPORTIVA, REEMPLAZO ARTICULAR, CONSUMIBLES
+                  HOSPITALARIOS, MATERIA PARA LAPAROSCOPIA, EQUIPOS ELECTRONICOS, MATERIAL DE CURACION, INSTRUMENTALES
+                  MEDICOS Y MOBILIARIO MEDICO.
                 </p>
               </v-card-text>
             </v-card>
@@ -149,7 +154,7 @@
 
 <script setup>
 import { ref, watch } from 'vue'
-import { useRouter } from 'vue-router' 
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
@@ -192,8 +197,8 @@ const abrirDialogNosotros = () => {
   dialogNosotros.value = true;
 }
 
-const goToProductos = () =>{
- router.push({ name: 'Productos' })
+const goToProductos = () => {
+  router.push({ name: 'Productos' })
 }
 </script>
 
@@ -208,7 +213,7 @@ const goToProductos = () =>{
   /* Bordes redondeados */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   /* Sombra suave */
-  margin: 10px auto;
+  margin: 5px 0;
   width: 95%;
   /*max-width: 1200px;*/
   color: #344767 !important;
@@ -218,7 +223,7 @@ v-toolbar-subtitle {
   cursor: pointer;
 }
 
-.btnHome:hover{
+.btnHome:hover {
   color: black;
 }
 </style>
