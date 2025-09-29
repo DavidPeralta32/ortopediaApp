@@ -25,12 +25,16 @@
             <v-col cols="12" md="9">
                 <v-row>
                     <v-col v-for="producto in filteredProducts" :key="producto.id" cols="12" sm="6" md="4">
-                        <v-card class="pa-2">
+                        <v-card class="pa-2" elevation="5">
                             <v-img :src="producto.image" height="200" class="rounded-lg"></v-img>
                             <v-card-title>{{ producto.name }}</v-card-title>
                             <v-chip :color="producto.stock ? 'green' : 'red'" text-color="white" size="small">
                                 {{ producto.stock ? 'Disponible' : 'Agotado' }}
                             </v-chip>
+                            <v-btn prepend-icon="mdi-cart-plus" variant="tonal" block
+                             style="margin-top: 8px;">
+                                Agregar
+                            </v-btn>
                         </v-card>
                     </v-col>
                 </v-row>
@@ -47,6 +51,7 @@
 
 <script setup>
 import { ref, computed } from "vue"
+import tobilleraCventa from '../../../public/img/Productos/tobilleraCVenta.png'
 
 // Lista de productos simulada
 const productos = ref([
@@ -64,7 +69,7 @@ const productos = ref([
         category: "Ortopedia",
         price: 600,
         stock: true,
-        image: "https://via.placeholder.com/200x200?text=Playera",
+        image: tobilleraCventa,
     },
     {
         id: 3,
@@ -72,7 +77,7 @@ const productos = ref([
         category: "Artroscopia",
         price: 900,
         stock: false,
-        image: "https://via.placeholder.com/200x200?text=Mochila",
+        image: tobilleraCventa,
     },
     {
         id: 4,
@@ -80,7 +85,7 @@ const productos = ref([
         category: "Artroscopia",
         price: 2200,
         stock: true,
-        image: "https://via.placeholder.com/200x200?text=Running+Pro",
+        image: tobilleraCventa,
     },
     {
         id: 5,
@@ -88,7 +93,23 @@ const productos = ref([
         category: "Neurocirugia",
         price: 2200,
         stock: true,
-        image: "https://via.placeholder.com/200x200?text=Running+Pro",
+        image: tobilleraCventa,
+    },
+    {
+        id: 6,
+        name: "Microscopio",
+        category: "Neurocirugia",
+        price: 2200,
+        stock: false,
+        image: tobilleraCventa,
+    },
+    {
+        id: 7,
+        name: "Muñequera",
+        category: "Ortopedia",
+        price: 600,
+        stock: false,
+        image: tobilleraCventa,
     },
 ])
 

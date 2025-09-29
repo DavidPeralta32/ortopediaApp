@@ -1,50 +1,48 @@
 <template>
-  <v-app-bar color="primary" fixed elevate-on-scroll scroll-behavior="none" class="custom-navbar" flat app>
+ <v-app-bar color="primary" fixed elevate-on-scroll scroll-behavior="none" class="custom-navbar" flat app>
+    
+    <!-- Botón Home -->
     <v-btn class="btnHome" icon="mdi-domain" variant="text" :to="{ name: 'Home' }"></v-btn>
 
     <v-toolbar-title>INQUIMED</v-toolbar-title>
 
+    <!-- Botones para escritorio -->
     <template v-if="$vuetify.display.mdAndUp">
-      <div style="display: flex; gap: 30px; justify-content: center; align-items: center;">
-        <v-toolbar-subtitle @click="abrirDialogNosotros()">Nosotros</v-toolbar-subtitle>
-        <v-toolbar-subtitle @click="goToProductos()">Productos</v-toolbar-subtitle>
-        <v-toolbar-subtitle>Contacto</v-toolbar-subtitle>
-      </div>
-    </template>
+      <v-btn text @click="abrirDialogNosotros()">Nosotros</v-btn>
+      <v-btn text @click="goToProductos()">Productos</v-btn>
+      <v-btn text>Contacto</v-btn>
 
-    <!-- Si es pantalla mediana o más grande, muestra los botones normales -->
-    <template v-if="$vuetify.display.mdAndUp">
-      <v-btn icon="mdi-cart-variant" variant="text" style="color:#344767"></v-btn>
+      <v-spacer></v-spacer>
+
+      <v-btn icon variant="text" style="color:#344767">
+        <v-icon>mdi-cart-variant</v-icon>
+      </v-btn>
 
       <v-btn icon variant="text" style="margin-right: 20px;color:#344767">
         <v-icon>mdi-account-circle</v-icon>
-        <v-tooltip activator="parent" location="bottom">Cuenta</v-tooltip>
       </v-btn>
     </template>
 
-    <!-- Si es pantalla pequeña, muestra un botón hamburguesa -->
+    <!-- Botón hamburguesa para móvil -->
     <template v-else>
-      <v-btn icon variant="text" @click="drawerUserCarrito = !drawerUserCarrito">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      <v-app-bar-nav-icon variant="text" @click.stop="drawerUserCarrito = !drawerUserCarrito"></v-app-bar-nav-icon>
     </template>
-
-
-
+    
   </v-app-bar>
 
-
-
-  <!-- Drawer lateral que aparece al dar clic en la hamburguesa -->
-  <v-navigation-drawer v-model="drawerUserCarrito" temporary location="right"
-    style="height: auto; max-height: fit-content;">
+  <!-- Drawer lateral -->
+  <v-navigation-drawer
+    v-model="drawerUserCarrito"
+    temporary
+    left
+    app
+  >
     <v-list>
-      <v-list-item prepend-icon="mdi-information" title="Nosotros" @click="abrirDialogNosotros()"></v-list-item>
-      <v-list-item prepend-icon="mdi-store" title="Productos" @click="goToProductos()"></v-list-item>
-      <v-list-item prepend-icon="mdi-account-box" title="Contacto"></v-list-item>
-
-      <v-list-item prepend-icon="mdi-cart-variant" title="Carrito"></v-list-item>
-      <v-list-item prepend-icon="mdi-account-circle" title="Cuenta"></v-list-item>
+      <v-list-item prepend-icon="mdi-information" @click="abrirDialogNosotros()">Nosotros</v-list-item>
+      <v-list-item prepend-icon="mdi-store" @click="goToProductos()">Productos</v-list-item>
+      <v-list-item prepend-icon="mdi-account-box">Contacto</v-list-item>
+      <v-list-item prepend-icon="mdi-cart-variant">Carrito</v-list-item>
+      <v-list-item prepend-icon="mdi-account-circle">Cuenta</v-list-item>
     </v-list>
   </v-navigation-drawer>
 
@@ -160,7 +158,6 @@ const router = useRouter()
 
 
 const dialogNosotros = ref(false);
-
 const tab = ref(null)
 
 const text = 'DISTRIBUIR Y PROVEER DE ALTA VARIEDAD DE INSUMOS MEDICOS Y MATERIAL MEDICO DE ALTA CALIDAD, CON EL OBJETIVO DE SATISFACER CUALQUIER NECESIDAD Y VOLVERSE INDISPENSABLE PARA LAS INSTITUCIONES DE SALUD, PROFESIONALES DEL SECTOR Y PACIENTES.'
@@ -190,6 +187,7 @@ const group = ref(null)
 
 watch(group, () => {
   drawer.value = false
+  drawerUserCarrito.value = false;
 })
 
 
@@ -226,4 +224,15 @@ v-toolbar-subtitle {
 .btnHome:hover {
   color: black;
 }
+
+.v-navigation-drawer {
+  z-index: 2000;
+}
+
+.v-toolbar-subtitle {
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
 </style>
