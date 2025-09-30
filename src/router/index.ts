@@ -5,7 +5,8 @@ import HomeView from '../views/HomeView.vue'
 const routes: Array<RouteRecordRaw> = [
   { path: '/', name: 'Home', component: HomeView },
   { path: '/about', name: 'About', component: () => import('../views/AboutView.vue') },
-  { path: '/productos', name: 'Productos', component: () => import('../views/Productos/Productos.vue') }
+  { path: '/productos', name: 'Productos', component: () => import('../views/Productos/Productos.vue') },
+  { path: '/nosotros', name: 'Nosotros', component: () => import('../views/Nosotros/Nosotros.vue') }
 ]
 
 const router = createRouter({

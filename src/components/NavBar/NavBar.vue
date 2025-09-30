@@ -2,7 +2,7 @@
  <v-app-bar color="primary" fixed elevate-on-scroll scroll-behavior="none" class="custom-navbar" flat app>
     
     <!-- Botón Home -->
-    <v-btn class="btnHome" icon="mdi-domain" variant="text" :to="{ name: 'Home' }"></v-btn>
+    <v-btn class="btnHome" icon="mdi-home" variant="text" :to="{ name: 'Home' }"></v-btn>
 
     <v-toolbar-title>INQUIMED</v-toolbar-title>
 
@@ -192,7 +192,8 @@ watch(group, () => {
 
 
 const abrirDialogNosotros = () => {
-  dialogNosotros.value = true;
+  //dialogNosotros.value = true;
+  router.push({ name: 'Nosotros' })
 }
 
 const goToProductos = () => {
