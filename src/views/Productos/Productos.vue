@@ -111,6 +111,22 @@ const productos = ref([
         stock: false,
         image: tobilleraCventa,
     },
+    {
+        id: 6,
+        name: "Microscopio quirúrgic",
+        category: "Neurocirugia",
+        price: 2200,
+        stock: true,
+        image: "https://via.placeholder.com/200x200?text=Running+Pro",
+    },
+    {
+        id: 7,
+        name: "Microscopio quirúrgic",
+        category: "Neurocirugia",
+        price: 2200,
+        stock: false,
+        image: "https://via.placeholder.com/200x200?text=Running+Pro",
+    },
 ])
 
 // Filtros
