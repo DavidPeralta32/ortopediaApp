@@ -10,7 +10,7 @@
     <template v-if="$vuetify.display.mdAndUp">
       <v-btn text @click="abrirDialogNosotros()">Nosotros</v-btn>
       <v-btn text @click="goToProductos()">Productos</v-btn>
-      <v-btn text>Contacto</v-btn>
+      <v-btn text @click="goToContacto()">Contacto</v-btn>
 
       <v-spacer></v-spacer>
 
@@ -40,7 +40,7 @@
     <v-list>
       <v-list-item prepend-icon="mdi-information" @click="abrirDialogNosotros()">Nosotros</v-list-item>
       <v-list-item prepend-icon="mdi-store" @click="goToProductos()">Productos</v-list-item>
-      <v-list-item prepend-icon="mdi-account-box">Contacto</v-list-item>
+      <v-list-item prepend-icon="mdi-account-box" @click="goToContacto()">Contacto</v-list-item>
       <v-list-item prepend-icon="mdi-cart-variant">Carrito</v-list-item>
       <v-list-item prepend-icon="mdi-account-circle">Cuenta</v-list-item>
     </v-list>
@@ -198,6 +198,10 @@ const abrirDialogNosotros = () => {
 
 const goToProductos = () => {
   router.push({ name: 'Productos' })
+}
+
+const goToContacto = () =>{
+  router.push({ name: 'Contacto' })
 }
 </script>
 
