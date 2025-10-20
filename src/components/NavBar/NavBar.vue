@@ -1,6 +1,6 @@
 <template>
- <v-app-bar color="primary" fixed elevate-on-scroll scroll-behavior="none" class="custom-navbar" flat app>
-    
+  <v-app-bar color="primary" fixed elevate-on-scroll scroll-behavior="none" class="custom-navbar" flat app>
+
     <!-- Botón Home -->
     <v-btn class="btnHome" icon="mdi-home" variant="text" :to="{ name: 'Home' }"></v-btn>
 
@@ -14,8 +14,12 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon variant="text" style="color:#344767">
-        <v-icon>mdi-cart-variant</v-icon>
+      <v-btn icon variant="text" style="color:#344767" :to="{ name: 'Carrito' }" class="relative">
+        <v-badge :content="cartStore.totalItems" color="red" overlap v-if="cartStore.totalItems >= 0">
+          <v-icon :class="{ 'animate-bounce': cartStore.animateCart }" style="transition: transform 0.3s;">
+            mdi-cart-variant
+          </v-icon>
+        </v-badge>
       </v-btn>
 
       <v-btn icon variant="text" style="margin-right: 20px;color:#344767">
@@ -27,21 +31,30 @@
     <template v-else>
       <v-app-bar-nav-icon variant="text" @click.stop="drawerUserCarrito = !drawerUserCarrito"></v-app-bar-nav-icon>
     </template>
-    
+
   </v-app-bar>
 
   <!-- Drawer lateral -->
-  <v-navigation-drawer
-    v-model="drawerUserCarrito"
-    temporary
-    left
-    app
-  >
+  <v-navigation-drawer v-model="drawerUserCarrito" temporary left app>
     <v-list>
       <v-list-item prepend-icon="mdi-information" @click="abrirDialogNosotros()">Nosotros</v-list-item>
       <v-list-item prepend-icon="mdi-store" @click="goToProductos()">Productos</v-list-item>
       <v-list-item prepend-icon="mdi-account-box" @click="goToContacto()">Contacto</v-list-item>
-      <v-list-item prepend-icon="mdi-cart-variant">Carrito</v-list-item>
+      <!-- Carrito con badge -->
+      <v-list-item :to="{ name: 'Carrito' }">
+        <template #prepend>
+          <!-- Badge sobre el icono del carrito -->
+          <v-badge :content="cartStore.totalItems" color="red" overlap v-if="cartStore.totalItems > 0">
+            <v-icon large>mdi-cart-variant</v-icon>
+          </v-badge>
+
+          <!-- Icono normal si no hay productos -->
+          <v-icon large v-else>mdi-cart-variant</v-icon>
+        </template>
+
+        <v-list-item-title>Carrito</v-list-item-title>
+      </v-list-item>
+     
       <v-list-item prepend-icon="mdi-account-circle">Cuenta</v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -148,13 +161,21 @@
     </v-card>
   </v-dialog>
 
+
+
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useCartStore } from '../../stores/CartStore'
+import type { Producto } from '@/views/Productos/types/Producto'
+
+
+
 
 const router = useRouter()
+const cartStore = useCartStore()
 
 
 const dialogNosotros = ref(false);
@@ -200,9 +221,36 @@ const goToProductos = () => {
   router.push({ name: 'Productos' })
 }
 
-const goToContacto = () =>{
+const goToContacto = () => {
   router.push({ name: 'Contacto' })
 }
+
+
+
+const showCartDialog = ref(false)
+
+// Funciones para modificar cantidades
+const increaseQuantity = (item: Producto) => {
+  cartStore.addToCart(item)
+}
+
+const decreaseQuantity = (item: Producto) => {
+  if ((item.quantity ?? 1) > 1) {
+    item.quantity!--
+  } else {
+    removeItem(item.id)
+  }
+}
+
+const removeItem = (id: number) => {
+  cartStore.removeFromCart(id)
+}
+
+// Checkout (puedes implementar tu lógica real)
+const checkout = () => {
+  alert(`Total de productos: ${cartStore.totalItems}`)
+}
+
 </script>
 
 <style scoped>
@@ -240,4 +288,19 @@ v-toolbar-subtitle {
   font-weight: 500;
 }
 
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 0.4s;
+}
 </style>

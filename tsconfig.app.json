@@ -9,6 +9,12 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
 
+    /* 🔧 Agrega estas dos líneas: */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

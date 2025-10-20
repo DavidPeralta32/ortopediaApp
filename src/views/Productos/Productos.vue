@@ -31,8 +31,8 @@
                             <v-chip :color="producto.stock ? 'green' : 'red'" text-color="white" size="small">
                                 {{ producto.stock ? 'Disponible' : 'Agotado' }}
                             </v-chip>
-                            <v-btn prepend-icon="mdi-cart-plus" variant="tonal" block
-                             style="margin-top: 8px;">
+                            <v-btn prepend-icon="mdi-cart-plus" variant="tonal" block style="margin-top: 8px;"
+                                @click="addCart(producto)">
                                 Agregar
                             </v-btn>
                         </v-card>
@@ -49,9 +49,11 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from "vue"
 import tobilleraCventa from '../../../public/img/Productos/tobilleraCVenta.png'
+import { useCartStore } from '../../stores/CartStore'
+import type { Producto } from '@/views/Productos/types/Producto'
 
 // Lista de productos simulada
 const productos = ref([
@@ -147,6 +149,15 @@ const filteredProducts = computed(() => {
         return matchCategory && matchPrice && matchStock
     })
 })
+
+
+const cartStore = useCartStore()
+
+const addCart = (producto: Producto) => {
+  cartStore.addToCart(producto)
+}
+
+
 </script>
 
 <style scoped>

@@ -7,7 +7,8 @@ const routes: Array<RouteRecordRaw> = [
   { path: '/about', name: 'About', component: () => import('../views/AboutView.vue') },
   { path: '/productos', name: 'Productos', component: () => import('../views/Productos/Productos.vue') },
   { path: '/nosotros', name: 'Nosotros', component: () => import('../views/Nosotros/Nosotros.vue') },
-  { path: '/contacto', name: 'Contacto', component: () => import('../views/Contacto/Contacto.vue') }
+  { path: '/contacto', name: 'Contacto', component: () => import('../views/Contacto/Contacto.vue') },
+  { path: '/carrito', name: 'Carrito', component: () => import('../components/Productos/CartDrawer.vue') },
 ]
 
 const router = createRouter({
