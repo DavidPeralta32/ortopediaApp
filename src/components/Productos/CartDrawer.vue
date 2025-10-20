@@ -79,10 +79,8 @@
 <script setup lang="ts">
 import { useCartStore } from '../../stores/CartStore'
 import type { Producto } from '@/views/Productos/types/Producto'
-import { useRouter } from 'vue-router'
 
 const cartStore = useCartStore()
-const router = useRouter()
 
 const increaseQuantity = (item: Producto) => {
     item.quantity = (item.quantity ?? 1) + 1
@@ -102,13 +100,9 @@ const removeItem = (id: number) => {
     cartStore.removeFromCart(id)
 }
 
-const updateQuantity = (item: Producto) => {
-    if (item.quantity! < 1) item.quantity = 1
-    cartStore.saveCart()
-}
 
 const checkout = () => {
-    alert(`Total a pagar: $${cartStore.totalPrice}`)
+    alert(`Aqui se enviara un correo con la cotizacion`)
     // Navegar a página de checkout
     // router.push({ name: 'Checkout' })
 }

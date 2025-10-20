@@ -169,7 +169,6 @@
 import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useCartStore } from '../../stores/CartStore'
-import type { Producto } from '@/views/Productos/types/Producto'
 
 
 
@@ -183,24 +182,7 @@ const tab = ref(null)
 
 const text = 'DISTRIBUIR Y PROVEER DE ALTA VARIEDAD DE INSUMOS MEDICOS Y MATERIAL MEDICO DE ALTA CALIDAD, CON EL OBJETIVO DE SATISFACER CUALQUIER NECESIDAD Y VOLVERSE INDISPENSABLE PARA LAS INSTITUCIONES DE SALUD, PROFESIONALES DEL SECTOR Y PACIENTES.'
 
-const items = [
-  {
-    title: 'Foo',
-    value: 'foo',
-  },
-  {
-    title: 'Bar',
-    value: 'bar',
-  },
-  {
-    title: 'Fizz',
-    value: 'fizz',
-  },
-  {
-    title: 'Buzz',
-    value: 'buzz',
-  },
-]
+
 
 const drawer = ref(false)
 const drawerUserCarrito = ref(false);
@@ -226,30 +208,6 @@ const goToContacto = () => {
 }
 
 
-
-const showCartDialog = ref(false)
-
-// Funciones para modificar cantidades
-const increaseQuantity = (item: Producto) => {
-  cartStore.addToCart(item)
-}
-
-const decreaseQuantity = (item: Producto) => {
-  if ((item.quantity ?? 1) > 1) {
-    item.quantity!--
-  } else {
-    removeItem(item.id)
-  }
-}
-
-const removeItem = (id: number) => {
-  cartStore.removeFromCart(id)
-}
-
-// Checkout (puedes implementar tu lógica real)
-const checkout = () => {
-  alert(`Total de productos: ${cartStore.totalItems}`)
-}
 
 </script>
 
