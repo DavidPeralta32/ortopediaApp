@@ -32,7 +32,7 @@
                             </div>
 
                             <v-card-item class="pt-4">
-                                <div class="text-overline mb-1 text-primary">{{ producto.category }}</div>
+                                <div class="text-overline mb-1" style="color: #1C90A1;">{{ producto.category }}</div>
                                 <v-card-title class="text-h6 font-weight-bold px-0 pt-0">
                                     {{ producto.name }}
                                 </v-card-title>
@@ -45,7 +45,7 @@
                             </v-card-text>-->
 
                             <v-card-actions class="pa-4 pt-0">
-                                <v-btn color="primary" variant="elevated" block rounded="lg"
+                                <v-btn  bac variant="elevated" block rounded="lg" style="background-color:#1C90A1; color: white;"
                                     prepend-icon="mdi-cart-plus" :disabled="!producto.stock" @click="addCart(producto)"
                                     class="add-btn">
                                     Agregar al carrito

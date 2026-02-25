@@ -23,7 +23,7 @@
         </p>
 
         <div class="cta-row">
-          <v-btn color="blue-darken-2" variant="flat" rounded @click="goToContacto()">Contactanos</v-btn>
+          <v-btn color="#1C90A1" variant="flat" rounded @click="goToContacto()">Contactanos</v-btn>
           <v-btn color="white" variant="outlined" rounded>Valores</v-btn>
         </div>
       </div>
@@ -44,7 +44,7 @@
         <!-- VALORES -->
         <div class="cards">
           <div class="card" v-for="(valor, index) in valores" :key="index">
-            <v-icon color="blue-darken-2" size="34">{{ valor.icon }}</v-icon>
+            <v-icon color="#1C90A1" size="34">{{ valor.icon }}</v-icon>
             <h3>{{ valor.titulo }}</h3>
             <p>{{ valor.descripcion }}</p>
           </div>
@@ -171,7 +171,7 @@ const goToContacto = () =>{
 .hero {
   position: relative;
   min-height: 65vh;
-  background: linear-gradient(135deg, #1565c0 0%, #1e88e5 100%);
+  background: #1C90A1;
   color: white;
   display: flex;
   align-items: center;
@@ -301,7 +301,7 @@ const goToContacto = () =>{
 }
 
 .card-header {
-  background: linear-gradient(135deg, #1565c0, #1e88e5);
+  background: #1C90A1;
   padding: 2rem 1rem 1rem;
 }
 

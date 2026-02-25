@@ -2,9 +2,9 @@
 
     <div class="contenedor-categorias">
         <h2>Categorias</h2>
-        <v-sheet color="light-blue-accent-4" elevation="3" rounded="lg">
+        <v-sheet color="#1C90A1" elevation="3" rounded="lg">
             <v-tabs v-model="tabCategoria" :items="tabsCategorias" align-tabs="center" color="white" height="80"
-                slider-color="#f78166">
+                slider-color="#98C7C9">
                 <template v-slot:tab="{ item }">
                     <v-tab :prepend-icon="item.icon" :text="item.text" :value="item.value" class="text-none"></v-tab>
                 </template>

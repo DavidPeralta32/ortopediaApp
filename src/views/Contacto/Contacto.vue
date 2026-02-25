@@ -2,7 +2,7 @@
   <v-container class="py-12 px-6" fluid style="margin-top: 30px;">
     <v-row justify="center" class="text-center mb-8">
       <v-col cols="12" md="8">
-        <h2 class="text-h4 text-md-h3 font-weight-bold text-blue-darken-3 mb-2">
+        <h2 class="text-h4 text-md-h3 font-weight-bold mb-2">
           Contáctanos
         </h2>
         <p class="text-subtitle-1 text-grey-darken-1">
@@ -18,33 +18,27 @@
           <v-list density="comfortable">
             <v-list-item prepend-avatar="" title="Teléfono" subtitle="+52 55 1234 5678">
               <template #prepend>
-                <v-icon color="blue-darken-2" size="28">mdi-phone</v-icon>
+                <v-icon color="#1C90A1" size="28">mdi-phone</v-icon>
               </template>
             </v-list-item>
 
             <v-list-item title="Correo electrónico" subtitle="contacto@inquimed.com">
               <template #prepend>
-                <v-icon color="blue-darken-2" size="28">mdi-email</v-icon>
+                <v-icon color="#1C90A1" size="28">mdi-email</v-icon>
               </template>
             </v-list-item>
 
             <v-list-item title="Dirección" subtitle="Av. Salud #45, Col. Bienestar, Veracruz">
               <template #prepend>
-                <v-icon color="blue-darken-2" size="28">mdi-map-marker</v-icon>
+                <v-icon color="#1C90A1" size="28">mdi-map-marker</v-icon>
               </template>
             </v-list-item>
           </v-list>
 
-          <div class="d-flex justify-center mt-6 ga-4">
-            <v-btn icon color="blue-darken-2" variant="text">
-              <v-icon>mdi-facebook</v-icon>
-            </v-btn>
-            <v-btn icon color="blue-darken-2" variant="text">
-              <v-icon>mdi-instagram</v-icon>
-            </v-btn>
-            <v-btn icon color="blue-darken-2" variant="text">
-              <v-icon>mdi-linkedin</v-icon>
-            </v-btn>
+          <div class="mt-6 ga-4" style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
+            <v-icon class="vIconProfile" color="#0A66C2">mdi-linkedin</v-icon>
+            <v-icon class="vIconProfile" color="#1877F2">mdi-facebook</v-icon>
+            <v-icon class="vIconProfile" color="#EA4335">mdi-gmail</v-icon>
           </div>
         </v-card>
       </v-col>
@@ -53,44 +47,17 @@
       <v-col cols="12" md="6">
         <v-card class="pa-6 rounded-xl elevation-3">
           <v-form>
-            <v-text-field
-              v-model="nombre"
-              label="Nombre completo"
-              variant="outlined"
-              prepend-inner-icon="mdi-account"
-              density="comfortable"
-              color="blue-darken-2"
-              class="mb-4"
-            />
+            <v-text-field v-model="nombre" label="Nombre completo" variant="outlined" prepend-inner-icon="mdi-account"
+              density="comfortable" color="#98C7C9" class="mb-4" />
 
-            <v-text-field
-              v-model="correo"
-              label="Correo electrónico"
-              variant="outlined"
-              prepend-inner-icon="mdi-email-outline"
-              density="comfortable"
-              color="blue-darken-2"
-              class="mb-4"
-            />
+            <v-text-field v-model="correo" label="Correo electrónico" variant="outlined"
+              prepend-inner-icon="mdi-email-outline" density="comfortable" color="#98C7C9" class="mb-4" />
 
-            <v-textarea
-              v-model="mensaje"
-              label="Mensaje"
-              variant="outlined"
-              prepend-inner-icon="mdi-message-text-outline"
-              rows="4"
-              density="comfortable"
-              color="blue-darken-2"
-              class="mb-6"
-            />
+            <v-textarea v-model="mensaje" label="Mensaje" variant="outlined"
+              prepend-inner-icon="mdi-message-text-outline" rows="4" density="comfortable" color="#98C7C9"
+              class="mb-6" />
 
-            <v-btn
-              block
-              color="blue-darken-2"
-              size="large"
-              class="text-white"
-              @click="enviarMensaje"
-            >
+            <v-btn block color="#1C90A1" size="large" class="text-white" @click="enviarMensaje">
               <v-icon start>mdi-send</v-icon>
               Enviar mensaje
             </v-btn>

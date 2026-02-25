@@ -68,7 +68,7 @@
                         <!--<v-col cols="6" class="text-right">${{ cartStore.totalPrice }}</v-col>-->
                         <v-col cols="6" class="text-right">$$$</v-col>
                     </v-row>
-                    <v-btn color="primary" block class="mt-3" @click="checkout">Cotizar</v-btn>
+                    <v-btn color="#1C90A1" block class="mt-3" @click="checkout">Cotizar</v-btn>
                 </v-card>
             </v-col>
 

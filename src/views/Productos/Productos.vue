@@ -65,7 +65,7 @@
                                         ${{ producto.price.toLocaleString('es-MX') }}
                                     </span>-->
 
-                                    <v-btn icon="mdi-cart-plus" color="primary" elevation="2" size="small"
+                                    <v-btn icon="mdi-cart-plus" style="background-color:#1C90A1; color: white;" elevation="2" size="small"
                                         :disabled="!producto.stock" @click="addCart(producto)"></v-btn>
                                 </div>
                             </v-card-item>

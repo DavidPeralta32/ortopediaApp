@@ -37,5 +37,5 @@ Sigue estos pasos para correr el proyecto localmente:
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone [https://github.com/tu-usuario/inquimed-app.git](https://github.com/tu-usuario/inquimed-app.git)
+   git clone [https://github.com/DavidPeralta32/ortopediaApp.git](https://github.com/DavidPeralta32/ortopediaApp.git)
    cd inquimed-app
