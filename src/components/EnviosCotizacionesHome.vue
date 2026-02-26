@@ -116,7 +116,7 @@ import cotizacion1 from "@/assets/img/cotizacion1.png"
 .icon-info {
     font-size: 35px !important;
     padding: 8px;
-    color: rgb(var(--v-theme-primary)) !important;
+    color: rgb(28, 144, 161) !important;
 }
 
 .card-info .v-card-title {
