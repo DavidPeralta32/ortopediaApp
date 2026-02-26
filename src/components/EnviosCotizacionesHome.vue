@@ -33,7 +33,7 @@
                     <!-- Cara frontal: Card Mayoreo -->
                     <div class="flip-card-front">
                         <v-card class="card-linksMayoTienda">
-                            <v-img src="https://cdn.vuetifyjs.com/images/cards/house.jpg" class="align-end"
+                            <v-img :src="cotizacion1" class="align-end"
                                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="300px" cover>
                                 <v-card-title class="text-white">Mayoreo</v-card-title>
                             </v-img>
@@ -89,6 +89,8 @@
 
 <script setup>
 import { onMounted, shallowRef } from 'vue'
+
+import cotizacion1 from "@/assets/img/cotizacion1.png"
 </script>
 
 

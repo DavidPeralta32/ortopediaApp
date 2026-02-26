@@ -1,11 +1,11 @@
 <template>
     <div>
         <v-carousel show-arrows="hover" class="carrusel-header">
-            <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" cover></v-carousel-item>
+            <v-carousel-item :src="portada1" cover></v-carousel-item>
 
-            <v-carousel-item src="../../public/img/img_ortopedia.png" cover></v-carousel-item>
+            <v-carousel-item :src="portada3" cover></v-carousel-item>
 
-            <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg" cover></v-carousel-item>
+            <v-carousel-item :src="portada4" cover></v-carousel-item>
 
         </v-carousel>
     </div>
@@ -40,6 +40,9 @@ import CategoriasHome from '../components/CategoriasHome.vue';
 import FooterHome from '../components/Footer/FooterHome.vue';
 import ProvedoresView from '../components/Provedores/ProvedoresView.vue';
 
+import portada1 from "@/assets/img/portada1.jpeg"
+import portada3 from "@/assets/img/portada3.png"
+import portada4 from "@/assets/img/portada4.jpg"
 
 const tabCategoria = shallowRef('tab-1')
 const tabsCategorias = [

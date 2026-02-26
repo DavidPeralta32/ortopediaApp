@@ -4,7 +4,7 @@
     <!-- Botón Home -->
     <v-btn class="btnHome" icon="mdi-home" variant="text" :to="{ name: 'Home' }"></v-btn>
 
-    <v-toolbar-title>INQUIMED</v-toolbar-title>
+    <v-toolbar-title>INQUIMED S.A DE C.V.</v-toolbar-title>
 
     <!-- Botones para escritorio -->
     <template v-if="$vuetify.display.mdAndUp">

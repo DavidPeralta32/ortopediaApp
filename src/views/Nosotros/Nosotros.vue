@@ -24,20 +24,21 @@
 
         <div class="cta-row">
           <v-btn color="#1C90A1" variant="flat" rounded @click="goToContacto()">Contactanos</v-btn>
-          <v-btn color="white" variant="outlined" rounded>Valores</v-btn>
+          <v-btn color="white" variant="outlined" rounded @click="scrollToMision">Valores</v-btn>
         </div>
       </div>
     </header>
 
     <!-- MISIÓN -->
-    <section class="content">
+    <section id="mision" class="content">
       <div class="container">
         <div class="mission">
           <h2>Nuestra misión</h2>
-          <p>
-            Distribuir y proveer una amplia gama de insumos y material médico de la más alta calidad,
-            buscando satisfacer las necesidades del sector salud y convertirnos en un aliado indispensable
-            para hospitales, clínicas, médicos y pacientes.
+          <p style="text-align: justify;">
+            En INQUIMED entendemos que en el área de la salud no hay margen de error, por eso priorizamos la calidad, la disponibilidad oportuna y la atención personalizada en cada uno de nuestros procesos. Nuestro objetivo es convertirnos en un aliado estratégico para nuestros clientes, garantizando confianza, eficiencia y precios competitivos.
+            <br>
+
+            Creemos firmemente que la salud es una causa que nos involucra a todos por lo que nos  consideramos más que una comercializadora, somos un equipo comprometido con el bienestar y la salud de quienes confían en nosotros.
           </p>
         </div>
 
@@ -50,40 +51,8 @@
           </div>
         </div>
 
-        <hr class="divider" />
-
-        <!-- EQUIPO -->
-        <div class="team">
-          <h2>Detrás de INQUIMED</h2>
-          <p class="muted">
-            Un equipo comprometido con ofrecer soluciones médicas confiables, eficientes y humanas.
-          </p>
-
-          <div class="team-grid">
-            <div class="profile-card" v-for="persona in equipo" :key="persona.nombre">
-              <div class="card-header">
-                <img :src="persona.imagen" :alt="persona.nombre" class="profile-avatar" />
-              </div>
-              <div class="card-body">
-                <h3 class="profile-name">{{ persona.nombre }}</h3>
-                <p class="profile-role">{{ persona.puesto }}</p>
-                <div class="card-actions">
-                  <p>{{ persona.descripcion }}</p>
-                </div>
-                <div class="stats">
-                  <v-icon class="vIconProfile" color="#0A66C2">mdi-linkedin</v-icon>
-                  <v-icon class="vIconProfile" color="#1877F2">mdi-facebook</v-icon>
-                  <v-icon class="vIconProfile" color="#EA4335">mdi-gmail</v-icon>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <hr class="divider" />
-
         <!-- CIERRE -->
-        <div class="final-cta">
+        <div class="final-cta" style="margin-top: 24px;">
           <p>
             En INQUIMED creemos en la innovación, la confianza y el servicio médico como pilares del bienestar.
           </p>
@@ -101,6 +70,9 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useGoTo } from 'vuetify'
+
+const goTo = useGoTo()
 
 const router = useRouter()
 
@@ -150,6 +122,13 @@ const equipo = [
 
 const goToContacto = () =>{
   router.push({ name: 'Contacto' })
+}
+
+const scrollToMision = () => {
+  goTo('#mision', {
+    duration: 800,
+    easing: 'easeInOutCubic'
+  })
 }
 </script>
 
