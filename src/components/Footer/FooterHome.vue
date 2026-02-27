@@ -5,9 +5,9 @@
       <p>Politicas de devolucion y aviso de privacidad</p>
     </v-col>
     <v-col cols="12" md="4">
-      <p>Direccion: ****</p>
-      <p>Telefono: *****</p>
-      <p>Correo: ******</p>
+      <p><strong>Telefono:</strong> *****</p>
+      <p><strong>Correo:</strong> inquimedcomercializadora@gmail.com</p>
+      <p> <strong>Dirección:</strong> Avenida Americas número 1465, # interior "A", codigo postal 91919, fracc reforma, Boca del Rio, Veracruz</p>
     </v-col>
     <v-col cols="12" md="4">
       <h4>Metodos de pago</h4>

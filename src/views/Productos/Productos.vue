@@ -4,7 +4,7 @@
             <v-col cols="12" md="3" lg="2">
                 <v-card variant="flat" class="rounded-xl pa-5 sticky-sidebar">
                     <div class="d-flex align-center mb-6">
-                        <v-icon color="primary" class="me-2">mdi-filter-variant</v-icon>
+                        <v-icon color="#1C90A1" class="me-2">mdi-filter-variant</v-icon>
                         <h3 class="text-h6 font-weight-bold">Filtros</h3>
                     </div>
 
@@ -13,11 +13,11 @@
                     <div class="filter-section">
                         <p class="text-subtitle-2 font-weight-black text-uppercase mb-3 letter-spacing-1">Categorías</p>
 
-                        <v-checkbox v-model="selectAllCategories" label="Todas las líneas" color="primary"
+                        <v-checkbox v-model="selectAllCategories" label="Todas las líneas" color="#1C90A1"
                             density="compact" hide-details class="mb-1" @change="toggleAllCategories"></v-checkbox>
 
                         <v-checkbox v-for="category in categories" :key="category" v-model="selectedCategories"
-                            :label="category" :value="category" color="primary" density="compact" hide-details
+                            :label="category" :value="category" color="#1C90A1" density="compact" hide-details
                             class="ml-2"></v-checkbox>
                     </div>
 
@@ -25,7 +25,7 @@
 
                     <div class="filter-section">
                         <p class="text-subtitle-2 font-weight-black text-uppercase mb-3">Disponibilidad</p>
-                        <v-switch v-model="inStockOnly" label="Solo en stock" color="success" inset density="compact"
+                        <v-switch v-model="inStockOnly" label="Solo en stock" color="#1C90A1" inset density="compact"
                             hide-details></v-switch>
                     </div>
                 </v-card>
@@ -37,6 +37,10 @@
                     <p class="text-body-1 text-medium-emphasis">
                         Mostrando {{ filteredProducts.length }} productos disponibles
                     </p>
+
+                    <v-text-field v-model="searchQuery" prepend-inner-icon="mdi-magnify"
+                        label="Buscar producto por nombre" variant="solo" flat bg-color="white"
+                        class="rounded-xl mt-4 border shadow-sm" hide-details clearable></v-text-field>
                 </header>
 
                 <v-row v-if="filteredProducts.length > 0">
@@ -61,12 +65,9 @@
                                 </v-card-title>
 
                                 <div class="d-flex align-center justify-space-between mt-4">
-                                    <!--<span class="text-h5 font-weight-black text-grey-darken-3">
-                                        ${{ producto.price.toLocaleString('es-MX') }}
-                                    </span>-->
-
-                                    <v-btn icon="mdi-cart-plus" style="background-color:#1C90A1; color: white;" elevation="2" size="small"
-                                        :disabled="!producto.stock" @click="addCart(producto)"></v-btn>
+                                    <v-btn icon="mdi-cart-plus" style="background-color:#1C90A1; color: white;"
+                                        elevation="2" size="small" :disabled="!producto.stock"
+                                        @click="addCart(producto)"></v-btn>
                                 </div>
                             </v-card-item>
                         </v-card>
@@ -139,6 +140,7 @@ const productos = ref([
 const categories = ref(["Ortopedia", "Artroscopia", "Neurocirugia"])
 const selectedCategories = ref<string[]>([...categories.value])
 const selectAllCategories = ref(true)
+const searchQuery = ref("")
 
 const priceRange = ref([0, 2500])
 const inStockOnly = ref(false)
@@ -160,20 +162,19 @@ watch(selectedCategories, (newVal) => {
 // Computed para aplicar filtros
 const filteredProducts = computed(() => {
     // REGLA DE ORO: Si no hay categorías seleccionadas, no hay productos que mostrar
-    if (selectedCategories.value.length === 0) {
-        return [];
-    }
+    if (selectedCategories.value.length === 0) return [];
 
     return productos.value.filter((p) => {
-        // Ahora matchCategory es más simple porque ya sabemos que hay al menos una seleccionada
+        // Filtro por texto con protección contra null/undefined
+        // Si searchQuery es null (al limpiar con X), usamos un string vacío ""
+        const query = (searchQuery.value || "").toLowerCase();
+        const matchSearch = p.name.toLowerCase().includes(query);
+
+        // Filtros existentes
         const matchCategory = selectedCategories.value.includes(p.category);
-
-        const matchPrice =
-            p.price >= priceRange.value[0] && p.price <= priceRange.value[1];
-
         const matchStock = !inStockOnly.value || p.stock;
 
-        return matchCategory && matchPrice && matchStock;
+        return matchSearch && matchCategory && matchStock;
     });
 });
 const cartStore = useCartStore()

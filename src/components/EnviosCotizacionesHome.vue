@@ -43,11 +43,11 @@
                     <!-- Cara trasera: Mayoreo-->
                     <div class="flip-card-back">
                         <v-card class="card-linksMayoTienda align-center justify-center" >
-                            <v-img class="align-center text-white" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                            <v-img class="align-center text-white" :src="cotizacion2"
                                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="300px" cover>
                                 <v-card-text class="text-center text-white">
                                     <v-btn class="ms-2" size="small" text="Cotizacion" variant="outlined"
-                                        color="white"></v-btn>
+                                        color="white" @click="goToContacto()"></v-btn>
                                 </v-card-text></v-img>
 
                         </v-card>
@@ -61,7 +61,7 @@
                     <!-- Cara frontal: Card Mayoreo -->
                     <div class="flip-card-front">
                         <v-card class="card-linksMayoTienda">
-                            <v-img src="https://cdn.vuetifyjs.com/images/cards/house.jpg" class="align-end"
+                            <v-img :src="tienda1" class="align-end"
                                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="300px" cover>
                                 <v-card-title class="text-white">Tienda</v-card-title>
                             </v-img>
@@ -71,11 +71,11 @@
                     <!-- Cara trasera: Mayoreo-->
                     <div class="flip-card-back">
                         <v-card class="card-linksMayoTienda align-center justify-center" >
-                            <v-img class="align-center text-white" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                            <v-img class="align-center text-white" :src="tienda2"
                                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="300px" cover>
                                 <v-card-text class="text-center text-white">
                                     <v-btn class="ms-2" size="small" text="Ver productos" variant="outlined"
-                                        color="white"></v-btn>
+                                        color="white" @click="goToProductos()"></v-btn>
                                 </v-card-text></v-img>
                         </v-card>
                     </div>
@@ -89,8 +89,24 @@
 
 <script setup>
 import { onMounted, shallowRef } from 'vue'
+import { useRouter } from 'vue-router'
 
 import cotizacion1 from "@/assets/img/cotizacion1.png"
+import cotizacion2 from "@/assets/img/cotizacion2.png"
+import tienda1 from "@/assets/img/tienda1.png"
+import tienda2 from "@/assets/img/productos2.png"
+
+
+const router = useRouter();
+
+const goToProductos = () => {
+  router.push({ name: 'Productos' })
+}
+
+
+const goToContacto = () =>{
+  router.push({ name: 'Contacto' })
+}
 </script>
 
 

@@ -22,15 +22,22 @@
               </template>
             </v-list-item>
 
-            <v-list-item title="Correo electrónico" subtitle="contacto@inquimed.com">
+            <v-list-item title="Correo electrónico" subtitle="inquimedcomercializadora@gmail.com">
               <template #prepend>
                 <v-icon color="#1C90A1" size="28">mdi-email</v-icon>
               </template>
             </v-list-item>
 
-            <v-list-item title="Dirección" subtitle="Av. Salud #45, Col. Bienestar, Veracruz">
+            <v-list-item title="Dirección">
               <template #prepend>
                 <v-icon color="#1C90A1" size="28">mdi-map-marker</v-icon>
+              </template>
+
+              <template #subtitle>
+                <div class="text-wrap opacity-80" style="line-height: 1.2rem;">
+                  Avenida Americas número 1465, # interior 'A', codigo postal 91919, fracc reforma, Boca del Rio,
+                  Veracruz
+                </div>
               </template>
             </v-list-item>
           </v-list>
@@ -87,5 +94,13 @@ const enviarMensaje = () => {
 <style scoped>
 .text-blue-darken-3 {
   color: #0d47a1 !important;
+}
+
+.custom-subtitle {
+  white-space: normal !important; /* Forza el salto de línea */
+  display: block !important;    /* Evita que el flexbox lo recorte */
+  overflow: visible !important;  /* Quita los puntos suspensivos */
+  line-height: 1.4;             /* Mejora la lectura al separarse */
+  padding-top: 4px;
 }
 </style>
