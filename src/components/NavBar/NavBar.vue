@@ -4,12 +4,24 @@
     <!-- Botón Home -->
     <v-btn class="btnHome" icon="mdi-home" variant="text" :to="{ name: 'Home' }"></v-btn>
 
-    <v-toolbar-title>INQUIMED S.A DE C.V.</v-toolbar-title>
+    <v-toolbar-title>INQUIMED</v-toolbar-title>
 
     <!-- Botones para escritorio -->
     <template v-if="$vuetify.display.mdAndUp">
       <v-btn text @click="abrirDialogNosotros()">Nosotros</v-btn>
-      <v-btn text @click="goToProductos()">Productos</v-btn>
+      <v-menu open-on-hover location="bottom">
+        <template v-slot:activator="{ props }">
+          <v-btn text v-bind="props" append-icon="mdi-chevron-down">
+            Productos
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item v-for="(item, index) in categorias" :key="index" @click="goToProductos(item.value)">
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
       <v-btn text @click="goToContacto()">Contacto</v-btn>
 
       <v-spacer></v-spacer>
@@ -38,7 +50,7 @@
   <v-navigation-drawer v-model="drawerUserCarrito" temporary left app>
     <v-list>
       <v-list-item prepend-icon="mdi-information" @click="abrirDialogNosotros()">Nosotros</v-list-item>
-      <v-list-item prepend-icon="mdi-store" @click="goToProductos()">Productos</v-list-item>
+      <v-list-item prepend-icon="mdi-store" @click="goToProductos('todos')">Productos</v-list-item>
       <v-list-item prepend-icon="mdi-account-box" @click="goToContacto()">Contacto</v-list-item>
       <!-- Carrito con badge -->
       <v-list-item :to="{ name: 'Carrito' }">
@@ -54,7 +66,7 @@
 
         <v-list-item-title>Carrito</v-list-item-title>
       </v-list-item>
-     
+
       <v-list-item prepend-icon="mdi-account-circle">Cuenta</v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -182,7 +194,17 @@ const tab = ref(null)
 
 const text = 'DISTRIBUIR Y PROVEER DE ALTA VARIEDAD DE INSUMOS MEDICOS Y MATERIAL MEDICO DE ALTA CALIDAD, CON EL OBJETIVO DE SATISFACER CUALQUIER NECESIDAD Y VOLVERSE INDISPENSABLE PARA LAS INSTITUCIONES DE SALUD, PROFESIONALES DEL SECTOR Y PACIENTES.'
 
-
+const categorias = [
+  { title: 'Artroscopia', value: 'artroscopia' },
+  { title: 'Bultos de ropa', value: 'bultos-ropa' },
+  { title: 'Consumibles', value: 'consumibles' },
+  { title: 'Neurocirugía', value: 'neurocirugia' },
+  { title: 'Ortopedia Blanda', value: 'ortopedia-blanda' },
+  { title: 'Reemplazo Articular', value: 'reemplazo-articular' },
+  { title: 'Túnel del Carpo', value: 'tunel-carpo' },
+  { title: 'Cirugía de columna', value: 'cirugia-columna' },
+  { title: 'Todos', value: 'todos' }
+]
 
 const drawer = ref(false)
 const drawerUserCarrito = ref(false);
@@ -195,12 +217,15 @@ watch(group, () => {
 
 
 const abrirDialogNosotros = () => {
-  //dialogNosotros.value = true;
   router.push({ name: 'Nosotros' })
 }
 
-const goToProductos = () => {
-  router.push({ name: 'Productos' })
+const goToProductos = (categoria: string) => {
+  if (!categoria || categoria === 'Todos') {
+    router.push({ name: 'Productos' })
+  } else {
+    router.push({ name: 'Productos', query: { cat: categoria } })
+  }
 }
 
 const goToContacto = () => {

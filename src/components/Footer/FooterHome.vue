@@ -17,7 +17,7 @@
         <p class="text-dark my-4 text-sm font-weight-normal">
           Todos los derechos reservados. Copyright ©
           {{ new Date().getFullYear() }}
-          INQUIMED.
+          INQUIMED S.A DE C.V.
         </p>
       </div>
     </v-col>

@@ -1,42 +1,16 @@
 <template>
     <v-container fluid class="px-md-10 py-10 bg-grey-lighten-5 mt-16">
         <v-row>
-            <v-col cols="12" md="3" lg="2">
-                <v-card variant="flat" class="rounded-xl pa-5 sticky-sidebar">
-                    <div class="d-flex align-center mb-6">
-                        <v-icon color="#1C90A1" class="me-2">mdi-filter-variant</v-icon>
-                        <h3 class="text-h6 font-weight-bold">Filtros</h3>
-                    </div>
 
-                    <v-divider class="mb-6"></v-divider>
-
-                    <div class="filter-section">
-                        <p class="text-subtitle-2 font-weight-black text-uppercase mb-3 letter-spacing-1">Categorías</p>
-
-                        <v-checkbox v-model="selectAllCategories" label="Todas las líneas" color="#1C90A1"
-                            density="compact" hide-details class="mb-1" @change="toggleAllCategories"></v-checkbox>
-
-                        <v-checkbox v-for="category in categories" :key="category" v-model="selectedCategories"
-                            :label="category" :value="category" color="#1C90A1" density="compact" hide-details
-                            class="ml-2"></v-checkbox>
-                    </div>
-
-                    <v-divider class="my-6"></v-divider>
-
-                    <div class="filter-section">
-                        <p class="text-subtitle-2 font-weight-black text-uppercase mb-3">Disponibilidad</p>
-                        <v-switch v-model="inStockOnly" label="Solo en stock" color="#1C90A1" inset density="compact"
-                            hide-details></v-switch>
-                    </div>
-                </v-card>
-            </v-col>
-
-            <v-col cols="12" md="9" lg="10">
+            <v-col cols="12" md="12" lg="12">
                 <header class="mb-8">
-                    <h2 class="text-h4 font-weight-bold mb-2">Equipamiento Médico</h2>
+                    <h2 class="text-h4 font-weight-bold mb-2">
+                        {{ currentCategory === 'todos' ? 'EQUIPAMIENTO MÉDICO' : currentCategory.toString().toUpperCase() }}
+                    </h2>
                     <p class="text-body-1 text-medium-emphasis">
                         Mostrando {{ filteredProducts.length }} productos disponibles
                     </p>
+                    
 
                     <v-text-field v-model="searchQuery" prepend-inner-icon="mdi-magnify"
                         label="Buscar producto por nombre" variant="solo" flat bg-color="white"
@@ -44,7 +18,7 @@
                 </header>
 
                 <v-row v-if="filteredProducts.length > 0">
-                    <v-col v-for="producto in filteredProducts" :key="producto.id" cols="12" sm="6" lg="4">
+                    <v-col v-for="producto in paginatedProducts" :key="producto.id" cols="12" sm="6" lg="3">
                         <v-card variant="flat" class="product-card h-100 overflow-hidden rounded-xl">
                             <div class="image-wrapper">
                                 <v-img :src="producto.image" height="240" cover class="bg-white">
@@ -72,6 +46,9 @@
                             </v-card-item>
                         </v-card>
                     </v-col>
+
+                    <v-pagination v-if="pageCount > 1" v-model="currentPage" :length="pageCount" class="mt-8"
+                        active-color="primary"></v-pagination>
                 </v-row>
 
                 <v-fade-transition>
@@ -91,6 +68,9 @@ import { ref, computed, watch } from "vue"
 import tobilleraCventa from "../../../public/img/Productos/tobilleraCVenta.png"
 import { useCartStore } from "../../stores/CartStore"
 import type { Producto } from "@/views/Productos/types/Producto"
+
+import { useRoute } from "vue-router"
+const route = useRoute()
 
 // Lista de productos simulada
 const productos = ref([
@@ -137,46 +117,62 @@ const productos = ref([
 ])
 
 // Filtros
-const categories = ref(["Ortopedia", "Artroscopia", "Neurocirugia"])
-const selectedCategories = ref<string[]>([...categories.value])
-const selectAllCategories = ref(true)
 const searchQuery = ref("")
+const itemsPerPage = 15
+const currentPage = ref(1)
 
-const priceRange = ref([0, 2500])
-const inStockOnly = ref(false)
 
-// Al hacer clic en "Todos"
-function toggleAllCategories() {
-    if (selectAllCategories.value) {
-        selectedCategories.value = [...categories.value] // selecciona todas
-    } else {
-        selectedCategories.value = [] // deselecciona todas
-    }
-}
+// Obtenemos la categoría desde la URL (ej: /productos?cat=neurocirugia)
+const currentCategory = computed(() => route.query.cat || 'Todos')
 
-// Observa cambios en la selección individual
-watch(selectedCategories, (newVal) => {
-    selectAllCategories.value = newVal.length === categories.value.length
+// Filtramos basándonos en la categoría activa
+const productsByCategory = computed(() => {
+    // Si la categoría es 'todos' o está vacía, mostramos todo
+    const cat = (currentCategory.value as string).toLowerCase();
+    
+    // Si es 'todos', devolvemos el arreglo original completo
+    if (cat === 'todos' || !cat || cat === 'todas') return productos.value;
+    
+    return productos.value.filter(p => p.category.toLowerCase() === cat);
 })
 
-// Computed para aplicar filtros
+
+// Aplicamos el filtro de búsqueda sobre los productos de la categoría
 const filteredProducts = computed(() => {
-    // REGLA DE ORO: Si no hay categorías seleccionadas, no hay productos que mostrar
-    if (selectedCategories.value.length === 0) return [];
+    const query = (searchQuery.value || "").toLowerCase()
+    return productsByCategory.value.filter(p =>
+        p.name.toLowerCase().includes(query)
+    );
+})
 
-    return productos.value.filter((p) => {
-        // Filtro por texto con protección contra null/undefined
-        // Si searchQuery es null (al limpiar con X), usamos un string vacío ""
-        const query = (searchQuery.value || "").toLowerCase();
-        const matchSearch = p.name.toLowerCase().includes(query);
+// Paginación: cortamos el arreglo filtrado
+const paginatedProducts = computed(() => {
+    const start = (currentPage.value - 1) * itemsPerPage
+    return filteredProducts.value.slice(start, start + itemsPerPage)
+})
 
-        // Filtros existentes
-        const matchCategory = selectedCategories.value.includes(p.category);
-        const matchStock = !inStockOnly.value || p.stock;
+const pageCount = computed(() => Math.ceil(filteredProducts.value.length / itemsPerPage))
 
-        return matchSearch && matchCategory && matchStock;
+
+
+
+watch(currentCategory, () => {
+    currentPage.value = 1
+});
+
+
+watch(searchQuery, () => {
+    currentPage.value = 1;
+});
+
+// Observa cambios en la página actual O en la categoría
+watch([currentPage, currentCategory], () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Esto hace que el movimiento sea elegante
     });
 });
+
 const cartStore = useCartStore()
 
 const addCart = (producto: Producto) => {
