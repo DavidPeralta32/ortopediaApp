@@ -100,7 +100,7 @@ import tienda2 from "@/assets/img/productos2.png"
 const router = useRouter();
 
 const goToProductos = () => {
-  router.push({ name: 'Productos' })
+  router.push({ name: 'Productos', query: { cat: "Todos" } })
 }
 
 

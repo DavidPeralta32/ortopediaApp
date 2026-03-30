@@ -1,27 +1,38 @@
 <template>
     <v-container fluid class="px-md-10 py-10 bg-grey-lighten-5 mt-16">
         <v-row>
-
-            <v-col cols="12" md="12" lg="12">
+            <v-col cols="12">
                 <header class="mb-8">
                     <h2 class="text-h4 font-weight-bold mb-2">
-                        {{ currentCategory === 'todos' ? 'EQUIPAMIENTO MÉDICO' : currentCategory.toString().toUpperCase() }}
+                        {{ currentCategory === 'Todos' ? 'EQUIPAMIENTO MÉDICO' : String(currentCategory).toUpperCase()
+                        }}
                     </h2>
                     <p class="text-body-1 text-medium-emphasis">
-                        Mostrando {{ filteredProducts.length }} productos disponibles
+                        Mostrando <b>{{ filteredProducts.length }}</b> productos
                     </p>
-                    
 
-                    <v-text-field v-model="searchQuery" prepend-inner-icon="mdi-magnify"
-                        label="Buscar producto por nombre" variant="solo" flat bg-color="white"
-                        class="rounded-xl mt-4 border shadow-sm" hide-details clearable></v-text-field>
+                    <v-text-field v-model="searchQuery" prepend-inner-icon="mdi-magnify" label="Buscar producto..."
+                        variant="solo" flat bg-color="white" class="rounded-xl mt-4 border shadow-sm" hide-details
+                        clearable></v-text-field>
                 </header>
 
-                <v-row v-if="filteredProducts.length > 0">
+                <v-row v-if="isLoading">
+                    <v-col v-for="n in 4" :key="n" cols="12" sm="6" lg="3">
+                        <v-skeleton-loader type="card, article" class="rounded-xl"></v-skeleton-loader>
+                    </v-col>
+                </v-row>
+
+                <v-row v-else-if="filteredProducts.length > 0">
                     <v-col v-for="producto in paginatedProducts" :key="producto.id" cols="12" sm="6" lg="3">
-                        <v-card variant="flat" class="product-card h-100 overflow-hidden rounded-xl">
+                        <v-card variant="flat" class="product-card  overflow-hidden rounded-xl border">
                             <div class="image-wrapper">
-                                <v-img :src="producto.image" height="240" cover class="bg-white">
+                                <v-img :src="producto.image" :aspect-ratio="1" cover class="bg-white" loading="lazy">
+                                    <template v-slot:placeholder>
+                                        <v-row class="fill-height ma-0" align="center" justify="center">
+                                            <v-progress-circular indeterminate
+                                                color="grey-lighten-4"></v-progress-circular>
+                                        </v-row>
+                                    </template>
                                     <div class="card-badges">
                                         <v-chip :color="producto.stock ? 'success' : 'error'" size="x-small"
                                             variant="flat" class="font-weight-bold">
@@ -34,115 +45,116 @@
                             <v-card-item class="pa-5">
                                 <div class="text-overline text-primary font-weight-bold mb-1">{{ producto.category }}
                                 </div>
-                                <v-card-title class="text-h6 font-weight-bold text-wrap mb-2 line-height-1">
+
+                                <v-card-subtitle class="text-caption text-medium-emphasis mb-1">
+                                    {{ producto.sub_categoria }}
+                                </v-card-subtitle>
+
+                                <v-card-title class="text-subtitle-1 font-weight-bold text-wrap mb-2 line-height-1">
                                     {{ producto.name }}
                                 </v-card-title>
 
-                                <div class="d-flex align-center justify-space-between mt-4">
-                                    <v-btn icon="mdi-cart-plus" style="background-color:#1C90A1; color: white;"
-                                        elevation="2" size="small" :disabled="!producto.stock"
-                                        @click="addCart(producto)"></v-btn>
+                                <v-card-actions>
+                                    <v-btn class="text-primary" text="Ver más"  @click="toggleDescription(producto.id)"></v-btn>
+                                    <v-spacer></v-spacer>
+
+                                    <v-btn
+                                        :icon="productoAbierto === producto.id ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+                                        @click="toggleDescription(producto.id)"></v-btn>
+                                </v-card-actions>
+
+                                <v-expand-transition>
+                                    <div v-show="productoAbierto === producto.id">
+                                        <v-divider></v-divider>
+                                        <v-card-text>
+                                            {{ producto.descripcion }}
+                                        </v-card-text>
+                                    </div>
+                                </v-expand-transition>
+
+                                <div class="d-flex align-center justify-space-between mt-auto">
+                                    <v-btn icon="mdi-cart-plus" color="#1C90A1" class="text-white" elevation="2"
+                                        size="small" :disabled="!producto.stock" @click="addCart(producto)"></v-btn>
                                 </div>
                             </v-card-item>
                         </v-card>
                     </v-col>
-
-                    <v-pagination v-if="pageCount > 1" v-model="currentPage" :length="pageCount" class="mt-8"
-                        active-color="primary"></v-pagination>
                 </v-row>
 
                 <v-fade-transition>
-                    <div v-if="filteredProducts.length === 0" class="text-center py-16 empty-container rounded-xl">
-                        <v-icon size="64" color="grey-lighten-1">mdi-magnify-close</v-icon>
-                        <h3 class="text-h5 mt-4 font-weight-medium">No hay coincidencias</h3>
-                        <p class="text-grey">Intenta ajustar los filtros laterales</p>
+                    <div v-if="!isLoading && filteredProducts.length === 0"
+                        class="text-center py-16 empty-container rounded-xl">
+                        <v-icon size="64" color="grey-lighten-1">mdi-package-variant-closed</v-icon>
+                        <h3 class="text-h5 mt-4 font-weight-medium">No encontramos productos</h3>
+                        <p class="text-grey">Intenta cambiar el nombre o la categoría</p>
+                        <v-btn variant="text" color="primary" class="mt-4" @click="searchQuery = ''">Limpiar
+                            búsqueda</v-btn>
                     </div>
                 </v-fade-transition>
+
+                <div class="d-flex justify-center mt-12">
+                    <v-pagination v-if="pageCount > 1" v-model="currentPage" :length="pageCount" active-color="primary"
+                        variant="flat" rounded="circle" :total-visible="5"></v-pagination>
+                </div>
             </v-col>
         </v-row>
     </v-container>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from "vue"
-import tobilleraCventa from "../../../public/img/Productos/tobilleraCVenta.png"
+import { ref, computed, watch, onMounted } from "vue"
 import { useCartStore } from "../../stores/CartStore"
 import type { Producto } from "@/views/Productos/types/Producto"
-
+import { getProductosLineaBlancaZonaSuperior } from "@/api/Productos.ts";
 import { useRoute } from "vue-router"
+
 const route = useRoute()
 
-// Lista de productos simulada
-const productos = ref([
-    {
-        id: 1,
-        name: "Tobillera",
-        category: "Ortopedia",
-        price: 1500,
-        stock: true,
-        image: "https://dummyimage.com/200x200/000/fff.png&text=Rodillera",
-    },
-    {
-        id: 2,
-        name: "Rodillera",
-        category: "Ortopedia",
-        price: 600,
-        stock: true,
-        image: tobilleraCventa,
-    },
-    {
-        id: 3,
-        name: "Shaver Artroscópico",
-        category: "Artroscopia",
-        price: 900,
-        stock: false,
-        image: tobilleraCventa,
-    },
-    {
-        id: 4,
-        name: "Sistema de Torre de Artroscopía",
-        category: "Artroscopia",
-        price: 2200,
-        stock: true,
-        image: tobilleraCventa,
-    },
-    {
-        id: 5,
-        name: "Microscopio quirúrgico",
-        category: "Neurocirugia",
-        price: 2200,
-        stock: true,
-        image: tobilleraCventa,
-    },
-])
-
-// Filtros
+// Lista de productos
+const productos = ref<Producto[]>([])
 const searchQuery = ref("")
-const itemsPerPage = 15
+const itemsPerPage = 10
 const currentPage = ref(1)
+const isLoading = ref(true)
+
+const productoAbierto = ref<number | null>(null);
+
+const toggleDescription = (id: number) => {
+    // Si el que toco ya está abierto, lo cierro (null), si no, guardo su ID
+    if (productoAbierto.value === id) {
+        productoAbierto.value = null;
+    } else {
+        productoAbierto.value = id;
+    }
+};
+
+onMounted(async () => {
+    try {
+        productos.value = await getProductosLineaBlancaZonaSuperior();
+    } catch (err) {
+        productos.value = [];
+        console.error("Error al obtener los productos: ", err);
+    } finally {
+        isLoading.value = false;
+    }
+});
 
 
 // Obtenemos la categoría desde la URL (ej: /productos?cat=neurocirugia)
 const currentCategory = computed(() => route.query.cat || 'Todos')
 
-// Filtramos basándonos en la categoría activa
-const productsByCategory = computed(() => {
-    // Si la categoría es 'todos' o está vacía, mostramos todo
-    const cat = (currentCategory.value as string).toLowerCase();
-    
-    // Si es 'todos', devolvemos el arreglo original completo
-    if (cat === 'todos' || !cat || cat === 'todas') return productos.value;
-    
-    return productos.value.filter(p => p.category.toLowerCase() === cat);
-})
-
-
-// Aplicamos el filtro de búsqueda sobre los productos de la categoría
+// OPTIMIZACIÓN 1: Un solo computed para todos los filtros
+// Esto es más eficiente que tener 3 computeds anidados
 const filteredProducts = computed(() => {
-    const query = (searchQuery.value || "").toLowerCase()
-    return productsByCategory.value.filter(p =>
-        p.name.toLowerCase().includes(query)
-    );
+    const cat = String(currentCategory.value).toLowerCase();
+
+    const query = (searchQuery.value || "").toLowerCase().trim();
+
+    return productos.value.filter(p => {
+        const matchesCategory = (cat === 'todos' || cat === 'todas' || p.category.toLowerCase() === cat);
+        const matchesSearch = p.name.toLowerCase().includes(query);
+        return matchesCategory && matchesSearch;
+    });
 })
 
 // Paginación: cortamos el arreglo filtrado
@@ -156,12 +168,8 @@ const pageCount = computed(() => Math.ceil(filteredProducts.value.length / items
 
 
 
-watch(currentCategory, () => {
-    currentPage.value = 1
-});
-
-
-watch(searchQuery, () => {
+// OPTIMIZACIÓN 2: Resetear página solo cuando cambian los filtros
+watch([currentCategory, searchQuery], () => {
     currentPage.value = 1;
 });
 

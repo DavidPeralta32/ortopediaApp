@@ -14,7 +14,7 @@
         <EnviosCotizacionesHome></EnviosCotizacionesHome>
         <CategoriasHome></CategoriasHome>
         <ProductosHome></ProductosHome>
-        <ProvedoresView></ProvedoresView>
+        <!--<ProvedoresView></ProvedoresView>-->
 
     </div>
 

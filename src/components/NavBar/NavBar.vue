@@ -203,7 +203,7 @@ const categorias = [
   { title: 'Reemplazo Articular', value: 'reemplazo-articular' },
   { title: 'Túnel del Carpo', value: 'tunel-carpo' },
   { title: 'Cirugía de columna', value: 'cirugia-columna' },
-  { title: 'Todos', value: 'todos' }
+  { title: 'Todos', value: 'Todos' }
 ]
 
 const drawer = ref(false)
@@ -222,7 +222,7 @@ const abrirDialogNosotros = () => {
 
 const goToProductos = (categoria: string) => {
   if (!categoria || categoria === 'Todos') {
-    router.push({ name: 'Productos' })
+    router.push({ name: 'Productos', query: { cat: "Todos" } })
   } else {
     router.push({ name: 'Productos', query: { cat: categoria } })
   }
