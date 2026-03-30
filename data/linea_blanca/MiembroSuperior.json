@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "name": "Cabestrillo de Adulto",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Codo",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/soporte_codos/Cabestrillo.png",
+    "descripcion": "Fabricado con tejido transpirable, incorpora soporte para el pulgar y acolchado en el cuello. Ideal para descanso e inmovilización en fracturas, luxaciones y esguinces."
+  },
+  {
+    "id": 2,
+    "name": "Inmovilizador hombro universal",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Hombro",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/soporte_codos/Inmovilizador_hombro.png",
+    "descripcion": "Fabricado en dubetina con cintas amplias. Indicado para fracturas de hombro, reparación del manguito rotador y fracturas de antebrazo."
+  },
+  {
+    "id": 3,
+    "name": "Inmovilizador hombro, cojín abducción",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Hombro",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/soporte_codos/Inmovilizador_hombro_cojin_abduccion.png",
+    "descripcion": "Elaborado en dubetina con forro acolchado y cojín removible de hule espuma. Indicado para cirugías de hombro y reparación del manguito rotador."
+  },
+  {
+    "id": 4,
+    "name": "Soporte para Epicondilitis",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Codo",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/soporte_codos/Soporte_epicondilitis.png",
+    "descripcion": "Confeccionado en neopreno con almohadilla de compresión dirigida. Útil en tendinitis, procesos inflamatorios y contusiones."
+  },
+  {
+    "id": 5,
+    "name": "Manga para codo con Gel",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Codo",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/soporte_codos/Manga_codo_gel.png",
+    "descripcion": "Tejido elástico y transpirable. Indicada para epicondilitis, tendinitis y soporte en actividades diarias."
+  },
+  {
+    "id": 6,
+    "name": "Soporte para codo de neopreno",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Codo",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/soporte_codos/soporte_codo_neopreno.png",
+    "descripcion": "Fabricada en neopreno con dos bandas de ajuste. Brinda soporte en tendinitis y procesos inflamatorios."
+  },
+  {
+    "id": 7,
+    "name": "Soporte para codo de tenista",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Codo",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/soporte_codos/soporte_codo_tenista.png",
+    "descripcion": "Plástico rígido con acojinamiento especial y ajuste elástico. Ideal para epicondilitis."
+  },
+  {
+    "id": 8,
+    "name": "Férula para codo estroboscópica",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Codo",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/soporte_codos/ferula_codo_estroboscopica.png",
+    "descripcion": "Uso pre y postoperatorio con reloj graduador para control de movimiento. Estructura metálica y cinta tipo cabestrillo."
+  },
+  {
+    "id": 9,
+    "name": "Férula de dedo tipo Baseball",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Férula Dedos",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/ferula_dedos/ferula_dedo_baseball.png",
+    "descripcion": "Aluminio moldeable con acolchado interior. Indicada para fracturas en falanges, esguinces y luxaciones."
+  },
+  {
+    "id": 10,
+    "name": "Férula de dedo tipo Sombrilla",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Férula Dedos",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/ferula_dedos/ferula_dedo_sombrilla.png",
+    "descripcion": "Diseño anatómico en aluminio moldeable. Para tratamiento de fracturas en falanges."
+  },
+  {
+    "id": 11,
+    "name": "Férula de dedo tipo Rana",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Férula Dedos",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/ferula_dedos/ferula_dedo_tipo_rana.png",
+    "descripcion": "Aluminio moldeable que ofrece máximo confort. Recomendada para fracturas, esguinces y luxaciones."
+  },
+  {
+    "id": 12,
+    "name": "Férula de dedo Blanca c/ velcro",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Férula Dedos",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/ferula_dedos/ferula_blanca_velcro.png",
+    "descripcion": "Plástico semi-rígido de diseño recto con cierre de velcro para inmovilización precisa."
+  },
+  {
+    "id": 13,
+    "name": "Férula para dedo Stack",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Férula Dedos",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/ferula_dedos/ferula_dedo_stack.png",
+    "descripcion": "Plástico rígido con acolchado suave. Ajustador elástico y cierre de velcro."
+  },
+  {
+    "id": 14,
+    "name": "Férula para dedo Stack con velcro",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Férula Dedos",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/ferula_dedos/ferula_dedo_stack_velcro.png",
+    "descripcion": "Plástico rígido con acolchado suave. Ajustador elástico y cierre de velcro."
+  },
+  {
+    "id": 15,
+    "name": "Férula para pulgar ABD corta",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Férula Dedos",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/ferula_dedos/ferula_pulgar_abd_corta.jpeg",
+    "descripcion": "Férula para codo pre y post operatoria, reloj graduador. estructura metálica, brazaletes y extensiones. La cinta- cabestrillo sujeta a través de la espalda."
+  },
+  {
+    "id": 16,
+    "name": "Soporte para muñeca elástica",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Muñequera",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/munequera/soporte_muñeca_elastica.jpeg",
+    "descripcion": "Muñequera tipo tubo de material transpirable. Para esguinces o luxaciones de muñeca."
+  },
+  {
+    "id": 17,
+    "name": "Correa para muñeca de neopreno",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Muñequera",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/munequera/correa_muñeca_neopreno.jpeg",
+    "descripcion": "Banda con orificio para pulgar. Proporciona compresión y calor para alivio en actividades deportivas."
+  },
+  {
+    "id": 18,
+    "name": "Muñequera Boomerang",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Muñequera",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/munequera/muñeca_boomerang.jpeg",
+    "descripcion": "Confeccionada en tejido elástico, transpirable, resistente y suave, que proporciona un gran confort durante su uso. Indicada para epicondilitis y tendinitis, así como para ofrecer soporte y protección en actividades diarias, contusiones de codo y procesos inflamatorios."
+  },
+  {
+    "id": 19,
+    "name": "Férula para muñeca",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Muñequera",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/munequera/ferula_muñeca.jpeg",
+    "descripcion": "Elaborada en neopreno con barra palmar y tres cierres de velcro. Indicada para síndrome del túnel carpiano."
+  },
+  {
+    "id": 20,
+    "name": "Muñequera con varilla ambidiestra",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Muñequera",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/munequera/muñeca_varilla_ambidiestra.png",
+    "descripcion": "Dubetina forrada con varillas anterior y posterior. Ambidiestra con orificios para pulgar en ambos extremos."
+  },
+  {
+    "id": 21,
+    "name": "Férula de muñeca y antebrazo",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Muñequera",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/munequera/ferula_muñeca_antebrazo.png",
+    "descripcion": "Fabricada en dubetina forrada, con varillas anterior y posterior que aseguran una inmovilización adecuada. Cuenta con orificios para pulgar en ambos extremos, haciéndola ambidiestra, y dos cintas que permiten un ajuste seguro y personalizado. Indicada para rehabilitación postquirúrgica de muñeca, síndrome del túnel carpiano, inmovilización de fracturas, esguinces, contusiones y luxaciones."
+  },
+  {
+    "id": 22,
+    "name": "Férula de muñeca con pulgar en abducción",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Muñequera",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/munequera/ferula_muñeca_pulgar_abduccion.png",
+    "descripcion": "Incorpora barras de soporte en muñeca y pulgar. Para inestabilidades que afectan la línea del pulgar."
+  },
+  {
+    "id": 23,
+    "name": "Muñequera estabilizadora",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Muñequera",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/munequera/muñequera_estabilizadora.jpeg",
+    "descripcion": "Material elástico con barra palmar y dorsal abierta. Diseño anatómico con 15° de flexión."
+  },
+  {
+    "id": 24,
+    "name": "Soporte para clavícula",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "miembro superior",
+    "zona": "Clavícula",
+    "stock": true,
+    "image": "img/Productos/Linea_blanca/zona_superior/clavicula/soporte_clavicula.jpeg",
+    "descripcion": "Fabricada en espuma y terciopelo con anillos regulables. Para fracturas de clavícula y corrección de postura."
+  }
+]
