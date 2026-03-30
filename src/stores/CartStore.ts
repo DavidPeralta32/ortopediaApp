@@ -60,7 +60,7 @@ export const useCartStore = defineStore('cart', () => {
 
     // 🔹 Calcular total de precio
     const totalPrice = computed(() =>
-        cart.value.reduce((total, item) => total + (item.quantity ?? 1) * item.price, 0)
+        cart.value.reduce((total, item) => total + (item.quantity ?? 1) * item.price!!, 0)
     )
 
     return {

@@ -5,9 +5,32 @@
       <p>Politicas de devolucion y aviso de privacidad</p>
     </v-col>
     <v-col cols="12" md="4">
-      <p><strong>Telefono:</strong> *****</p>
-      <p><strong>Correo:</strong> inquimedcomercializadora@gmail.com</p>
-      <p> <strong>Dirección:</strong> Avenida Americas número 1465, # interior "A", codigo postal 91919, fracc reforma, Boca del Rio, Veracruz</p>
+      <div class="d-flex flex-column align-center gap-y-4">
+        <div class="d-flex align-center mb-3">
+          <v-avatar color="success-lighten-4" size="32" class="mr-3">
+            <v-icon color="success" size="20">mdi-phone</v-icon>
+          </v-avatar>
+          <span class="text-body-2">*****</span>
+        </div>
+
+        <div class="d-flex align-center mb-3">
+          <v-avatar color="error-lighten-4" size="32" class="mr-3">
+            <v-icon color="error" size="20">mdi-email-outline</v-icon>
+          </v-avatar>
+          <span class="text-body-2">inquimedcomercializadora@gmail.com</span>
+        </div>
+
+        <div class="d-flex align-start">
+          <v-avatar color="primary-lighten-4" size="32" class="mr-3">
+            <v-icon color="primary" size="20">mdi-map-marker</v-icon>
+          </v-avatar>
+          <span class="text-body-2">
+            Avenida Americas número 1465, # interior "A", <br>
+            C.P. 91919, Fracc. Reforma, <br>
+            Boca del Río, Veracruz
+          </span>
+        </div>
+      </div>
     </v-col>
     <v-col cols="12" md="4">
       <h4>Metodos de pago</h4>

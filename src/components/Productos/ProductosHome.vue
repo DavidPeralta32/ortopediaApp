@@ -68,60 +68,98 @@
 
 <script setup lang="ts">
 import { ref, computed, watch } from "vue"
-import tobilleraCventa from "../../../public/img/Productos/tobilleraCVenta.png"
 import { useCartStore } from "../../stores/CartStore"
 import type { Producto } from "@/views/Productos/types/Producto"
 
 // Lista de productos simulada
 const productos = ref([
     {
-        id: 1,
-        name: "Tobillera",
-        category: "Ortopedia",
-        price: 1500,
-        stock: true,
-        image: "https://dummyimage.com/200x200/000/fff.png&text=Rodillera",
-    },
-    {
-        id: 2,
-        name: "Rodillera",
-        category: "Ortopedia",
-        price: 600,
-        stock: true,
-        image: tobilleraCventa,
-    },
-    {
-        id: 3,
-        name: "Shaver Artroscópico",
-        category: "Artroscopia",
-        price: 900,
-        stock: false,
-        image: tobilleraCventa,
-    },
-    {
-        id: 4,
-        name: "Sistema de Torre de Artroscopía",
-        category: "Artroscopia",
-        price: 2200,
-        stock: true,
-        image: tobilleraCventa,
-    },
-    {
-        id: 5,
-        name: "Microscopio quirúrgico",
-        category: "Neurocirugia",
-        price: 2200,
-        stock: true,
-        image: tobilleraCventa,
-    },
+    id: 1,
+    name: "Cabestrillo de Adulto",
+    category: "ortopedia-blanda",
+    sub_categoria: "miembro superior",
+    zona: "Codo",
+    stock: true,
+    image: "https://res.cloudinary.com/drkehdimc/image/upload/v1774901816/Cabestrillo_vqyn5b.png",
+    descripcion: "Fabricado con tejido transpirable, incorpora soporte para el pulgar y acolchado en el cuello. Ideal para descanso e inmovilización en fracturas, luxaciones y esguinces."
+  },
+  {
+    id: 2,
+    name: "Inmovilizador hombro universal",
+    category: "ortopedia-blanda",
+    sub_categoria: "miembro superior",
+    zona: "Hombro",
+    stock: true,
+    image: "https://res.cloudinary.com/drkehdimc/image/upload/v1774901818/Inmovilizador_hombro_szlxk7.png",
+    descripcion: "Fabricado en dubetina con cintas amplias. Indicado para fracturas de hombro, reparación del manguito rotador y fracturas de antebrazo."
+  },
+  {
+    id: 3,
+    name: "Inmovilizador hombro, cojín abducción",
+    category: "ortopedia-blanda",
+    sub_categoria: "miembro superior",
+    zona: "Hombro",
+    stock: true,
+    image: "https://res.cloudinary.com/drkehdimc/image/upload/v1774901820/Inmovilizador_hombro_cojin_abduccion_szupyi.png",
+    descripcion: "Elaborado en dubetina con forro acolchado y cojín removible de hule espuma. Indicado para cirugías de hombro y reparación del manguito rotador."
+  },
+  {
+    id: 4,
+    name: "Soporte para Epicondilitis",
+    category: "ortopedia-blanda",
+    sub_categoria: "miembro superior",
+    zona: "Codo",
+    stock: true,
+    image: "https://res.cloudinary.com/drkehdimc/image/upload/v1774901813/Soporte_epicondilitis_mlf0td.png",
+    descripcion: "Confeccionado en neopreno con almohadilla de compresión dirigida. Útil en tendinitis, procesos inflamatorios y contusiones."
+  },
+  {
+    id: 5,
+    name: "Manga para codo con Gel",
+    category: "ortopedia-blanda",
+    sub_categoria: "miembro superior",
+    zona: "Codo",
+    stock: true,
+    image: "https://res.cloudinary.com/drkehdimc/image/upload/v1774901813/Manga_codo_gel_j49nj0.png",
+    descripcion: "Tejido elástico y transpirable. Indicada para epicondilitis, tendinitis y soporte en actividades diarias."
+  },
+  {
+    id: 6,
+    name: "Soporte para codo de neopreno",
+    category: "ortopedia-blanda",
+    sub_categoria: "miembro superior",
+    zona: "Codo",
+    stock: true,
+    image: "https://res.cloudinary.com/drkehdimc/image/upload/v1774901816/soporte_codo_neopreno_fmsa12.png",
+    descripcion: "Fabricada en neopreno con dos bandas de ajuste. Brinda soporte en tendinitis y procesos inflamatorios."
+  },
+  {
+    id: 7,
+    name: "Soporte para codo de tenista",
+    category: "ortopedia-blanda",
+    sub_categoria: "miembro superior",
+    zona: "Codo",
+    stock: true,
+    image: "https://res.cloudinary.com/drkehdimc/image/upload/v1774901817/soporte_codo_tenista_daplcd.png",
+    descripcion: "Plástico rígido con acojinamiento especial y ajuste elástico. Ideal para epicondilitis."
+  },
+  {
+    id: 8,
+    name: "Férula para codo estroboscópica",
+    category: "ortopedia-blanda",
+    sub_categoria: "miembro superior",
+    zona: "Codo",
+    stock: true,
+    image: "https://res.cloudinary.com/drkehdimc/image/upload/v1774901814/ferula_codo_estroboscopica_riqzvs.png",
+    descripcion: "Uso pre y postoperatorio con reloj graduador para control de movimiento. Estructura metálica y cinta tipo cabestrillo."
+  },
 ])
 
 // Filtros
-const categories = ref(["Ortopedia", "Artroscopia", "Neurocirugia"])
+const categories = ref(["Ortopedia", "Artroscopia", "Neurocirugia","ortopedia-blanda"])
 const selectedCategories = ref<string[]>([...categories.value])
 const selectAllCategories = ref(true)
 
-const priceRange = ref([0, 2500])
 const inStockOnly = ref(false)
 
 
@@ -137,12 +175,10 @@ const filteredProducts = computed(() => {
             selectedCategories.value.length === 0 ||
             selectedCategories.value.includes(p.category)
 
-        const matchPrice =
-            p.price >= priceRange.value[0] && p.price <= priceRange.value[1]
 
         const matchStock = !inStockOnly.value || p.stock
 
-        return matchCategory && matchPrice && matchStock
+        return matchCategory  && matchStock
     })
 })
 
