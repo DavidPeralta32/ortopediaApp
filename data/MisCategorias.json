@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Artroscopia",
+        "category": "artroscopia",
+        "icon": "mdi-book-open-page-variant"
+    },
+    {
+        "id": 2,
+        "name": "Bultos de ropa",
+        "category": "bultos-de-ropa",
+        "icon": "mdi-book-open-page-variant"
+    },
+    {
+        "id": 3,
+        "name": "Consumibles",
+        "category": "consumibles",
+        "icon": "mdi-book-open-page-variant"
+    },
+    {
+        "id": 4,
+        "name": "Neurocirugía",
+        "category": "neurocirugia",
+        "icon": "mdi-book-open-page-variant"
+    },
+    {
+        "id": 5,
+        "name": "Ortopedia Blanda",
+        "category": "ortopedia-blanda",
+        "icon": "mdi-book-open-page-variant"
+    },
+    {
+        "id": 6,
+        "name": "Reemplazo Articular",
+        "category": "reemplazo-articular",
+        "icon": "mdi-book-open-page-variant"
+    },
+    {
+        "id": 7,
+        "name": "Túnel del Carpo",
+        "category": "tunel-del-carpo",
+        "icon": "mdi-book-open-page-variant"
+    },
+    {
+        "id": 8,
+        "name": "Cirugía de columna",
+        "category": "cirugia-de-columna",
+        "icon": "mdi-book-open-page-variant"
+    }
+]
