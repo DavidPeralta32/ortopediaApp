@@ -40,9 +40,9 @@ import CategoriasHome from '../components/Categorias/CategoriasHome.vue';
 import FooterHome from '../components/Footer/FooterHome.vue';
 import ProvedoresView from '../components/Provedores/ProvedoresView.vue';
 
-import portada1 from "@/assets/img/portada1.jpeg"
-import portada3 from "@/assets/img/portada3.png"
-import portada4 from "@/assets/img/portada4.jpg"
+const portada1 ="https://res.cloudinary.com/drkehdimc/image/upload/v1774989086/portada1_d3yrub.jpg"
+const portada3 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989089/portada3_nh5xcu.png"
+const portada4 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989086/portada4_hut51v.jpg"
 
 
 

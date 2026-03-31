@@ -1,7 +1,7 @@
 <template>
   <v-row style="text-align: center;">
     <v-col cols="12" md="4">
-      <img src="@/assets/img/img_inquimed.png" alt="Logo Inquimed" style="width: 275px; height: 100px;" />
+      <img src="https://res.cloudinary.com/drkehdimc/image/upload/v1774989086/img_inquimed_ydlzlo.png" alt="Logo Inquimed" style="width: 275px; height: 100px;" />
       <p>Politicas de devolucion y aviso de privacidad</p>
     </v-col>
     <v-col cols="12" md="4">

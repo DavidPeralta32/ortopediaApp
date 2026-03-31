@@ -91,10 +91,10 @@
 import { onMounted, shallowRef } from 'vue'
 import { useRouter } from 'vue-router'
 
-import cotizacion1 from "@/assets/img/cotizacion1.png"
-import cotizacion2 from "@/assets/img/cotizacion2.png"
-import tienda1 from "@/assets/img/tienda1.png"
-import tienda2 from "@/assets/img/productos2.png"
+const cotizacion1 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989088/cotizacion1_xuunb3.png"
+const cotizacion2 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989089/cotizacion2_v414dh.png"
+const tienda1 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989090/tienda1_olkyzp.png"
+const tienda2 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989089/productos2_scotxz.png"
 
 
 const router = useRouter();
