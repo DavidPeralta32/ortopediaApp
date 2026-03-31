@@ -16,7 +16,7 @@
       <v-col cols="12" md="5" class="mb-8 mb-md-0">
         <v-card class="pa-6 rounded-xl elevation-3">
           <v-list density="comfortable">
-            <v-list-item prepend-avatar="" title="Teléfono" subtitle="+52 55 1234 5678">
+            <v-list-item prepend-avatar="" title="Teléfono" subtitle="+52 229 368 6761">
               <template #prepend>
                 <v-icon color="#1C90A1" size="28">mdi-phone</v-icon>
               </template>

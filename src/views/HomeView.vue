@@ -19,7 +19,7 @@
     </div>
 
     <div class="boton-flotante">
-        <v-btn class="btn-flotante" icon="mdi-whatsapp">
+        <v-btn :href="whatsappUrl" target="_blank" rel="noopener noreferrer" class="btn-flotante" icon="mdi-whatsapp">
         </v-btn>
     </div>
 
@@ -31,12 +31,12 @@
 </template>
 
 <script setup>
-import { onMounted, shallowRef,ref } from 'vue'
+import { onMounted, shallowRef,ref, computed } from 'vue'
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ProductosHome from '../components/Productos/ProductosHome.vue';
 import EnviosCotizacionesHome from '../components/EnviosCotizacionesHome.vue';
-import CategoriasHome from '../components/CategoriasHome.vue';
+import CategoriasHome from '../components/Categorias/CategoriasHome.vue';
 import FooterHome from '../components/Footer/FooterHome.vue';
 import ProvedoresView from '../components/Provedores/ProvedoresView.vue';
 
@@ -44,39 +44,8 @@ import portada1 from "@/assets/img/portada1.jpeg"
 import portada3 from "@/assets/img/portada3.png"
 import portada4 from "@/assets/img/portada4.jpg"
 
-const tabCategoria = shallowRef('tab-1')
-const tabsCategorias = [
-    {
-        icon: 'mdi-book-open-page-variant',
-        text: 'Ortopedia',
-        value: 'tab-1',
-    },
-    {
-        icon: 'mdi-handshake-outline',
-        text: 'Artroscopia',
-        value: 'tab-2',
-    },
-    {
-        icon: 'mdi-license',
-        text: 'Consumibles de hospital',
-        value: 'tab-3',
-    },
-    {
-        icon: 'mdi-shield-lock-outline',
-        text: 'Reemplazo articular',
-        value: 'tab-4',
-    },
-    {
-        icon: 'mdi-shield-lock-outline',
-        text: 'Neurocirugia',
-        value: 'tab-5',
-    },
-    {
-        icon: 'mdi-shield-lock-outline',
-        text: 'Tunel de carpo',
-        value: 'tab-6',
-    },
-];
+
+
 
 const cards = [
     { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
@@ -98,6 +67,14 @@ onMounted(() => {
     })
 });
 
+
+
+const phone = '522293686761';
+const message = 'Hola Inquimed, me interesa solicitar una cotización. ¿Podrían darme información sobre disponibilidad y precios? Quedo atento/a a su respuesta.';
+
+const whatsappUrl = computed(() => {
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+});
 
 
 
@@ -163,5 +140,13 @@ footer {
     justify-content: center;
     align-items: center;
     z-index: 100;
+}
+
+/* Ajuste para móviles (opcional) */
+@media (max-width: 600px) {
+  .boton-flotante {
+    bottom: 20px;
+    right: 20px;
+  }
 }
 </style>

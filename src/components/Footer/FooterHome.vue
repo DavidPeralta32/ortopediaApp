@@ -10,7 +10,7 @@
           <v-avatar color="success-lighten-4" size="32" class="mr-3">
             <v-icon color="success" size="20">mdi-phone</v-icon>
           </v-avatar>
-          <span class="text-body-2">*****</span>
+          <span class="text-body-2">+52 229 368 6761</span>
         </div>
 
         <div class="d-flex align-center mb-3">

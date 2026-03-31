@@ -70,6 +70,9 @@
 import { ref, computed, watch } from "vue"
 import { useCartStore } from "../../stores/CartStore"
 import type { Producto } from "@/views/Productos/types/Producto"
+import { useFilterStore } from "@/stores/FilterProductosStore.ts";
+
+const filterStore = useFilterStore();
 
 // Lista de productos simulada
 const productos = ref([
@@ -170,15 +173,21 @@ watch(selectedCategories, (newVal) => {
 
 // Computed para aplicar filtros
 const filteredProducts = computed(() => {
+    // Si el store aún no tiene categoría (mientras carga la API), devolvemos vacío o todos
+    if (!filterStore.selectedCategory) return [];
+
     return productos.value.filter((p) => {
-        const matchCategory =
-            selectedCategories.value.length === 0 ||
-            selectedCategories.value.includes(p.category)
+        // 1. Filtro por Categoría
+        // Comparamos convirtiendo ambos a minúsculas para evitar errores de dedo
+        const matchCategory = 
+            filterStore.selectedCategory === 'Todos' || 
+            p.category.toLowerCase() === filterStore.selectedCategory.toLowerCase();
 
+        // 2. Filtro por Stock
+        const matchStock = !inStockOnly.value || p.stock;
 
-        const matchStock = !inStockOnly.value || p.stock
-
-        return matchCategory  && matchStock
+        // Solo si cumple ambas condiciones se muestra el producto
+        return matchCategory && matchStock;
     })
 })
 
