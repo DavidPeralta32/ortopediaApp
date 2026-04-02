@@ -21,7 +21,7 @@
             <v-col cols="12" md="9" lg="10">
                 <header class="mb-8">
                     <h2 class="text-h4 font-weight-bold mb-2">
-                        CATÁLOGO DE PRODUCTOS
+                        {{ formatCategoryName(currentCategory) }}
                     </h2>
                     <p class="text-body-1 text-medium-emphasis">
                         Mostrando <b>{{ filteredProducts.length }}</b> productos
@@ -123,10 +123,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted } from "vue"
+import { ref, computed, watch } from "vue"
 import { useCartStore } from "../../stores/CartStore"
 import type { Producto } from "@/views/Productos/types/Producto"
-import { getProductosLineaBlancaZonaSuperior } from "@/api/Productos.ts";
+import { getProductosPorArchivo } from "@/api/Productos.ts";
 import { useRoute } from "vue-router"
 
 const route = useRoute()
@@ -156,17 +156,6 @@ const toggleDescription = (id: number) => {
         productoAbierto.value = id;
     }
 };
-
-onMounted(async () => {
-    try {
-        productos.value = await getProductosLineaBlancaZonaSuperior();
-    } catch (err) {
-        productos.value = [];
-        console.error("Error al obtener los productos: ", err);
-    } finally {
-        isLoading.value = false;
-    }
-});
 
 
 // Obtenemos la categoría desde la URL (ej: /productos?cat=neurocirugia)
@@ -228,11 +217,53 @@ watch([currentPage, currentCategory], () => {
     });
 });
 
+watch([selectedCategories, currentCategory], async ([newCats, urlCat]) => {
+    // 1. Si no hay nada seleccionado, limpiamos y salimos
+    if (newCats.length === 0) {
+        productos.value = [];
+        isLoading.value = false;
+        return;
+    }
+
+    isLoading.value = true;
+    const categoriaBase = String(urlCat).toLowerCase().trim();
+
+    try {
+        // 2. Creamos un array de promesas (una petición por cada zona seleccionada)
+        const promesas = newCats.map(zona => getProductosPorArchivo(categoriaBase, zona));
+
+        // 3. Ejecutamos todas las peticiones al mismo tiempo con Promise.all
+        // Esto devolverá un array de arrays: [[productos zona 1], [productos zona 2]]
+        const resultadosDeZonas = await Promise.all(promesas);
+
+        // 4. Combinamos (aplanamos) todos los arrays en uno solo
+        // .flat() convierte [[A], [B]] en [A, B]
+        productos.value = resultadosDeZonas.flat();
+
+    } catch (err) {
+        // Si una zona falla (como las que aún no creas), el catch atrapará el error.
+        // Pero como tu función getProductosPorArchivo ya devuelve [] si falla, 
+        // el Promise.all seguirá funcionando para las zonas que SÍ existen.
+        console.error("Error al combinar zonas:", err);
+    } finally {
+        isLoading.value = false;
+    }
+}, { deep: true, immediate: true });
+
 const cartStore = useCartStore()
 
 const addCart = (producto: Producto) => {
     cartStore.addToCart(producto)
 }
+
+
+const formatCategoryName = (text: string | any) => {
+  const name = String(text);
+  if (name.toLowerCase() === 'todos') return 'CATÁLOGO DE PRODUCTOS';
+  
+  // Reemplaza guiones por espacios y pasar a Mayúsculas
+  return name.replace(/-/g, ' ').toUpperCase();
+};
 </script>
 
 <style scoped>
