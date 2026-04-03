@@ -26,13 +26,66 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon variant="text" style="color:#344767" :to="{ name: 'Carrito' }" class="relative">
-        <v-badge :content="cartStore.totalItems" color="red" overlap v-if="cartStore.totalItems >= 0">
-          <v-icon :class="{ 'animate-bounce': cartStore.animateCart }" style="transition: transform 0.3s;">
-            mdi-cart-variant
-          </v-icon>
-        </v-badge>
-      </v-btn>
+      <v-menu v-model="menuCarrito" open-on-click :close-on-content-click="false" location="bottom end" transition="scale-transition">
+        <template v-slot:activator="{ props }">
+          <v-btn icon variant="text" style="color:#344767" class="relative" v-bind="props">
+            <v-badge :content="cartStore.totalItems" color="red" overlap v-if="cartStore.totalItems > 0">
+              <v-icon :class="{ 'animate-bounce': cartStore.animateCart }">
+                mdi-cart-variant
+              </v-icon>
+            </v-badge>
+            <v-icon v-else>mdi-cart-variant</v-icon>
+          </v-btn>
+        </template>
+
+        <v-card width="350" class="pa-2 shadow-lg">
+          <v-list lines="two">
+            <v-list-subheader class="font-weight-bold text-uppercase">
+              Mi Carrito ({{ cartStore.totalItems }})
+            </v-list-subheader>
+
+            <v-divider></v-divider>
+
+            <div style="max-height: 300px; overflow-y: auto;" class="custom-scroll">
+        
+        <v-list-item v-if="cartStore.cart.length === 0" class="text-center py-4">
+          <v-list-item-title class="text-grey-darken-1">No hay productos aún</v-list-item-title>
+        </v-list-item>
+
+        <v-list-item v-for="item in cartStore.cart" :key="item.id" class="mb-2">
+          <template v-slot:prepend>
+            <v-avatar rounded="lg" size="50" border>
+              <v-img :src="item.image" cover></v-img>
+            </v-avatar>
+          </template>
+
+          <v-list-item-title class="text-subtitle-2 font-weight-bold">
+            {{ item.name }}
+          </v-list-item-title>
+
+          <v-list-item-subtitle>
+            Cantidad: {{ item.quantity }}
+          </v-list-item-subtitle>
+
+          <template v-slot:append>
+            <v-btn icon="mdi-close-circle-outline" variant="text" size="small" color="red-lighten-1"
+              @click="cartStore.removeFromCart(item.id)"></v-btn>
+          </template>
+        </v-list-item>
+        
+      </div>
+      </v-list>
+
+          <v-divider class="mb-2"></v-divider>
+
+          <div class="pa-2">
+            <v-btn block color="#1C90A1" variant="elevated" prepend-icon="mdi-eye" :to="{ name: 'Carrito' }" @click="menuCarrito = false">
+              Ver completo
+            </v-btn>
+          </div>
+        </v-card>
+      </v-menu>
+
 
       <v-btn icon variant="text" style="margin-right: 20px;color:#344767">
         <v-icon>mdi-account-circle</v-icon>
@@ -184,6 +237,7 @@ import { useCartStore } from '../../stores/CartStore'
 
 
 
+const menuCarrito = ref(false);
 
 const router = useRouter()
 const cartStore = useCartStore()
