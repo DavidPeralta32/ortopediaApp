@@ -26,6 +26,7 @@
 
       <v-spacer></v-spacer>
 
+      <!--Boton carrito de compra y vista previa-->
       <v-menu v-model="menuCarrito" open-on-click :close-on-content-click="false" location="bottom end" transition="scale-transition">
         <template v-slot:activator="{ props }">
           <v-btn icon variant="text" style="color:#344767" class="relative" v-bind="props">
