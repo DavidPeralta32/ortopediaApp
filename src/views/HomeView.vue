@@ -12,7 +12,7 @@
 
     <div class="card cardPrincipal mx-3 mx-md-6 mt-n6">
         <EnviosCotizacionesHome></EnviosCotizacionesHome>
-        <CategoriasHome></CategoriasHome>
+        <!--<CategoriasHome></CategoriasHome>-->
         <ProductosHome></ProductosHome>
         <!--<ProvedoresView></ProvedoresView>-->
 

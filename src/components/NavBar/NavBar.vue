@@ -9,19 +9,8 @@
     <!-- Botones para escritorio -->
     <template v-if="$vuetify.display.mdAndUp">
       <v-btn text @click="abrirDialogNosotros()">Nosotros</v-btn>
-      <v-menu open-on-hover location="bottom">
-        <template v-slot:activator="{ props }">
-          <v-btn text v-bind="props" append-icon="mdi-chevron-down">
-            Productos
-          </v-btn>
-        </template>
-
-        <v-list>
-          <v-list-item v-for="(item, index) in categorias" :key="index" @click="goToProductos(item.value)">
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+       <v-btn text @click="goToProductos('ortopedia-blanda')" >Productos</v-btn>
+      
       <v-btn text @click="goToContacto()">Contacto</v-btn>
 
       <v-spacer></v-spacer>

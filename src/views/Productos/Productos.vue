@@ -1,120 +1,122 @@
 <template>
-    <v-container fluid class="px-md-10 py-10 bg-grey-lighten-5 mt-16">
-        <v-row>
-            <v-col cols="12" md="3" lg="2">
-                <div class="sticky-sidebar">
-                    <h3 class="text-subtitle-1 font-weight-bold mb-4">FILTRAR POR ZONA</h3>
-
-                    <v-checkbox v-for="cat in categoriasDisponibles" :key="cat" v-model="selectedCategories"
-                        :label="cat" :value="cat" color="primary" hide-details density="compact"
-                        class="mb-1"></v-checkbox>
-
-                    <v-divider class="my-6"></v-divider>
-
-                    <v-btn variant="text" color="error" size="small" prepend-icon="mdi-filter-off" @click="resetFilters"
-                        v-if="selectedCategories.length > 0 || searchQuery">
-                        Limpiar filtros
-                    </v-btn>
-                </div>
-            </v-col>
-
-            <v-col cols="12" md="9" lg="10">
+    <v-container fluid class="px-md-10 py-10 bg-grey-lighten-4 mt-16">
+        <v-row justify="center">
+            <v-col cols="12" lg="11">
                 <header class="mb-8">
-                    <h2 class="text-h4 font-weight-bold mb-2">
-                        {{ formatCategoryName(currentCategory) }}
+                    <h2 class="text-h4 font-weight-bold mb-1 text-grey-darken-4 text-uppercase tracking-wide">
+                        Ortopedia Blanda
                     </h2>
-                    <p class="text-body-1 text-medium-emphasis">
-                        Mostrando <b>{{ filteredProducts.length }}</b> productos
-                    </p>
 
-                    <v-text-field v-model="searchQuery" prepend-inner-icon="mdi-magnify" label="Buscar producto..."
-                        variant="solo" flat bg-color="white" class="rounded-xl mt-4 border shadow-sm" hide-details
-                        clearable></v-text-field>
+                    <!-- Sección de Filtros por Zona -->
+                    <div class="mt-4 mb-2">
+                        <span
+                            class="text-caption font-weight-bold text-grey-darken-1 text-uppercase tracking-wider d-block mb-2">
+                            Filtrar por zona del cuerpo:
+                        </span>
+                        <v-chip-group v-model="selectedZone" selected-class="bg-teal text-white" mandatory>
+                            <v-chip v-for="zona in zonas" :key="zona.id" :value="zona.id" filter :disabled="isLoading"
+                                variant="tonal" class="font-weight-medium px-4">
+                                {{ zona.name }}
+                            </v-chip>
+                        </v-chip-group>
+                    </div>
+
+                    <div class="d-flex align-center flex-wrap gap-4 mt-4">
+                        <p class="text-body-2 text-medium-emphasis mb-0">
+                            Mostrando <span class="font-weight-bold text-grey-darken-3">{{ filteredProducts.length
+                                }}</span> productos
+                        </p>
+                        <v-spacer></v-spacer>
+                        <v-btn v-if="searchQuery || selectedZone !== 'Todos'" variant="text" color="error" size="small"
+                            @click="resetFilters" class="text-none">
+                            Limpiar filtros
+                        </v-btn>
+                    </div>
+
+                    <v-text-field v-model="searchQuery" prepend-inner-icon="mdi-magnify"
+                        label="Buscar producto por nombre o descripción..." variant="solo" flat bg-color="white"
+                        class="rounded-xl mt-4 border shadow-sm" hide-details clearable></v-text-field>
                 </header>
 
                 <v-row v-if="isLoading">
-                    <v-col v-for="n in 4" :key="n" cols="12" sm="6" lg="4">
+                    <v-col v-for="n in 4" :key="n" cols="12" sm="6" md="4" lg="3">
                         <v-skeleton-loader type="card, article" class="rounded-xl"></v-skeleton-loader>
                     </v-col>
                 </v-row>
 
-                <v-row v-else-if="filteredProducts.length > 0" align="start">
-                    <v-col v-for="producto in paginatedProducts" :key="producto.id" cols="12" sm="6" lg="4" xl="3">
-                        <v-card variant="flat"
-                            class="product-card overflow-hidden rounded-xl border d-flex flex-column h-100">
-                            <div class="image-wrapper">
-                                <v-img :src="producto.image" :aspect-ratio="1" cover class="bg-white">
+                <v-row v-else-if="filteredProducts.length > 0" align="stretch">
+                    <v-col v-for="producto in paginatedProducts" :key="producto.id" cols="12" sm="6" md="4" lg="3">
+                        <v-card variant="flat" class="product-card rounded-xl d-flex flex-column h-100">
+
+                            <div class="image-wrapper bg-grey-lighten-5">
+                                <v-img :src="producto.image" height="200" contain class="product-img pa-4">
+                                    <template v-slot:placeholder>
+                                        <div class="d-flex align-center justify-center fill-height bg-grey-lighten-4">
+                                            <v-progress-circular color="grey-lighten-1"
+                                                indeterminate></v-progress-circular>
+                                        </div>
+                                    </template>
                                     <div class="card-badges">
-                                        <v-chip :color="producto.stock ? 'success' : 'error'" size="x-small"
-                                            variant="flat" class="font-weight-bold">
+                                        <v-chip :color="producto.stock ? 'teal-darken-1' : 'red-darken-1'"
+                                            size="x-small" variant="flat" class="font-weight-bold text-white px-2">
                                             {{ producto.stock ? 'STOCK' : 'AGOTADO' }}
                                         </v-chip>
                                     </div>
                                 </v-img>
                             </div>
-                            <v-card-item class="pa-5 flex-grow-1">
-                                <div class="text-overline text-primary font-weight-bold mb-1">{{ producto.category }}
-                                </div>
-                                <v-card-title class="text-subtitle-1 font-weight-bold text-wrap mb-2 line-height-1">
-                                    {{ producto.name.toUpperCase() }}
-                                </v-card-title>
 
-                                <v-card-actions class="px-0">
-                                    <v-btn class="text-primary text-none" variant="text"
-                                        @click="toggleDescription(producto.id)">Ver más</v-btn>
-                                    <v-spacer></v-spacer>
-                                    <v-btn
-                                        :icon="productoAbierto === producto.id ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-                                        @click="toggleDescription(producto.id)"></v-btn>
-                                </v-card-actions>
+                            <v-card-item class="pa-4 flex-grow-1 d-flex flex-column justify-space-between">
+                                <div>
+                                    <span
+                                        class="text-caption font-weight-bold text-teal text-uppercase tracking-wider d-block mb-1">
+                                        {{ producto.category }}
+                                    </span>
+                                    <h3 class="product-title font-weight-bold text-grey-darken-4 mb-2">
+                                        {{ producto.name }}
+                                    </h3>
+                                </div>
 
                                 <v-expand-transition>
                                     <div v-show="productoAbierto === producto.id">
-                                        <v-divider></v-divider>
-                                        <v-card-text class="text-justify px-0">
-                                            {{ producto.descripcion.toUpperCase() }}
-                                        </v-card-text>
+                                        <v-divider class="my-2"></v-divider>
+                                        <p class="text-body-2 text-medium-emphasis text-justify lh-sm mb-2">
+                                            {{ producto.descripcion }}
+                                        </p>
                                     </div>
                                 </v-expand-transition>
-
-                                <div class="d-flex align-center justify-end mt-4">
-                                    <v-btn icon="mdi-cart-plus" color="#1C90A1" class="text-white" elevation="2"
-                                        size="small" :disabled="!producto.stock" @click="addCart(producto)"></v-btn>
-                                </div>
                             </v-card-item>
+
+                            <v-divider class="mx-4 opacity-60"></v-divider>
+                            <v-card-actions class="px-4 py-3 bg-white rounded-b-xl d-flex align-center">
+                                <v-btn class="text-none font-weight-medium text-body-2 text-grey-darken-2"
+                                    variant="text" density="comfortable"
+                                    :append-icon="productoAbierto === producto.id ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+                                    @click="toggleDescription(producto.id)">
+                                    Detalles
+                                </v-btn>
+
+                                <v-spacer></v-spacer>
+
+                                <v-btn icon="mdi-cart-plus" color="#1C90A1" elevation="0" size="small"
+                                    :disabled="!producto.stock" @click="addCart(producto)"></v-btn>
+                            </v-card-actions>
                         </v-card>
                     </v-col>
                 </v-row>
 
                 <v-fade-transition>
                     <div v-if="!isLoading && filteredProducts.length === 0"
-                        class="text-center py-16 empty-container rounded-xl">
-
-                        <div v-if="selectedCategories.length === 0">
-                            <v-icon size="64" color="primary" class="mb-4">mdi-filter-check-outline</v-icon>
-                            <h3 class="text-h5 font-weight-medium">Selecciona una categoría</h3>
-                            <p class="text-grey">
-                                Para buscar o ver productos, primero selecciona al menos una
-                                <b>Zona de Miembro</b> en el panel lateral.
-                            </p>
-                        </div>
-
-                        <div v-else>
-                            <v-icon size="64" color="grey-lighten-1">mdi-magnify-close</v-icon>
-                            <h3 class="text-h5 mt-4 font-weight-medium">Sin resultados</h3>
-                            <p class="text-grey">
-                                No hay productos que coincidan con "{{ searchQuery }}" en las categorías seleccionadas.
-                            </p>
-                            <v-btn variant="text" color="primary" class="mt-4" @click="searchQuery = ''">
-                                Limpiar búsqueda
-                            </v-btn>
-                        </div>
-
+                        class="text-center py-16 empty-container rounded-xl bg-white">
+                        <v-icon size="64" color="grey-lighten-1">mdi-magnify-close</v-icon>
+                        <h3 class="text-h5 mt-4 font-weight-medium text-grey-darken-3">Sin resultados</h3>
+                        <p class="text-grey-darken-1">
+                            No encontramos productos en esta sección.
+                        </p>
                     </div>
                 </v-fade-transition>
 
                 <div class="d-flex justify-center mt-12">
-                    <v-pagination v-if="pageCount > 1" v-model="currentPage" :length="pageCount" active-color="primary"
+                    <v-pagination v-if="pageCount > 1" v-model="currentPage" :length="pageCount" active-color="#1C90A1"
                         rounded="circle" :total-visible="5"></v-pagination>
                 </div>
             </v-col>
@@ -123,77 +125,74 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from "vue"
+import { ref, computed, watch, onMounted } from "vue"
 import { useCartStore } from "../../stores/CartStore"
 import type { Producto } from "@/views/Productos/types/Producto"
 import { getProductosPorArchivo } from "@/api/Productos.ts";
-import { useRoute } from "vue-router"
 
-const route = useRoute()
+const CATEGORIA_FIJA = "ortopedia-blanda";
 
-// Lista de productos
 const productos = ref<Producto[]>([])
 const searchQuery = ref("")
-const itemsPerPage = 10
+const selectedZone = ref("Todos") // Seleccionado por defecto desde el inicio
+const itemsPerPage = 12
 const currentPage = ref(1)
 const isLoading = ref(true)
-
 const productoAbierto = ref<number | null>(null);
 
-const categoriasDisponibles = [
-    'MIEMBRO SUPERIOR',
-    'MIEMBRO MEDIO',
-    'MIEMBRO INFERIOR'
-];
+/**
+ * CONFIGURACIÓN DE TUS FILTROS:
+ * El 'id' debe coincidir con cómo se llaman o quieres que se llamen tus archivos .json
+ * Tu función de la API los transformará automáticamente (ej: 'miembro superior' -> 'MiembroSuperior.json')
+ */
+const zonas = [
+    { id: 'Todos', name: 'Ver Todos' },
+    { id: 'miembro superior', name: 'Zona Alta' },
+    { id: 'tronco', name: 'Zona Media' },
+    { id: 'miembro inferior', name: 'Zona Baja' },
+    { id: 'otros', name: 'Otros / Accesorios' }
+]
 
-const selectedCategories = ref<string[]>([]); // Array para múltiples selecciones
+const cartStore = useCartStore()
 
 const toggleDescription = (id: number) => {
-    // Si el que toco ya está abierto, lo cierro (null), si no, guardo su ID
-    if (productoAbierto.value === id) {
-        productoAbierto.value = null;
-    } else {
-        productoAbierto.value = id;
+    productoAbierto.value = productoAbierto.value === id ? null : id;
+};
+
+// Función encargada de pedir los datos a la API según la zona
+const fetchProductos = async (zona: string) => {
+    isLoading.value = true;
+    try {
+        productos.value = await getProductosPorArchivo(CATEGORIA_FIJA, zona);
+    } catch (err) {
+        console.error("Error cargando productos por zona:", err);
+    } finally {
+        isLoading.value = false;
     }
 };
 
-
-// Obtenemos la categoría desde la URL (ej: /productos?cat=neurocirugia)
-const currentCategory = computed(() => route.query.cat || 'Todos')
-
-// OPTIMIZACIÓN 1: Un solo computed para todos los filtros
-// Esto es más eficiente que tener 3 computeds anidados
-const filteredProducts = computed(() => {
-
-
-    // NUEVA CONDICIÓN: Si no hay selección ni búsqueda, no mostrar nada
-    if (selectedCategories.value.length === 0) {
-        return [];
-    }
-
-    const query = (searchQuery.value || "").toLowerCase().trim();
-
-    return productos.value.filter(p => {
-        // 1. Filtro por Checkbox (aquí ya no necesitamos el "|| length === 0" 
-        // porque ya validamos arriba que si llega aquí es porque hay algo seleccionado)
-        const matchesCategory = selectedCategories.value.length === 0 ||
-            selectedCategories.value.includes(p.sub_categoria.toUpperCase());
-
-        // 2. Filtro por Buscador
-        const matchesSearch = p.name.toLowerCase().includes(query);
-
-        return matchesCategory && matchesSearch;
-    });
+onMounted(() => {
+    // Carga inicial usando el valor por defecto: "Todos" -> buscará 'Todos.json'
+    fetchProductos(selectedZone.value);
 });
 
-// Resetear filtros
-const resetFilters = () => {
-    selectedCategories.value = [];
-    searchQuery.value = "";
+// Watcher que reacciona de inmediato cuando el usuario hace clic en una zona diferente
+watch(selectedZone, (newZone) => {
     currentPage.value = 1;
-};
+    fetchProductos(newZone);
+});
 
-// Paginación: cortamos el arreglo filtrado
+// Filtro por texto en el cliente sobre los productos ya cargados de la zona actual
+const filteredProducts = computed(() => {
+    const query = searchQuery.value.toLowerCase().trim();
+    if (!query) return productos.value;
+
+    return productos.value.filter(p =>
+        p.name.toLowerCase().includes(query) ||
+        p.descripcion.toLowerCase().includes(query)
+    );
+});
+
 const paginatedProducts = computed(() => {
     const start = (currentPage.value - 1) * itemsPerPage
     return filteredProducts.value.slice(start, start + itemsPerPage)
@@ -201,103 +200,46 @@ const paginatedProducts = computed(() => {
 
 const pageCount = computed(() => Math.ceil(filteredProducts.value.length / itemsPerPage))
 
-
-
-
-// OPTIMIZACIÓN 2: Resetear página solo cuando cambian los filtros
-watch([selectedCategories, searchQuery], () => {
+watch(searchQuery, () => {
     currentPage.value = 1;
 });
 
-// Observa cambios en la página actual O en la categoría
-watch([currentPage, currentCategory], () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Esto hace que el movimiento sea elegante
-    });
+watch(currentPage, () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-watch([selectedCategories, currentCategory], async ([newCats, urlCat]) => {
-    // 1. Si no hay nada seleccionado, limpiamos y salimos
-    if (newCats.length === 0) {
-        productos.value = [];
-        isLoading.value = false;
-        return;
-    }
-
-    isLoading.value = true;
-    const categoriaBase = String(urlCat).toLowerCase().trim();
-
-    try {
-        // 2. Creamos un array de promesas (una petición por cada zona seleccionada)
-        const promesas = newCats.map(zona => getProductosPorArchivo(categoriaBase, zona));
-
-        // 3. Ejecutamos todas las peticiones al mismo tiempo con Promise.all
-        // Esto devolverá un array de arrays: [[productos zona 1], [productos zona 2]]
-        const resultadosDeZonas = await Promise.all(promesas);
-
-        // 4. Combinamos (aplanamos) todos los arrays en uno solo
-        // .flat() convierte [[A], [B]] en [A, B]
-        productos.value = resultadosDeZonas.flat();
-
-    } catch (err) {
-        // Si una zona falla (como las que aún no creas), el catch atrapará el error.
-        // Pero como tu función getProductosPorArchivo ya devuelve [] si falla, 
-        // el Promise.all seguirá funcionando para las zonas que SÍ existen.
-        console.error("Error al combinar zonas:", err);
-    } finally {
-        isLoading.value = false;
-    }
-}, { deep: true, immediate: true });
-
-const cartStore = useCartStore()
+const resetFilters = () => {
+    searchQuery.value = "";
+    selectedZone.value = "Todos";
+};
 
 const addCart = (producto: Producto) => {
     cartStore.addToCart(producto)
 }
-
-
-const formatCategoryName = (text: string | any) => {
-  const name = String(text);
-  if (name.toLowerCase() === 'todos') return 'CATÁLOGO DE PRODUCTOS';
-  
-  // Reemplaza guiones por espacios y pasar a Mayúsculas
-  return name.replace(/-/g, ' ').toUpperCase();
-};
 </script>
 
 <style scoped>
-/* Estilos Globales del Componente */
-.letter-spacing-1 {
-    letter-spacing: 1px;
-}
-
-/* Sidebar Fijo al hacer scroll */
-.sticky-sidebar {
-    position: sticky;
-    top: 110px;
-    /* Ajustar según altura de tu Navbar */
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-}
-
-/* Tarjeta de Producto */
 .product-card {
-    border: 1px solid #edf2f7 !important;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid #e2e8f0 !important;
+    background-color: #ffffff;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
-    border-color: transparent !important;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -4px rgba(0, 0, 0, 0.08) !important;
 }
 
 .image-wrapper {
     position: relative;
-    overflow: hidden;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom: 1px solid #f1f5f9;
 }
 
-
+.product-img {
+    mix-blend-mode: multiply;
+}
 
 .card-badges {
     position: absolute;
@@ -306,22 +248,29 @@ const formatCategoryName = (text: string | any) => {
     z-index: 2;
 }
 
+.product-title {
+    font-size: 0.95rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 2.6em;
+}
+
 .empty-container {
-    background: white;
-    border: 2px dashed #e2e8f0;
+    border: 2px dashed #cbd5e1;
 }
 
-.line-height-1 {
-    line-height: 1.2 !important;
+.tracking-wide {
+    letter-spacing: 0.05em;
 }
 
-.sticky-sidebar {
-    position: sticky;
-    top: 100px;
-    /* Ajusta según la altura de tu navbar */
-    padding: 20px;
-    background: white;
-    border-radius: 16px;
-    border: 1px solid #edf2f7;
+.tracking-wider {
+    letter-spacing: 0.07em;
+}
+
+.lh-sm {
+    line-height: 1.4;
 }
 </style>

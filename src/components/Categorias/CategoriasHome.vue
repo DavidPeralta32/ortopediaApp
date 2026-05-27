@@ -1,6 +1,6 @@
 <template>
     <div class="contenedor-categorias">
-        <h2>Categorías</h2>
+        <h2>Categoría</h2>
         <v-sheet color="#1C90A1" elevation="3" rounded="lg">
             <v-tabs v-model="filterStore.selectedCategory" align-tabs="center" color="white" height="80"
                 slider-color="#98C7C9">

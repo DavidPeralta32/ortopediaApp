@@ -12,7 +12,7 @@ export const getProductosLineaBlancaZonaSuperior = async () => {
     
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch (error) {                                                                                                                                                                                                                                 
     console.error("Error al obtener productos:", error);
     throw error; 
   }
