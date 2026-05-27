@@ -1,0 +1,232 @@
+[
+    {
+        "id": 24,
+        "name": "Zapato Post-operatorio",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "pie",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907777/Zapato_Post-operatorio_epv3mm.png",
+        "descripcion": ""
+    },
+    {
+        "id": 25,
+        "name": "Zapato Post-operatorio Volado de Talón",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "pie",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907776/Zapato_Post-operatorio_Volado_de_Talo%CC%81n_ap4kjs.png",
+        "descripcion": ""
+    },
+    {
+        "id": 26,
+        "name": "Zapato Post-operatorio Volado de Antepie",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "pie",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907775/Zapato_Post-operatorio_Volado_de_Antepie_f1tipy.png",
+        "descripcion": ""
+    },
+    {
+        "id": 28,
+        "name": "Zapato Post-operatorio Extra Chico para Niños",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "pie",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907775/Zapato_Post-operatorio_Extra_Chico_para_nin%CC%83o__moral1.png",
+        "descripcion": ""
+    },
+    {
+        "id": 29,
+        "name": "Tobillera Elastíca en Banda",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "tobillo",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907774/Tobillera_ela%CC%81stica_en_Banda_r3dwam.png",
+        "descripcion": ""
+    },
+    {
+        "id": 30,
+        "name": "Rodillera con Magnetos",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "pie",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907773/rodilleras_con_magnetos_wbr8o3.png",
+        "descripcion": ""
+    },
+    {
+        "id": 31,
+        "name": "Rodillera Post-Operatoria Graduable",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "rodilla",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907772/Rodillera_Post-operatoria_Graduable_fbubsd.png",
+        "descripcion": ""
+    },
+    {
+        "id": 32,
+        "name": "Rodillera Larga Abierta P/lig Cruzado",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "rodilla",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907771/Rodillera_Larga_Abierta_Plig_Cruzado_rtml7j.png",
+        "descripcion": ""
+    },
+    {
+        "id": 33,
+        "name": "Rodillera Elastíca Deportiva Premium",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "rodilla",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907770/rodillera_elastica_deportiva_premium_epwxxp.png",
+        "descripcion": ""
+    },
+    {
+        "id": 34,
+        "name": "Rodillera Corta Abierta P/Lig Cruzado",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "rodilla",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907769/Rodillera_Corta_Abierta_Plig_Cruzado_wenwru.png",
+        "descripcion": ""
+    },
+    {
+        "id": 35,
+        "name": "Rodillera Ajustable Doble Soporte Lateral Flexible",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "rodilla",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907769/rodillera_ajustable_doble_soporte_lateral_flexible_jgwhn0.png",
+        "descripcion": ""
+    },
+    {
+        "id": 36,
+        "name": "Inmovilizadora de Rodilla Infantil",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "rodilla",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907768/inmovilizadora_de_rodilla_infantil_hyctuw.png",
+        "descripcion": ""
+    },
+    {
+        "id": 37,
+        "name": "Inmovilizadora de Rodilla Negro",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "rodilla",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907767/Inmovilizador_de_Rodilla_Negro_ynj6yq.png",
+        "descripcion": ""
+    },
+    {
+        "id": 38,
+        "name": "Anillo Subrotuliano",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "rodilla",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907759/anillo_subrotuliano_xy0oxh.png",
+        "descripcion": ""
+    },
+    {
+        "id": 39,
+        "name": "Férula para Tobillo con Gel",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "tobillo",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907766/Fe%CC%81rula_para_Tobillo_con_Gel_jcle2t.png",
+        "descripcion": ""
+    },
+    {
+        "id": 40,
+        "name": "Férula para Tobillo con Foamy",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "tobillo",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907766/Ferula_para_Tobillo_con_foamy_gh310q.png",
+        "descripcion": ""
+    },
+    {
+        "id": 41,
+        "name": "Férula para Tobillo con Aire",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "tobillo",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907765/ferula_para_tobillo_con_aire_uvj6ev.png",
+        "descripcion": ""
+    },
+    {
+        "id": 42,
+        "name": "Férula para Tobillo con Aire/Gel",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "tobillo",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907764/Fe%CC%81rula_para_Tobillo_con_Aire_Gel_w5qfl0.png",
+        "descripcion": ""
+    },
+    {
+        "id": 43,
+        "name": "Férula Estabilizadora de Juanete",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "pie",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907763/Fe%CC%81rula_Estabilizadora_de_Juanete_qoah7w.png",
+        "descripcion": ""
+    },
+    {
+        "id": 44,
+        "name": "Bota Walker Neumática de Lujo",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "pie",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907762/Bota_Walker_Neuma%CC%81tica_de_Lujo_Gris_fdwgiy.png",
+        "descripcion": ""
+    },
+    {
+        "id": 45,
+        "name": "Bota Walker Corta con Aire Graduada",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "pie",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907761/Bota_Walker_Corta_con_Aire_Graduada_ir5ojs.png",
+        "descripcion": ""
+    },
+    {
+        "id": 46,
+        "name": "Bota Walker Corta Neumática",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "pie",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907760/Bota_Corta_Walker_Neuma%CC%81tica_hxpubu.png",
+        "descripcion": ""
+    },
+    {
+        "id": 47,
+        "name": "Bota Walker Larga Neumática",
+        "category": "ortopedia-blanda",
+        "sub_categoria": "baja",
+        "zona": "pie",
+        "stock": true,
+        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907760/Bota_Larga_Walker_Neuma%CC%81tica_bfgf6d.png",
+        "descripcion": ""
+    }
+]

@@ -238,17 +238,7 @@ const tab = ref(null)
 
 const text = 'DISTRIBUIR Y PROVEER DE ALTA VARIEDAD DE INSUMOS MEDICOS Y MATERIAL MEDICO DE ALTA CALIDAD, CON EL OBJETIVO DE SATISFACER CUALQUIER NECESIDAD Y VOLVERSE INDISPENSABLE PARA LAS INSTITUCIONES DE SALUD, PROFESIONALES DEL SECTOR Y PACIENTES.'
 
-const categorias = [
-  { title: 'Artroscopia', value: 'artroscopia' },
-  { title: 'Bultos de ropa', value: 'bultos-ropa' },
-  { title: 'Consumibles', value: 'consumibles' },
-  { title: 'Neurocirugía', value: 'neurocirugia' },
-  { title: 'Ortopedia Blanda', value: 'ortopedia-blanda' },
-  { title: 'Reemplazo Articular', value: 'reemplazo-articular' },
-  { title: 'Túnel del Carpo', value: 'tunel-carpo' },
-  { title: 'Cirugía de columna', value: 'cirugia-columna' },
-  { title: 'Todos', value: 'Todos' }
-]
+
 
 const drawer = ref(false)
 const drawerUserCarrito = ref(false);

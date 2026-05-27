@@ -172,6 +172,7 @@ watch(selectedCategories, (newVal) => {
 // Computed para aplicar filtros
 const filteredProducts = computed(() => {
   // Si el store aún no tiene categoría (mientras carga la API), devolvemos vacío o todos
+  filterStore.selectedCategory = "Todos"
   if (!filterStore.selectedCategory) return [];
 
   return productos.value.filter((p) => {
