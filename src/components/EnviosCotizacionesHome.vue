@@ -2,7 +2,7 @@
     <div class="contenedor-info-cotizacion-tienda">
         <div class="card-envios">
             <div class="envios-card">
-                <v-card class="mx-auto card-info" max-width="500" height="180" variant="default">
+                <v-card class="mx-auto card-info" max-width="500" height="180" variant="flat">
                     <v-btn class="icon-info" icon="mdi mdi-map-marker-radius" variant="text"></v-btn>
 
                     <v-card-title>ENVÍOS A TODO MÉXICO</v-card-title>
@@ -14,7 +14,7 @@
             </div>
 
             <div class="envios-card">
-                <v-card class="mx-auto card-info" max-width="500" height="180" variant="default">
+                <v-card class="mx-auto card-info" max-width="500" height="180" variant="flat">
                     <v-btn class="icon-info" icon="mdi mdi-medical-bag" variant="text"></v-btn>
 
                     <v-card-title>TODOS LOS CONSUMIBLES EN UN MISMO LUGAR</v-card-title>

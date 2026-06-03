@@ -23,8 +23,9 @@
 
                     <div class="d-flex align-center flex-wrap gap-4 mt-4">
                         <p class="text-body-2 text-medium-emphasis mb-0">
-                            Mostrando <span class="font-weight-bold text-grey-darken-3">{{ filteredProducts.length
-                                }}</span> productos
+                            Mostrando <span class="font-weight-bold text-grey-darken-3">
+                            {{ displayedCount }}/{{ filteredProducts.length }}
+                        </span> productos
                         </p>
                         <v-spacer></v-spacer>
                         <v-btn v-if="searchQuery || selectedZone !== 'Todos'" variant="text" color="error" size="small"
@@ -44,9 +45,9 @@
                     </v-col>
                 </v-row>
 
-                <v-row v-else-if="filteredProducts.length > 0" align="stretch">
+                <v-row v-else-if="filteredProducts.length > 0">
                     <v-col v-for="producto in paginatedProducts" :key="producto.id" cols="12" sm="6" md="4" lg="3">
-                        <v-card variant="flat" class="product-card rounded-xl d-flex flex-column h-100">
+                        <v-card variant="flat" class="product-card rounded-xl d-flex flex-column" style="min-width: 25%;">
 
                             <div class="image-wrapper bg-grey-lighten-5">
                                 <v-img :src="producto.image" height="200" contain class="product-img pa-4">
@@ -56,12 +57,6 @@
                                                 indeterminate></v-progress-circular>
                                         </div>
                                     </template>
-                                    <div class="card-badges">
-                                        <v-chip :color="producto.stock ? 'teal-darken-1' : 'red-darken-1'"
-                                            size="x-small" variant="flat" class="font-weight-bold text-white px-2">
-                                            {{ producto.stock ? 'STOCK' : 'AGOTADO' }}
-                                        </v-chip>
-                                    </div>
                                 </v-img>
                             </div>
 
@@ -76,11 +71,12 @@
                                     </h3>
                                 </div>
 
-                                <v-expand-transition>
-                                    <div v-show="productoAbierto === producto.id">
+                                <v-expand-transition v-if="producto.descripcion && producto.descripcion.trim() !== ''">
+                                    <!-- Forzamos la comparación transformando ambos lados a Number de forma segura -->
+                                    <div v-show="Number(productoAbierto) === Number(producto.id)">
                                         <v-divider class="my-2"></v-divider>
                                         <p class="text-body-2 text-medium-emphasis text-justify lh-sm mb-2">
-                                            {{ producto.descripcion }}
+                                            {{ producto.descripcion || 'Sin descripción disponible.' }}
                                         </p>
                                     </div>
                                 </v-expand-transition>
@@ -88,9 +84,10 @@
 
                             <v-divider class="mx-4 opacity-60"></v-divider>
                             <v-card-actions class="px-4 py-3 bg-white rounded-b-xl d-flex align-center">
+                                <!-- Aplicamos la misma conversión estricta en el icono del botón -->
                                 <v-btn class="text-none font-weight-medium text-body-2 text-grey-darken-2"
                                     variant="text" density="comfortable"
-                                    :append-icon="productoAbierto === producto.id ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+                                    :append-icon="Number(productoAbierto) === Number(producto.id) ? 'mdi-chevron-up' : 'mdi-chevron-down'"
                                     @click="toggleDescription(producto.id)">
                                     Detalles
                                 </v-btn>
@@ -134,17 +131,12 @@ const CATEGORIA_FIJA = "ortopedia-blanda";
 
 const productos = ref<Producto[]>([])
 const searchQuery = ref("")
-const selectedZone = ref("Todos") // Seleccionado por defecto desde el inicio
+const selectedZone = ref("Todos")
 const itemsPerPage = 12
 const currentPage = ref(1)
 const isLoading = ref(true)
 const productoAbierto = ref<number | null>(null);
 
-/**
- * CONFIGURACIÓN DE TUS FILTROS:
- * El 'id' debe coincidir con cómo se llaman o quieres que se llamen tus archivos .json
- * Tu función de la API los transformará automáticamente (ej: 'miembro superior' -> 'MiembroSuperior.json')
- */
 const zonas = [
     { id: 'Todos', name: 'Ver Todos' },
     { id: 'miembro superior', name: 'Zona Alta' },
@@ -155,11 +147,12 @@ const zonas = [
 
 const cartStore = useCartStore()
 
-const toggleDescription = (id: number) => {
-    productoAbierto.value = productoAbierto.value === id ? null : id;
+const toggleDescription = (id: any) => {
+    // Convertimos a número antes de evaluar el estado de apertura
+    const numericId = Number(id);
+    productoAbierto.value = productoAbierto.value === numericId ? null : numericId;
 };
 
-// Función encargada de pedir los datos a la API según la zona
 const fetchProductos = async (zona: string) => {
     isLoading.value = true;
     try {
@@ -172,24 +165,22 @@ const fetchProductos = async (zona: string) => {
 };
 
 onMounted(() => {
-    // Carga inicial usando el valor por defecto: "Todos" -> buscará 'Todos.json'
     fetchProductos(selectedZone.value);
 });
 
-// Watcher que reacciona de inmediato cuando el usuario hace clic en una zona diferente
 watch(selectedZone, (newZone) => {
     currentPage.value = 1;
+    productoAbierto.value = null; 
     fetchProductos(newZone);
 });
 
-// Filtro por texto en el cliente sobre los productos ya cargados de la zona actual
 const filteredProducts = computed(() => {
     const query = searchQuery.value.toLowerCase().trim();
     if (!query) return productos.value;
 
     return productos.value.filter(p =>
         p.name.toLowerCase().includes(query) ||
-        p.descripcion.toLowerCase().includes(query)
+        (p.descripcion && p.descripcion.toLowerCase().includes(query))
     );
 });
 
@@ -198,13 +189,21 @@ const paginatedProducts = computed(() => {
     return filteredProducts.value.slice(start, start + itemsPerPage)
 })
 
+const displayedCount = computed(() => {
+    if (filteredProducts.value.length === 0) return 0;
+    const count = currentPage.value * itemsPerPage;
+    return Math.min(count, filteredProducts.value.length);
+})
+
 const pageCount = computed(() => Math.ceil(filteredProducts.value.length / itemsPerPage))
 
 watch(searchQuery, () => {
     currentPage.value = 1;
+    productoAbierto.value = null; 
 });
 
 watch(currentPage, () => {
+    productoAbierto.value = null; 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 

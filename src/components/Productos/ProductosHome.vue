@@ -14,19 +14,15 @@
       <v-col cols="12">
         <v-row v-if="filteredProducts.length > 0">
           <v-col v-for="producto in filteredProducts" :key="producto.id" cols="12" sm="6" md="4" lg="3">
-            <v-card class="product-card h-100 d-flex flex-column" variant="flat">
-              <div class="image-container">
-                <v-img :src="producto.image" height="220" cover class="bg-grey-lighten-4 rounded-t-lg">
+            <v-card class="product-card rounded-xl d-flex flex-column h-100" variant="flat">
+
+              <div class="image-wrapper bg-grey-lighten-5">
+                <v-img :src="producto.image" height="200" cover class="product-img pa-4">
                   <template v-slot:placeholder>
                     <v-row class="fill-height ma-0" align="center" justify="center">
                       <v-progress-circular indeterminate color="grey-lighten-5"></v-progress-circular>
                     </v-row>
                   </template>
-
-                  <v-chip :color="producto.stock ? 'success' : 'error'" size="x-small" class="ma-2 stock-badge"
-                    variant="flat">
-                    {{ producto.stock ? 'DISPONIBLE' : 'AGOTADO' }}
-                  </v-chip>
                 </v-img>
               </div>
 
@@ -35,19 +31,31 @@
                 <v-card-title class="text-h6 font-weight-bold px-0 pt-0">
                   {{ producto.name }}
                 </v-card-title>
+
+                <v-expand-transition>
+                  <div v-show="productoAbierto === producto.id">
+                    <v-divider class="my-2"></v-divider>
+                    <p class="text-body-2 text-medium-emphasis text-justify lh-sm mb-2">
+                      {{ producto.descripcion }}
+                    </p>
+                  </div>
+                </v-expand-transition>
+
               </v-card-item>
 
-              <!--<v-card-text class="flex-grow-1">
-                                <div class="text-h5 font-weight-black text-secondary">
-                                    ${{ producto.price.toLocaleString('es-MX') }}
-                                </div>
-                            </v-card-text>-->
-
-              <v-card-actions class="pa-4 pt-0">
-                <v-btn bac variant="elevated" block rounded="lg" style="background-color:#1C90A1; color: white;"
-                  prepend-icon="mdi-cart-plus" :disabled="!producto.stock" @click="addCart(producto)" class="add-btn">
-                  Agregar al carrito
+              <v-divider class="mx-4 opacity-60"></v-divider>
+              <v-card-actions class="px-4 py-3 bg-white rounded-b-xl d-flex align-center">
+                <v-btn class="text-none font-weight-medium text-body-2 text-grey-darken-2" variant="text"
+                  density="comfortable"
+                  :append-icon="productoAbierto === producto.id ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+                  @click="toggleDescription(producto.id)">
+                  Detalles
                 </v-btn>
+
+                <v-spacer></v-spacer>
+
+                <v-btn icon="mdi-cart-plus" color="#1C90A1" elevation="0" size="small" :disabled="!producto.stock"
+                  @click="addCart(producto)"></v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -71,6 +79,7 @@ import type { Producto } from "@/views/Productos/types/Producto"
 import { useFilterStore } from "@/stores/FilterProductosStore.ts";
 
 const filterStore = useFilterStore();
+const productoAbierto = ref<number | null>(null);
 
 // Lista de productos simulada
 const productos = ref([
@@ -195,15 +204,19 @@ const cartStore = useCartStore()
 const addCart = (producto: Producto) => {
   cartStore.addToCart(producto)
 }
+
+const toggleDescription = (id: number) => {
+  productoAbierto.value = productoAbierto.value === id ? null : id;
+};
 </script>
 
 <style scoped>
 /* Estilos Profesionales Personalizados */
 
 .product-card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid #e0e0e0 !important;
-  overflow: hidden;
+  border: 1px solid #e2e8f0 !important;
+  background-color: #ffffff;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Efecto al pasar el mouse sobre la tarjeta */
@@ -213,10 +226,18 @@ const addCart = (producto: Producto) => {
   border-color: transparent !important;
 }
 
-.image-container {
-  overflow: hidden;
+.image-wrapper {
   position: relative;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom: 1px solid #f1f5f9;
 }
+
+.product-img {
+  mix-blend-mode: multiply;
+}
+
+
 
 /* Efecto de zoom en la imagen al hacer hover */
 .product-card:hover .v-img {
