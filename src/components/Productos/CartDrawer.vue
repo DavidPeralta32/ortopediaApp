@@ -51,25 +51,45 @@
 
             <!-- 🔹 Resumen de compra: ocupa 4 columnas -->
             <v-col cols="12" md="4">
-                <v-card class="pa-4">
-                    <v-row>
-                        <v-col cols="6">Productos ({{ cartStore.totalItems }})</v-col>
-                        <!--<v-col cols="6" class="text-right">${{ cartStore.totalPrice }}</v-col>-->
-                        <v-col cols="6" class="text-right">$$$</v-col>
-                        
-                    </v-row>
-                    <v-row>
-                        <v-col cols="6">Envíos</v-col>
-                        <v-col cols="6" class="text-right">Gratis</v-col>
-                    </v-row>
-                    <v-divider class="my-2"></v-divider>
-                    <v-row class="font-weight-bold">
-                        <v-col cols="6">Total</v-col>
-                        <!--<v-col cols="6" class="text-right">${{ cartStore.totalPrice }}</v-col>-->
-                        <v-col cols="6" class="text-right">$$$</v-col>
-                    </v-row>
-                    <v-btn color="#1C90A1" block class="mt-3" @click="checkout">Cotizar</v-btn>
-                </v-card>
+                <!-- Envolvemos el contenedor en un v-form para manejar la validación nativa de Vuetify -->
+                <v-form ref="formRef" lazy-validation>
+                    <v-card class="pa-4">
+                        <v-row>
+                            <v-col cols="6">Productos ({{ cartStore.totalItems }})</v-col>
+                            <v-col cols="6" class="text-right"></v-col>
+                        </v-row>
+                        <v-row>
+                            <v-col cols="12"><strong>Envíos:</strong> Por calcular con el asesor.</v-col>
+                        </v-row>
+
+                        <v-divider class="my-3"></v-divider>
+
+                        <!-- 📨 Nuevo Campo de Correo Electrónico -->
+                        <v-row dense>
+                            <v-col cols="12">
+                                <v-text-field v-model="email" label="Correo electrónico donde recibirás la cotización"
+                                    placeholder="ejemplo@correo.com" variant="outlined" density="compact"
+                                    :rules="emailRules" required prepend-inner-icon="mdi-email-outline"></v-text-field>
+                            </v-col>
+                        </v-row>
+
+                        <v-row dense>
+                            <v-col cols="12">
+                                <p style="text-align: justify; font-size: 0.9rem; color: #555;">
+                                    Al dar clic en Solicitar Cotización, enviaremos la lista de tus productos a nuestro
+                                    equipo. Recibirás un correo electrónico con los precios detallados y las opciones de
+                                    envío a la brevedad.
+                                </p>
+                            </v-col>
+                        </v-row>
+
+                        <!-- Botón: Se desactiva automáticamente si el carrito está vacío -->
+                        <v-btn color="#1C90A1" block class="mt-3" :disabled="cartStore.cart.length === 0"
+                            @click="checkout" :loading="isSending">
+                            SOLICITAR COTIZACIÓN
+                        </v-btn>
+                    </v-card>
+                </v-form>
             </v-col>
 
         </v-row>
@@ -77,10 +97,26 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import { useCartStore } from '../../stores/CartStore'
 import type { Producto } from '@/views/Productos/types/Producto'
+import {useEnviarCotizacion} from '@/composables/useEnviarCotizacion'
 
 const cartStore = useCartStore()
+
+// 📄 Referencia al formulario de Vuetify para detonar la validación visual
+const formRef = ref<any>(null);
+
+// ✉️ Estado para almacenar el correo del usuario
+const email = ref('')
+
+const isSending = ref(false)
+
+// 🛡️ Reglas de Validación de Vuetify
+const emailRules = [
+    (v: string) => !!v || 'El correo electrónico es obligatorio',
+    (v: string) => /.+@.+\..+/.test(v) || 'Por favor, ingresa un correo válido (ejemplo@correo.com)',
+]
 
 const increaseQuantity = (item: Producto) => {
     item.quantity = (item.quantity ?? 1) + 1
@@ -101,11 +137,43 @@ const removeItem = (id: number) => {
 }
 
 
-const checkout = () => {
-    alert(`Aqui se enviara un correo con la cotizacion`)
-    // Navegar a página de checkout
-    // router.push({ name: 'Checkout' })
+// Función de Checkout para envio de cotizacion
+const checkout = async () => {
+    if (cartStore.cart.length === 0) {
+        alert('Tu carrito está vacío.')
+        return;
+    }
+
+    if (!formRef.value) return
+    const { valid } = await formRef.value.validate()
+    if (!valid) return
+
+    try {
+        isSending.value = true
+        
+        const { ejecutar } = await useEnviarCotizacion()
+        // Ejecutamos el caso de uso
+        const resultado = await ejecutar({
+            email: email.value,
+            productos: cartStore.cart
+        })
+
+        // Evaluamos cómo se envió la información
+        if (resultado.enviadoAutomatico) {
+            alert(`¡Solicitud enviada con éxito! Nuestro equipo procesará tu cotización y te responderá a: ${email.value}`)
+            cartStore.clearCart() // Opcional: Limpiar carrito
+        } else {
+            // Entra aquí si se usó el Fallback (Plan B)
+            alert('¡Atención! Hemos abierto tu aplicación de correo predeterminada con tu lista de productos. Por favor, haz clic en "Enviar" en tu aplicación para hacernos llegar la solicitud.')
+        }
+
+    } catch (error) {
+        alert('Hubo un error inesperado al procesar la solicitud.')
+    } finally {
+        isSending.value = false
+    }
 }
+
 </script>
 
 <style scoped>

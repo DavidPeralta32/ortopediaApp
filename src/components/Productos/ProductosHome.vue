@@ -16,45 +16,40 @@
           <v-col v-for="producto in filteredProducts" :key="producto.id" cols="12" sm="6" md="4" lg="3">
             <v-card class="product-card rounded-xl d-flex flex-column h-100" variant="flat">
 
+              <!-- 📸 Contenedor de la Imagen + Capa Overlay (image_8a1600.png) -->
               <div class="image-wrapper bg-grey-lighten-5">
-                <v-img :src="producto.image" height="200" cover class="product-img pa-4">
+                <v-img :src="producto.image" height="230" cover class="product-img pa-4">
                   <template v-slot:placeholder>
                     <v-row class="fill-height ma-0" align="center" justify="center">
                       <v-progress-circular indeterminate color="grey-lighten-5"></v-progress-circular>
                     </v-row>
                   </template>
                 </v-img>
+                
+                <!-- Capa Aqua que se activa al hacer Hover -->
+                <div class="product-overlay d-flex align-center justify-center text-center px-4">
+                  <p class="text-body-1 font-weight-medium text-white line-clamp-3">
+                    {{ producto.descripcion || 'Modelo estándar de alta resistencia anatómica.' }}
+                  </p>
+                </div>
               </div>
 
-              <v-card-item class="pt-4">
-                <div class="text-overline mb-1" style="color: #1C90A1;">{{ producto.category }}</div>
-                <v-card-title class="text-h6 font-weight-bold px-0 pt-0">
+              <!-- 📝 Información del Producto -->
+              <v-card-item class="pt-4 flex-grow-1">
+                <div class="text-overline mb-1 font-weight-bold" style="color: #1C90A1; letter-spacing: 1px;">
+                  {{ producto.category }}
+                </div>
+                <v-card-title class="text-h6 font-weight-bold px-0 pt-0 text-wrap text-grey-darken-4 lh-sm">
                   {{ producto.name }}
                 </v-card-title>
-
-                <v-expand-transition>
-                  <div v-show="productoAbierto === producto.id">
-                    <v-divider class="my-2"></v-divider>
-                    <p class="text-body-2 text-medium-emphasis text-justify lh-sm mb-2">
-                      {{ producto.descripcion }}
-                    </p>
-                  </div>
-                </v-expand-transition>
-
               </v-card-item>
 
               <v-divider class="mx-4 opacity-60"></v-divider>
+              
+              <!-- 🛒 Acciones Limpias (Como en tu imagen de referencia) -->
               <v-card-actions class="px-4 py-3 bg-white rounded-b-xl d-flex align-center">
-                <v-btn class="text-none font-weight-medium text-body-2 text-grey-darken-2" variant="text"
-                  density="comfortable"
-                  :append-icon="productoAbierto === producto.id ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-                  @click="toggleDescription(producto.id)">
-                  Detalles
-                </v-btn>
-
                 <v-spacer></v-spacer>
-
-                <v-btn icon="mdi-cart-plus" color="#1C90A1" elevation="0" size="small" :disabled="!producto.stock"
+                <v-btn icon="mdi-cart-plus" color="#1C90A1" variant="text" size="large" :disabled="!producto.stock"
                   @click="addCart(producto)"></v-btn>
               </v-card-actions>
             </v-card>
@@ -71,17 +66,14 @@
   </div>
 </template>
 
-
 <script setup lang="ts">
-import { ref, computed, watch } from "vue"
+import { ref, computed } from "vue"
 import { useCartStore } from "../../stores/CartStore"
 import type { Producto } from "@/views/Productos/types/Producto"
 import { useFilterStore } from "@/stores/FilterProductosStore.ts";
 
 const filterStore = useFilterStore();
-const productoAbierto = ref<number | null>(null);
 
-// Lista de productos simulada
 const productos = ref([
   {
     "id": 1,
@@ -91,7 +83,7 @@ const productos = ref([
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907879/mentonera_ag42kj.png",
-    "descripcion": ""
+    "descripcion": "Modelo: MN-012, Talla: Universal. Soporte post-operatorio mentoniano."
   },
   {
     "id": 2,
@@ -101,7 +93,7 @@ const productos = ref([
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907878/Callari%CC%81n_Cervical_Universal_Blando_bx2vzd.png",
-    "descripcion": ""
+    "descripcion": "Modelo: NK-005, Talla: Universal. Espuma de alta densidad cómoda."
   },
   {
     "id": 3,
@@ -111,7 +103,7 @@ const productos = ref([
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907876/Collari%CC%81n_Semiri%CC%81gido_Perfil_Bajo_e7swke.png",
-    "descripcion": ""
+    "descripcion": "Modelo: NK-SR02, Talla: Ajustable. Restricción intermedia de flexión."
   },
   {
     "id": 4,
@@ -121,7 +113,7 @@ const productos = ref([
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907875/collarin_cervical_blando_infantil_vymmoa.png",
-    "descripcion": ""
+    "descripcion": "Modelo: NK-PED, Talla: Infantil. Diseño anatómico acolchado suave."
   },
   {
     "id": 5,
@@ -131,7 +123,7 @@ const productos = ref([
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907874/Collari%CC%81n_Cervical_jlux1p.png",
-    "descripcion": ""
+    "descripcion": "Modelo: NK-STD, Talla: M / L. Soporte para cervicalgias agudas."
   },
   {
     "id": 6,
@@ -141,7 +133,7 @@ const productos = ref([
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907873/Callari%CC%81n_Cervical_Blando_Azul_Marino_zqw7gf.png",
-    "descripcion": ""
+    "descripcion": "Modelo: NK-BLU, Talla: Universal. Acabado textil de larga duración."
   },
   {
     "id": 7,
@@ -151,7 +143,7 @@ const productos = ref([
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907872/collarin_philadelphia_txyeny.png",
-    "descripcion": ""
+    "descripcion": "Modelo: PH-502, Talla: Grande. Plastazote con panel traqueal abierto."
   },
   {
     "id": 8,
@@ -161,40 +153,19 @@ const productos = ref([
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907871/Collari%CC%81n_Ortesi%CC%81s_Tipo_Miami_tiv0no.png",
-    "descripcion": ""
+    "descripcion": "Modelo: MO-700, Talla: Ajustable. Inmovilización estricta de columna."
   },
 ])
 
-// Filtros
-const categories = ref(["Ortopedia", "Artroscopia", "Neurocirugia", "ortopedia-blanda"])
-const selectedCategories = ref<string[]>([...categories.value])
-const selectAllCategories = ref(true)
-
 const inStockOnly = ref(false)
 
-
-// Observa cambios en la selección individual
-watch(selectedCategories, (newVal) => {
-  selectAllCategories.value = newVal.length === categories.value.length
-})
-
-// Computed para aplicar filtros
 const filteredProducts = computed(() => {
-  // Si el store aún no tiene categoría (mientras carga la API), devolvemos vacío o todos
-  filterStore.selectedCategory = "Todos"
-  if (!filterStore.selectedCategory) return [];
-
+  const categoriaSeleccionada = filterStore.selectedCategory || 'Todos';
   return productos.value.filter((p) => {
-    // 1. Filtro por Categoría
-    // Comparamos convirtiendo ambos a minúsculas para evitar errores de dedo
     const matchCategory =
-      filterStore.selectedCategory === 'Todos' ||
-      p.category.toLowerCase() === filterStore.selectedCategory.toLowerCase();
-
-    // 2. Filtro por Stock
+      categoriaSeleccionada === 'Todos' ||
+      p.category.toLowerCase() === categoriaSeleccionada.toLowerCase();
     const matchStock = !inStockOnly.value || p.stock;
-
-    // Solo si cumple ambas condiciones se muestra el producto
     return matchCategory && matchStock;
   })
 })
@@ -204,59 +175,66 @@ const cartStore = useCartStore()
 const addCart = (producto: Producto) => {
   cartStore.addToCart(producto)
 }
-
-const toggleDescription = (id: number) => {
-  productoAbierto.value = productoAbierto.value === id ? null : id;
-};
 </script>
 
 <style scoped>
-/* Estilos Profesionales Personalizados */
-
 .product-card {
   border: 1px solid #e2e8f0 !important;
   background-color: #ffffff;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease;
 }
 
-/* Efecto al pasar el mouse sobre la tarjeta */
 .product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
-  border-color: transparent !important;
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(28, 144, 161, 0.12) !important;
+  border-color: #1C90A1 !important;
 }
 
+/* 🖼️ Contenedor de Imagen adaptado */
 .image-wrapper {
   position: relative;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   border-bottom: 1px solid #f1f5f9;
+  overflow: hidden;
 }
 
 .product-img {
   mix-blend-mode: multiply;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 
-
-
-/* Efecto de zoom en la imagen al hacer hover */
-.product-card:hover .v-img {
-  transform: scale(1.05);
-  transition: transform 0.5s ease;
-}
-
-.stock-badge {
+/* 🧪 EL SECRETO: Capa Overlay oculta por defecto */
+.product-overlay {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  font-weight: bold;
-  letter-spacing: 0.5px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Usamos el color corporativo #1C90A1 con un 82% de opacidad idéntico a image_8a1600.png */
+  background-color: rgba(28, 144, 161, 0.82); 
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 2;
 }
 
-.add-btn {
-  text-transform: none;
-  font-weight: 600;
-  letter-spacing: 0;
+/* 🪄 Efectos combinados al pasar el mouse por la tarjeta */
+.product-card:hover .product-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.04);
+}
+
+/* Limita el texto a un máximo de 3 líneas para cuidar la estética */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .empty-state {

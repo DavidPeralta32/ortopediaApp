@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@mdi/font": "^7.4.47",
     "gsap": "^3.13.0",
     "pinia": "^3.0.3",

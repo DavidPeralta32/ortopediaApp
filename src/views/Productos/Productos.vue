@@ -24,8 +24,8 @@
                     <div class="d-flex align-center flex-wrap gap-4 mt-4">
                         <p class="text-body-2 text-medium-emphasis mb-0">
                             Mostrando <span class="font-weight-bold text-grey-darken-3">
-                            {{ displayedCount }}/{{ filteredProducts.length }}
-                        </span> productos
+                                {{ displayedCount }}/{{ filteredProducts.length }}
+                            </span> productos
                         </p>
                         <v-spacer></v-spacer>
                         <v-btn v-if="searchQuery || selectedZone !== 'Todos'" variant="text" color="error" size="small"
@@ -47,8 +47,10 @@
 
                 <v-row v-else-if="filteredProducts.length > 0">
                     <v-col v-for="producto in paginatedProducts" :key="producto.id" cols="12" sm="6" md="4" lg="3">
-                        <v-card variant="flat" class="product-card rounded-xl d-flex flex-column" style="min-width: 25%;">
+                        <v-card variant="flat" class="product-card rounded-xl d-flex flex-column"
+                            style="min-width: 25%;">
 
+                            <!-- CONTENEDOR DE IMAGEN + HOVER OVERLAY -->
                             <div class="image-wrapper bg-grey-lighten-5">
                                 <v-img :src="producto.image" height="200" contain class="product-img pa-4">
                                     <template v-slot:placeholder>
@@ -58,8 +60,18 @@
                                         </div>
                                     </template>
                                 </v-img>
+
+                                <!-- Esta es la capa que aparecerá en el HOVER -->
+                                <div v-if="producto.descripcion && producto.descripcion.trim() !== ''"
+                                    class="description-overlay pa-4 d-flex align-center justify-center">
+                                    <p class="text-body-2 text-white text-justify lh-sm mb-0 overflow-y-auto"
+                                        style="max-height: 100%;">
+                                        {{ producto.descripcion }}
+                                    </p>
+                                </div>
                             </div>
 
+                            <!-- CUERPO DE LA TARJETA (Ya sin el v-expand-transition antiguo) -->
                             <v-card-item class="pa-4 flex-grow-1 d-flex flex-column justify-space-between">
                                 <div>
                                     <span
@@ -70,30 +82,16 @@
                                         {{ producto.name }}
                                     </h3>
                                 </div>
-
-                                <v-expand-transition v-if="producto.descripcion && producto.descripcion.trim() !== ''">
-                                    <!-- Forzamos la comparación transformando ambos lados a Number de forma segura -->
-                                    <div v-show="Number(productoAbierto) === Number(producto.id)">
-                                        <v-divider class="my-2"></v-divider>
-                                        <p class="text-body-2 text-medium-emphasis text-justify lh-sm mb-2">
-                                            {{ producto.descripcion || 'Sin descripción disponible.' }}
-                                        </p>
-                                    </div>
-                                </v-expand-transition>
                             </v-card-item>
 
                             <v-divider class="mx-4 opacity-60"></v-divider>
+
+                            <!-- ACCIONES (Removido el botón Detalles porque ya no hace falta hacer click) -->
                             <v-card-actions class="px-4 py-3 bg-white rounded-b-xl d-flex align-center">
-                                <!-- Aplicamos la misma conversión estricta en el icono del botón -->
-                                <v-btn class="text-none font-weight-medium text-body-2 text-grey-darken-2"
-                                    variant="text" density="comfortable"
-                                    :append-icon="Number(productoAbierto) === Number(producto.id) ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-                                    @click="toggleDescription(producto.id)">
-                                    Detalles
-                                </v-btn>
-
+                                <span class="text-caption text-grey-darken-1 font-weight-medium">
+                                    
+                                </span>
                                 <v-spacer></v-spacer>
-
                                 <v-btn icon="mdi-cart-plus" color="#1C90A1" elevation="0" size="small"
                                     :disabled="!producto.stock" @click="addCart(producto)"></v-btn>
                             </v-card-actions>
@@ -170,7 +168,7 @@ onMounted(() => {
 
 watch(selectedZone, (newZone) => {
     currentPage.value = 1;
-    productoAbierto.value = null; 
+    productoAbierto.value = null;
     fetchProductos(newZone);
 });
 
@@ -199,11 +197,11 @@ const pageCount = computed(() => Math.ceil(filteredProducts.value.length / items
 
 watch(searchQuery, () => {
     currentPage.value = 1;
-    productoAbierto.value = null; 
+    productoAbierto.value = null;
 });
 
 watch(currentPage, () => {
-    productoAbierto.value = null; 
+    productoAbierto.value = null;
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
@@ -225,19 +223,50 @@ const addCart = (producto: Producto) => {
 }
 
 .product-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     box-shadow: 0 12px 20px -4px rgba(0, 0, 0, 0.08) !important;
+    border-color: #1C90A1 !important;
 }
 
 .image-wrapper {
-    position: relative;
+   position: relative;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     border-bottom: 1px solid #f1f5f9;
+    overflow: hidden;
 }
 
 .product-img {
     mix-blend-mode: multiply;
+}
+
+/* Capa oscura que contiene la descripción, inicialmente oculta abajo */
+.description-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(69, 151, 164, 0.95); /* Color de fondo teal con opacidad */
+    opacity: 0;
+    transform: translateY(100%); /* Lo manda hacia abajo, fuera de la vista */
+    transition: all 0.3s ease-in-out;
+    z-index: 2;
+}
+
+/* Cuando la TARJETA recibe hover, activamos el overlay de la imagen */
+.product-card:hover .description-overlay {
+    opacity: 1;
+    transform: translateY(0); /* Sube suavemente a su posición original */
+}
+
+/* Opcional: Hacer el scrollbar del texto más estético si la descripción es muy larga */
+.description-overlay p::-webkit-scrollbar {
+    width: 4px;
+}
+.description-overlay p::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
 }
 
 .card-badges {

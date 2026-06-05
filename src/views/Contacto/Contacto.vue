@@ -77,17 +77,32 @@
 
 <script setup>
 import { ref } from "vue"
+import {useEnviarCotizacion} from "@/composables/useEnviarCotizacion"
 
 const nombre = ref("")
 const correo = ref("")
 const mensaje = ref("")
 
-const enviarMensaje = () => {
-  if (!nombre.value || !correo.value || !mensaje.value) {
-    alert("Por favor, completa todos los campos antes de enviar.")
-    return
-  }
-  alert(`Mensaje enviado por ${nombre.value}. Gracias por contactar a Inquimed.`)
+const enviarMensaje = async () => {
+  try {
+        const { ejecutar } = await useEnviarCotizacion()
+        
+        // Ejecutamos pasándole solo los campos del formulario de contacto
+        const resultado = await ejecutar({
+            email: correo.value,
+            nombre: nombre.value,
+            mensaje: mensaje.value
+            // 💡 Nota: Aquí omitimos "productos", lo cual es perfectamente válido ahora
+        })
+
+        if (resultado.enviadoAutomatico) {
+            alert('¡Mensaje enviado con éxito!')
+        }
+    } catch (error) {
+      console.log(error);
+      
+        alert('Ocurrió un error al enviar el formulario.')
+    }
 }
 </script>
 
@@ -97,10 +112,14 @@ const enviarMensaje = () => {
 }
 
 .custom-subtitle {
-  white-space: normal !important; /* Forza el salto de línea */
-  display: block !important;    /* Evita que el flexbox lo recorte */
-  overflow: visible !important;  /* Quita los puntos suspensivos */
-  line-height: 1.4;             /* Mejora la lectura al separarse */
+  white-space: normal !important;
+  /* Forza el salto de línea */
+  display: block !important;
+  /* Evita que el flexbox lo recorte */
+  overflow: visible !important;
+  /* Quita los puntos suspensivos */
+  line-height: 1.4;
+  /* Mejora la lectura al separarse */
   padding-top: 4px;
 }
 </style>
