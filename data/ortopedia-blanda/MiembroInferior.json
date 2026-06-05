@@ -7,7 +7,7 @@
         "zona": "pie",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907777/Zapato_Post-operatorio_epv3mm.png",
-        "descripcion": ""
+        "descripcion": "Modelo: FT-029, Talla: M y G"
     },
     {
         "id": 25,
@@ -17,7 +17,7 @@
         "zona": "pie",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907776/Zapato_Post-operatorio_Volado_de_Talo%CC%81n_ap4kjs.png",
-        "descripcion": ""
+        "descripcion": "Modelo: FT-043, Talla: CH, M, G y EG"
     },
     {
         "id": 26,
@@ -27,7 +27,7 @@
         "zona": "pie",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907775/Zapato_Post-operatorio_Volado_de_Antepie_f1tipy.png",
-        "descripcion": ""
+        "descripcion": "Modelo: FT-043, Talla: CH, M, G y EG"
     },
     {
         "id": 28,
@@ -37,7 +37,7 @@
         "zona": "pie",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907775/Zapato_Post-operatorio_Extra_Chico_para_nin%CC%83o__moral1.png",
-        "descripcion": ""
+        "descripcion": "Modelo: FT-029K, Talla: CH, M, G y EG"
     },
     {
         "id": 29,
@@ -47,7 +47,7 @@
         "zona": "tobillo",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907774/Tobillera_ela%CC%81stica_en_Banda_r3dwam.png",
-        "descripcion": ""
+        "descripcion": "Para dar apoyo y protección adicional al músculo del tobillo, reduciendo el riesgo de lesiones. Para lesiones crónicas y agudas del tobillo."
     },
     {
         "id": 30,
@@ -57,7 +57,7 @@
         "zona": "pie",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907773/rodilleras_con_magnetos_wbr8o3.png",
-        "descripcion": ""
+        "descripcion": "Modelo: MG-006, Talla: Universal"
     },
     {
         "id": 31,
@@ -67,7 +67,7 @@
         "zona": "rodilla",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907772/Rodillera_Post-operatoria_Graduable_fbubsd.png",
-        "descripcion": ""
+        "descripcion": "Diseñada para inestabilidad media/lateral, incluida la laxitud del ligamento cruzado anterior (ACL) y ligamento cruzado posterior (PCL), usada como post-operatoria y de rehabilitación. Las bisagras de control de movimiento de doble eje almohadillas de espuma proporcionan un rango de movimiento completo y limitado con posiciones de flexión / extensión de con 0 ° a 90 °. Esto con un diseño ligero, rígido y cómodo."
     },
     {
         "id": 32,
@@ -77,7 +77,7 @@
         "zona": "rodilla",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907771/Rodillera_Larga_Abierta_Plig_Cruzado_rtml7j.png",
-        "descripcion": ""
+        "descripcion": "Modelo: KN-014, Talla: Universal"
     },
     {
         "id": 33,
@@ -87,7 +87,7 @@
         "zona": "rodilla",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907770/rodillera_elastica_deportiva_premium_epwxxp.png",
-        "descripcion": ""
+        "descripcion": "Proporciona compresión, soporte a la articulación y al músculo de la rodilla. Para dolor en las articulaciones, desgarro de menisco, artritis, distensión e hinchazón. Talla: CH, M, G."
     },
     {
         "id": 34,
@@ -97,7 +97,7 @@
         "zona": "rodilla",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907769/Rodillera_Corta_Abierta_Plig_Cruzado_wenwru.png",
-        "descripcion": ""
+        "descripcion": "Modelo: KN-015, Talla: Universal"
     },
     {
         "id": 35,
@@ -107,7 +107,7 @@
         "zona": "rodilla",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907769/rodillera_ajustable_doble_soporte_lateral_flexible_jgwhn0.png",
-        "descripcion": ""
+        "descripcion": "Para dolor de rodilla, lesiones de ACL (ligamento cruzado anterior) / PCL (ligamento cruzado posterior), soporte de rótula y esguinces. Talla: CH, M, G."
     },
     {
         "id": 36,
@@ -117,7 +117,7 @@
         "zona": "rodilla",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907768/inmovilizadora_de_rodilla_infantil_hyctuw.png",
-        "descripcion": ""
+        "descripcion": "Modelo: KN-041K, Talla: 8 Y 12"
     },
     {
         "id": 37,
@@ -127,7 +127,7 @@
         "zona": "rodilla",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907767/Inmovilizador_de_Rodilla_Negro_ynj6yq.png",
-        "descripcion": ""
+        "descripcion": "Modelo: KN-040, Talla: 18"
     },
     {
         "id": 38,
@@ -137,7 +137,7 @@
         "zona": "rodilla",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907759/anillo_subrotuliano_xy0oxh.png",
-        "descripcion": ""
+        "descripcion": "Ideal para Tendinitis rotuliana, condromalacia, rastreo rotuliano y enfermedad de Osgood-Schlatter. Su suaves materiales lo hacen muy confortable y fácil de colocar en el tendón debido a su forma y materiales. Talla: Universal"
     },
     {
         "id": 39,
@@ -147,7 +147,7 @@
         "zona": "tobillo",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907766/Fe%CC%81rula_para_Tobillo_con_Gel_jcle2t.png",
-        "descripcion": ""
+        "descripcion": "Modelo: AK-051, Talla: Universal"
     },
     {
         "id": 40,
@@ -157,7 +157,7 @@
         "zona": "tobillo",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907766/Ferula_para_Tobillo_con_foamy_gh310q.png",
-        "descripcion": ""
+        "descripcion": "Modelo: AK-023, Talla: Universal"
     },
     {
         "id": 41,
@@ -167,7 +167,7 @@
         "zona": "tobillo",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907765/ferula_para_tobillo_con_aire_uvj6ev.png",
-        "descripcion": ""
+        "descripcion": "Modelo: AK-022, Talla: Universal"
     },
     {
         "id": 42,
@@ -177,7 +177,7 @@
         "zona": "tobillo",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907764/Fe%CC%81rula_para_Tobillo_con_Aire_Gel_w5qfl0.png",
-        "descripcion": ""
+        "descripcion": "Modelo: AK-052, Talla: Universal"
     },
     {
         "id": 43,
@@ -187,7 +187,7 @@
         "zona": "pie",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907763/Fe%CC%81rula_Estabilizadora_de_Juanete_qoah7w.png",
-        "descripcion": ""
+        "descripcion": "Modelo: FT-064, Talla: Universal"
     },
     {
         "id": 44,
@@ -197,7 +197,7 @@
         "zona": "pie",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907762/Bota_Walker_Neuma%CC%81tica_de_Lujo_Gris_fdwgiy.png",
-        "descripcion": ""
+        "descripcion": "Modelo: FT-052, Talla: CH, M, G y EG"
     },
     {
         "id": 45,
@@ -207,7 +207,7 @@
         "zona": "pie",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907761/Bota_Walker_Corta_con_Aire_Graduada_ir5ojs.png",
-        "descripcion": ""
+        "descripcion": "Modelo: FT-012, Talla: CH, M, G y EG"
     },
     {
         "id": 46,
@@ -217,7 +217,7 @@
         "zona": "pie",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907760/Bota_Corta_Walker_Neuma%CC%81tica_hxpubu.png",
-        "descripcion": ""
+        "descripcion": "Modelo: FT-018, Talla: CH, M, G"
     },
     {
         "id": 47,
@@ -227,6 +227,6 @@
         "zona": "pie",
         "stock": true,
         "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907760/Bota_Larga_Walker_Neuma%CC%81tica_bfgf6d.png",
-        "descripcion": ""
+        "descripcion": "Modelo: FT-013, Talla: CH, M y G"
     }
 ]

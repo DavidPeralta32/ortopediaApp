@@ -7,7 +7,7 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907879/mentonera_ag42kj.png",
-    "descripcion": ""
+    "descripcion": "Para uso en estiramiento facial, cirugía facial, implante de mentón, mentoplastia, cirugía de cuello y cirugía oral o maxilofacial."
   },
   {
     "id": 2,
@@ -17,7 +17,7 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907878/Callari%CC%81n_Cervical_Universal_Blando_bx2vzd.png",
-    "descripcion": ""
+    "descripcion": "Modelo: NK-005, Talla: Universal"
   },
   {
     "id": 3,
@@ -27,7 +27,7 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907876/Collari%CC%81n_Semiri%CC%81gido_Perfil_Bajo_e7swke.png",
-    "descripcion": ""
+    "descripcion": "Modelo: NK-014, Talla: CH, M, G y EG"
   },
   {
     "id": 4,
@@ -37,7 +37,7 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907875/collarin_cervical_blando_infantil_vymmoa.png",
-    "descripcion": ""
+    "descripcion": "Modelo: NK-016, Talla: CH, M, G y EG"
   },
   {
     "id": 5,
@@ -47,7 +47,7 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907874/Collari%CC%81n_Cervical_jlux1p.png",
-    "descripcion": ""
+    "descripcion": "Esta diseñado para lesiones de cuello y estabilización. Proporciona un diseño de talla única con cierre de velcro seguro para el ajuste del ancho del cuello y un sistema especial de altura ajustable para obtener un ajuste rapido y confiable que los médicos necesitan para administrar la estabilización de la columna cevical."
   },
   {
     "id": 6,
@@ -57,7 +57,7 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907873/Callari%CC%81n_Cervical_Blando_Azul_Marino_zqw7gf.png",
-    "descripcion": ""
+    "descripcion": "Modelo: NK-013, Talla: CH, M, G y EG"
   },
   {
     "id": 7,
@@ -67,7 +67,7 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907872/collarin_philadelphia_txyeny.png",
-    "descripcion": ""
+    "descripcion": "Modelo: NK-007, Talla: CH, M, G"
   },
   {
     "id": 8,
@@ -77,7 +77,7 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907871/Collari%CC%81n_Ortesi%CC%81s_Tipo_Miami_tiv0no.png",
-    "descripcion": ""
+    "descripcion": "Modelo: NK-019, Talla: Universal"
   },
   {
     "id": 9,
@@ -87,6 +87,6 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907870/collarin_para_traccion_servical_d6xlpf.png",
-    "descripcion": ""
+    "descripcion": "Modelo: NK-015, Talla: Universal"
   }
 ]
