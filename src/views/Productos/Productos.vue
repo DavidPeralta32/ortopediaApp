@@ -78,7 +78,7 @@
                                     <div>
                                         <span
                                             class="text-caption font-weight-bold text-teal text-uppercase tracking-wider d-block mb-1">
-                                            {{ producto.category }}
+                                            {{ producto.area }}
                                         </span>
                                         <h3 class="product-title font-weight-bold text-grey-darken-4 mb-2">
                                             {{ producto.name }}

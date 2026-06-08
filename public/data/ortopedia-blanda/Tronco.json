@@ -1,5 +1,5 @@
 [
-    {
+  {
     "id": 10,
     "name": "Muñequera Elastica de Banda",
     "category": "ortopedia-blanda",
@@ -7,7 +7,8 @@
     "zona": "muñeca",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907806/Mun%CC%83equera_ela%CC%81stica_de_banda_orojzv.png",
-    "descripcion": "Genera apoyo adicional al músculo de la muñeca. Alivia el dolor y mantiene la muñeca flexible para su movimiento natural."
+    "descripcion": "Genera apoyo adicional al músculo de la muñeca. Alivia el dolor y mantiene la muñeca flexible para su movimiento natural.",
+    "area": "APARATOS ORTOPÉDICOS"
   },
   {
     "id": 11,
@@ -17,7 +18,8 @@
     "zona": "mano",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907805/Fe%CC%81rula_para_Mun%CC%83eca_wkfsyz.png",
-    "descripcion": "Soporte para dolor en muñeca, túnel carpiano, artritis, tendinitis, esguince o distensión de muñeca."
+    "descripcion": "Soporte para dolor en muñeca, túnel carpiano, artritis, tendinitis, esguince o distensión de muñeca.",
+    "area": "APARATOS ORTOPÉDICOS"
   },
   {
     "id": 12,
@@ -27,7 +29,8 @@
     "zona": "mano",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907800/mun%CC%83equera_neopreno_tipo_deportiva_de_pulgar_apmrq1.png",
-    "descripcion": "Modelo: WT-046, Talla: Universal"
+    "descripcion": "Modelo: WT-046, Talla: Universal",
+    "area": "APARATOS ORTOPÉDICOS"
   },
   {
     "id": 13,
@@ -37,7 +40,8 @@
     "zona": "mano",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907798/Fe%CC%81rula_para_Mun%CC%83eca_Ambidiestra_ysj3t1.png",
-    "descripcion": "Férula para muñeca que genera soporte y compresión a la misma. Ideal para después del enyesado, tendinitis y lesiones de tejidos blandos. Se puede utilizar en mano izquierda o derecha. Es transpirable, ligera y duradera. Tiene un soporte removible y es fácil de ajustar por medio de velcros."
+    "descripcion": "Férula para muñeca que genera soporte y compresión a la misma. Ideal para después del enyesado, tendinitis y lesiones de tejidos blandos. Se puede utilizar en mano izquierda o derecha. Es transpirable, ligera y duradera. Tiene un soporte removible y es fácil de ajustar por medio de velcros.",
+    "area": "APARATOS ORTOPÉDICOS"
   },
   {
     "id": 15,
@@ -47,7 +51,8 @@
     "zona": "mano",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907797/ferula_mun%CC%83eca_infantil_ambidiestra_qluq1j.png",
-    "descripcion": "Modelo: WT-0033K, Talla: CH-M / G-EG"
+    "descripcion": "Modelo: WT-0033K, Talla: CH-M / G-EG",
+    "area": "APARATOS ORTOPÉDICOS"
   },
   {
     "id": 15,
@@ -57,7 +62,8 @@
     "zona": "brazo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907804/protector_nin%CC%83o_brazo_corto_xcqvvj.png",
-    "descripcion": "Modelo: 0330, Talla: Universal"
+    "descripcion": "Modelo: 0330, Talla: Universal",
+    "area": "APARATOS ORTOPÉDICOS"
   },
   {
     "id": 16,
@@ -67,7 +73,8 @@
     "zona": "brazo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907803/Protector_Nin%CC%83o_Brazo_Largo_fuga58.png",
-    "descripcion": "Modelo: 0230, Talla: Universal, Ambidiestra"
+    "descripcion": "Modelo: 0230, Talla: Universal, Ambidiestra",
+    "area": "APARATOS ORTOPÉDICOS"
   },
   {
     "id": 17,
@@ -77,7 +84,8 @@
     "zona": "brazo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907802/protector_adulto_brazo_largo_yi2iw4.png",
-    "descripcion": "Modelo: 0331, Talla: Universal"
+    "descripcion": "Modelo: 0331, Talla: Universal",
+    "area": "APARATOS ORTOPÉDICOS"
   },
   {
     "id": 18,
@@ -87,7 +95,8 @@
     "zona": "brazo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907799/protector_adulto_brazo_corto_z47hr2.png",
-    "descripcion": "Modelo: 0231, Talla: Universal"
+    "descripcion": "Modelo: 0231, Talla: Universal",
+    "area": "APARATOS ORTOPÉDICOS"
   },
   {
     "id": 19,
@@ -97,7 +106,8 @@
     "zona": "torzo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907803/Inmovilizador_hombro_qhnxys.png",
-    "descripcion": "deal para la inmovilización del hombro después de cirugía o luxación, lesión o después de quitar el yeso. Muy cómodo por sus materiales suaves y se puede utilizar para el hombro derecho o izquierdo."
+    "descripcion": "deal para la inmovilización del hombro después de cirugía o luxación, lesión o después de quitar el yeso. Muy cómodo por sus materiales suaves y se puede utilizar para el hombro derecho o izquierdo.",
+    "area": "APARATOS ORTOPÉDICOS"
   },
   {
     "id": 20,
@@ -107,7 +117,8 @@
     "zona": "torzo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907795/faja_industrial_kjqrvk.png",
-    "descripcion": "Genera un mayor soporte y protección a la espalda para el levantamiento de objetos de peso considerable, también usado como cinturón de protección para el dolor lumbar."
+    "descripcion": "Genera un mayor soporte y protección a la espalda para el levantamiento de objetos de peso considerable, también usado como cinturón de protección para el dolor lumbar.",
+    "area": "APARATOS ORTOPÉDICOS"
   },
   {
     "id": 21,
@@ -117,7 +128,8 @@
     "zona": "torzo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907801/torniquete_elastico_con_hebilla_color_negro_prjm60.png",
-    "descripcion": "Modelo: SC-TR1, Medida: 28 x 2.5 cm"
+    "descripcion": "Modelo: SC-TR1, Medida: 28 x 2.5 cm",
+    "area": "APARATOS ORTOPÉDICOS"
   },
   {
     "id": 22,
@@ -127,7 +139,8 @@
     "zona": "mano",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907797/ferula_para_dedo_resorte_de_retorno_it5s11.png",
-    "descripcion": "Esta diseñada para enderezar e inmovilizar los nudillos, protegiendo las articulaciones de los dedos y el pulgar. Fabricada en acero inoxidable con junta de EVA suave y forro de esponja transpirable, que brinda comodidad, absorbe el sudor y evita rozaduras. Modelo: MD-1701"
+    "descripcion": "Esta diseñada para enderezar e inmovilizar los nudillos, protegiendo las articulaciones de los dedos y el pulgar. Fabricada en acero inoxidable con junta de EVA suave y forro de esponja transpirable, que brinda comodidad, absorbe el sudor y evita rozaduras. Modelo: MD-1701",
+    "area": "APARATOS ORTOPÉDICOS"
   },
   {
     "id": 23,
@@ -137,16 +150,18 @@
     "zona": "mano",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907796/ferula_tipo_sombrilla_jtmgkl.png",
-    "descripcion": "Modelo: FG-003, Talla: CH, M, G"
+    "descripcion": "Modelo: FG-003, Talla: CH, M, G",
+    "area": "APARATOS ORTOPÉDICOS"
   },
   {
-    "id": 48,
+    "id": 68,
     "name": "Corset de Jewett Importado",
     "category": "ortopedia-blanda",
     "sub_categoria": "media",
     "zona": "mano",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907763/Corset_de_jewett_importado_con_caja_a_color_sjqupy.png",
-    "descripcion": "Modelo: BK-115, Talla: CH, M, G"
+    "descripcion": "Modelo: BK-115, Talla: CH, M, G",
+    "area": "APARATOS ORTOPÉDICOS"
   }
 ]

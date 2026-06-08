@@ -8,4 +8,5 @@ export interface Producto {
   image: string
   quantity?: number
   descripcion: string
+  area?: string
 }

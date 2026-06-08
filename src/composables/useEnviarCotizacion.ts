@@ -14,7 +14,31 @@ export async function useEnviarCotizacion() {
     const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-    const MI_CORREO_NEGOCIO = 'tu-correo-de-negocio@inquimed.com';
+    const MI_CORREO_NEGOCIO = 'ventasinquimed@gmail.com';
+    const MI_TELEFONO_WHATSAPP = '522293686761';
+
+    /**
+     * BUENA PRÁCTICA: Genera una URL de WhatsApp estructurada con los datos de la cotización
+     */
+    const generarEnlaceWhatsApp = (datos: EnviarCotizacionInput): string => {
+        let texto = `*¡Nueva solicitud de cotización - Inquimed!*\n\n`;
+        texto += `👤 *Nombre:* ${datos.nombre || 'No especificado'}\n`;
+        texto += `✉️ *Email:* ${datos.email}\n`;
+        
+        if (datos.mensaje && datos.mensaje.trim() !== '') {
+            texto += `💬 *Mensaje:* ${datos.mensaje}\n`;
+        }
+
+        if (datos.productos && datos.productos.length > 0) {
+            texto += `\n📦 *Productos solicitados:*\n`;
+            datos.productos.forEach(item => {
+                texto += `- ${item.name} (Cant: ${item.quantity})\n`;
+            });
+        }
+
+        // Retorna la URL formateada correctamente
+        return `https://wa.me/${MI_TELEFONO_WHATSAPP}?text=${encodeURIComponent(texto)}`;
+    };
 
     /**
      * Construye la tabla HTML solo si hay productos seleccionados
@@ -107,5 +131,5 @@ export async function useEnviarCotizacion() {
     }
 };
 
-    return { ejecutar };
+    return { ejecutar,generarEnlaceWhatsApp };
 }

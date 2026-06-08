@@ -325,7 +325,8 @@ button:not(:disabled),
   width: 100%;
   padding-left: 16px;
   padding-right: 16px;
-  height: 100vh !important;
+  height: auto !important; /* Cambiamos 100vh por auto para que crezca con el contenido */
+  min-height: 100vh;
 }
 @media (min-width: 1200px) {
   .container-xl {
@@ -784,14 +785,16 @@ button:not(:disabled),
 }
 
 
-html, body {
-  overflow-x: hidden !important;
-  max-width: 100% !important;
+/* 2. El tiro de gracia definitivo para el scroll lateral de Vuetify */
+.v-application {
+  overflow-y: clip !important; /* Evita que el contenedor interno de Vuetify genere su propia barra */
 }
 
-/* Evita que los layouts internos de Vuetify fuercen un ancho mayor al de la pantalla */
-.v-application {
+/* Limpia el contenedor HTML y Body de scrolls fantasmas */
+html, body {
+  overflow-y: auto !important;
   overflow-x: hidden !important;
+  height: auto !important;
 }
 
 

@@ -1,202 +1,222 @@
 [
     {
-        "id": 48,
-        "name": "Muletas Axilar (Infantil/Adulto)",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602263/Muletas_Auxiliar_pruolw.png",
-        "descripcion": "Modelo: SC801, Talla: CH, M y G"
-    },
-    {
-        "id": 49,
-        "name": "Banco Silla Ducha con Respaldo Reforzado",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602257/Banco_Silla_Ducha_con_Respaldo_Reforzado_q5ewvl.png",
-        "descripcion": "Modelo: SC-404B, Limite de peso: 180 kg."
-    },
-    {
-        "id": 50,
-        "name": "Comoda con Cubeta Extra Ancho de Acero",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602260/Comoda_con_Cubeta_Extra_ancho_de_Acero_fg9s2z.png",
-        "descripcion": "Modelo: SC-597B, Limite de peso: 220 kg."
-    },
-    {
-        "id": 51,
-        "name": "Colchón de Presión Alterna",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602259/Colchon_de_Presion_Alterna_vh00ws.png",
-        "descripcion": "Modelo: SC-485"
-    },
-    {
-        "id": 52,
-        "name": "Férula Estroboscpica Post-operatoria/Izq. ó Der.",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602261/Ferula_Estroboscpica_Post-operatoria_Izq_o_Der_zst3wq.png",
-        "descripcion": "Modelo: EB-026I / EB-026D, Talla: Universal,Ambidiestra"
-    },
-    {
-        "id": 53,
-        "name": "Soporte de Cadera Post-operatorio Graduable",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602265/Soporte_de_Cadera_Post-operatorio_Graduable_isw4hm.png",
-        "descripcion": "Modelo: HP-003DER / HP-003IZQ, Talla: Universal"
-    },
-    {
-        "id": 54,
-        "name": "Baumanómetro Digital (Muñeca/Brazo)",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602257/Baumano%CC%81metro_Digital_x7csy9.png",
-        "descripcion": "Modelo: YK-BPW1 / YK-BPA1"
-    },
-    {
-        "id": 55,
-        "name": "Oxímetro de Pulso Adulto",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602264/Oxi%CC%81metro_de_Pulso_Adulto_vkgudq.png",
-        "descripcion": "Modelo: BLS-01101"
-    },
-    {
-        "id": 56,
-        "name": "Pastillero Semanal Circular Paq. con 2 Piezas",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780607630/Pastillero_Semanal_Circular_aofdbw.png",
-        "descripcion": "Modelo: SC-P0005"
-    },
-    {
-        "id": 57,
-        "name": "Báscula para Grasa Corporal y Medición de DIF",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602256/Bascula_para_Grasa_Corporal_y_Medicio%CC%81n_de_DIF_od8eh4.png",
-        "descripcion": "Modelo: SC-F28, INCLUYE BATERIAS"
-    },
-    {
-        "id": 58,
-        "name": "Báscula para Alimentos/Cocina",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602256/Bascula_para_Alimentos_Cocina_urfsoq.png",
-        "descripcion": "Modelo: SC-K60, INCLUYE BATERIAS"
-    },
-    {
-        "id": 59,
-        "name": "Cinta Cohesiva Piel",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602257/Cinta_Cohesiva_Piel_felnao.png",
-        "descripcion": "Modelo: SC-C3S/SC-C55"
-    },
-    {
-        "id": 60,
-        "name": "Vendaje Under-Tape Cinta Cebolla Color Piel",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602266/Vendaje_Under_Tape_Cinta_Cebolla_Color_Piel_hqtjbo.png",
-        "descripcion": "Modelo: SC-PT7SK"
-    },
-    {
-        "id": 61,
-        "name": "Cinta Kinesiológica Color Piel",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602258/Cinta_Kinesiolo%CC%81gica_Color_Piel_epxpjw.png",
-        "descripcion": "Modelo: SC-K5SK"
-    },
-    {
-        "id": 62,
-        "name": "Cinta Kinesiológica Color Rosa",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602258/Cinta_Kinesiolo%CC%81gica_Color_Rosa_lkaygs.png",
-        "descripcion": "Modelo: SC-K5P"
-    },
-    {
-        "id": 63,
-        "name": "Cinta Kinesiológica Color Negro",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602257/Cinta_Kinesiolo%CC%81gica_Color_Negro_rnc3bo.png",
-        "descripcion": "Modelo: SC-K5BL"
-    },
-    {
-        "id": 64,
-        "name": "Tijera de Botón Importada Acero Inoxidable",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602265/Tijera_de_Boton_Importada_Acero_Inoxidable_llfwdz.png",
-        "descripcion": "Modelo: SC-T04, Medida: 18.5 cm"
-    },
-    {
-        "id": 65,
-        "name": "Ligas de Resistencia 5 Diferentes Densidades",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602262/Ligas_de_Resistencia_5_Diferentes_Densidades_vubryc.png",
-        "descripcion": "Modelo: BT-1"
-    },
-    {
-        "id": 66,
-        "name": "Kit Mandil Emplomado con Collarín Emplomado",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602261/Kit_Mandil_Emplomado_con_Collarin_Emplomado_vjmgsv.png",
-        "descripcion": "Modelo: 0532, Talla: Universal"
-    },
-    {
-        "id": 67,
-        "name": "Cinturón para Hernia Inguinal Braguer",
-        "category": "ortopedia-blanda",
-        "sub_categoria": "otros",
-        "zona": "otros",
-        "stock": true,
-        "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602259/Cinturon_para_Hernia_Inguinal_Braguero_w0zsry.png",
-        "descripcion": "Modelo: BK-070, Talla: CH, M y G"
-    }
+    "id": 48,
+    "name": "Muletas Axilar (Infantil/Adulto)",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602263/Muletas_Auxiliar_pruolw.png",
+    "descripcion": "Modelo: SC801, Talla: CH, M y G",
+    "area": "APARATOS ORTOPÉDICOS"
+  },
+  {
+    "id": 49,
+    "name": "Banco Silla Ducha con Respaldo Reforzado",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602257/Banco_Silla_Ducha_con_Respaldo_Reforzado_q5ewvl.png",
+    "descripcion": "Modelo: SC-404B, Limite de peso: 180 kg.",
+    "area": "EQUIPOS MÉDICOS"
+  },
+  {
+    "id": 50,
+    "name": "Comoda con Cubeta Extra Ancho de Acero",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602260/Comoda_con_Cubeta_Extra_ancho_de_Acero_fg9s2z.png",
+    "descripcion": "Modelo: SC-597B, Limite de peso: 220 kg.",
+    "area": "EQUIPOS MÉDICOS"
+  },
+  {
+    "id": 51,
+    "name": "Colchón de Presión Alterna",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602259/Colchon_de_Presion_Alterna_vh00ws.png",
+    "descripcion": "Modelo: SC-485",
+    "area": "EQUIPOS MÉDICOS"
+  },
+  {
+    "id": 52,
+    "name": "Férula Estroboscpica Post-operatoria/Izq. ó Der.",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602261/Ferula_Estroboscpica_Post-operatoria_Izq_o_Der_zst3wq.png",
+    "descripcion": "Modelo: EB-026I / EB-026D, Talla: Universal,Ambidiestra",
+    "area": "APARATOS ORTOPÉDICOS"
+  },
+  {
+    "id": 53,
+    "name": "Soporte de Cadera Post-operatorio Graduable",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602265/Soporte_de_Cadera_Post-operatorio_Graduable_isw4hm.png",
+    "descripcion": "Modelo: HP-003DER / HP-003IZQ, Talla: Universal",
+    "area": "APARATOS ORTOPÉDICOS"
+  },
+  {
+    "id": 54,
+    "name": "Baumanómetro Digital (Muñeca/Brazo)",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602257/Baumano%CC%81metro_Digital_x7csy9.png",
+    "descripcion": "Modelo: YK-BPW1 / YK-BPA1",
+    "area": "EQUIPOS MÉDICOS"
+  },
+  {
+    "id": 55,
+    "name": "Oxímetro de Pulso Adulto",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602264/Oxi%CC%81metro_de_Pulso_Adulto_vkgudq.png",
+    "descripcion": "Modelo: BLS-01101",
+    "area": "EQUIPOS MÉDICOS"
+  },
+  {
+    "id": 56,
+    "name": "Pastillero Semanal Circular Paq. con 2 Piezas",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780607630/Pastillero_Semanal_Circular_aofdbw.png",
+    "descripcion": "Modelo: SC-P0005",
+    "area": "MATERIAL DE HOSPITALARIO"
+  },
+  {
+    "id": 57,
+    "name": "Báscula para Grasa Corporal y Medición de DIF",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602256/Bascula_para_Grasa_Corporal_y_Medicio%CC%81n_de_DIF_od8eh4.png",
+    "descripcion": "Modelo: SC-F28, INCLUYE BATERIAS",
+    "area": "EQUIPOS MÉDICOS"
+  },
+  {
+    "id": 58,
+    "name": "Báscula para Alimentos/Cocina",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602256/Bascula_para_Alimentos_Cocina_urfsoq.png",
+    "descripcion": "Modelo: SC-K60, INCLUYE BATERIAS",
+    "area": "EQUIPOS MÉDICOS"
+  },
+  {
+    "id": 59,
+    "name": "Cinta Cohesiva Piel",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602257/Cinta_Cohesiva_Piel_felnao.png",
+    "descripcion": "Modelo: SC-C3S/SC-C55",
+    "area": "MATERIAL DE HOSPITALARIO"
+  },
+  {
+    "id": 60,
+    "name": "Vendaje Under-Tape Cinta Cebolla Color Piel",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602266/Vendaje_Under_Tape_Cinta_Cebolla_Color_Piel_hqtjbo.png",
+    "descripcion": "Modelo: SC-PT7SK",
+    "area": "MATERIAL DE HOSPITALARIO"
+  },
+  {
+    "id": 61,
+    "name": "Cinta Kinesiológica Color Piel",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602258/Cinta_Kinesiolo%CC%81gica_Color_Piel_epxpjw.png",
+    "descripcion": "Modelo: SC-K5SK",
+    "area": "MATERIAL DE HOSPITALARIO"
+  },
+  {
+    "id": 62,
+    "name": "Cinta Kinesiológica Color Rosa",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602258/Cinta_Kinesiolo%CC%81gica_Color_Rosa_lkaygs.png",
+    "descripcion": "Modelo: SC-K5P",
+    "area": "MATERIAL DE HOSPITALARIO"
+  },
+  {
+    "id": 63,
+    "name": "Cinta Kinesiológica Color Negro",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602257/Cinta_Kinesiolo%CC%81gica_Color_Negro_rnc3bo.png",
+    "descripcion": "Modelo: SC-K5BL",
+    "area": "MATERIAL DE HOSPITALARIO"
+  },
+  {
+    "id": 64,
+    "name": "Tijera de Botón Importada Acero Inoxidable",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602265/Tijera_de_Boton_Importada_Acero_Inoxidable_llfwdz.png",
+    "descripcion": "Modelo: SC-T04, Medida: 18.5 cm",
+    "area": "INSTRUMENTAL QUIRÚRGICO"
+  },
+  {
+    "id": 65,
+    "name": "Ligas de Resistencia 5 Diferentes Densidades",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602262/Ligas_de_Resistencia_5_Diferentes_Densidades_vubryc.png",
+    "descripcion": "Modelo: BT-1",
+    "area": "APARATOS ORTOPÉDICOS"
+  },
+  {
+    "id": 66,
+    "name": "Kit Mandil Emplomado con Collarín Emplomado",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602261/Kit_Mandil_Emplomado_con_Collarin_Emplomado_vjmgsv.png",
+    "descripcion": "Modelo: 0532, Talla: Universal",
+    "area": "EQUIPOS MÉDICOS"
+  },
+  {
+    "id": 67,
+    "name": "Cinturón para Hernia Inguinal Braguer",
+    "category": "ortopedia-blanda",
+    "sub_categoria": "otros",
+    "zona": "otros",
+    "stock": true,
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602259/Cinturon_para_Hernia_Inguinal_Braguero_w0zsry.png",
+    "descripcion": "Modelo: BK-070, Talla: CH, M y G",
+    "area": "APARATOS ORTOPÉDICOS"
+  }
 ]
