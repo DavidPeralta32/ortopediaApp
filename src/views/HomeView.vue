@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-carousel show-arrows="hover" class="carrusel-header">
+        <v-carousel show-arrows="hover" hide-delimiters class="carrusel-header">
             <v-carousel-item :src="portada1" cover></v-carousel-item>
 
             <v-carousel-item :src="portada3" cover></v-carousel-item>

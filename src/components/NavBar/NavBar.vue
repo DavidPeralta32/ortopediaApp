@@ -280,11 +280,14 @@ const goToContacto = () => {
   border-radius: 12px;
   /* Bordes redondeados */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  /* Sombra suave */
-  margin: 5px 0;
-  width: 95%;
   /*max-width: 1200px;*/
   color: #344767 !important;
+
+  /* --- CORRECCIÓN PARA MÓVILES (Evita el scroll horizontal) --- */
+  margin: 8px auto !important; 
+  left: 12px !important;       /* Deja un margen fijo a la izquierda */
+  right: 12px !important;      /* Deja un margen fijo a la derecha */
+  width: auto !important; /* El ancho exacto restando los márgenes laterales */
 }
 
 v-toolbar-subtitle {

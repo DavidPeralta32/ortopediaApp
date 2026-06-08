@@ -3,7 +3,7 @@
         <div class="card-envios">
             <div class="envios-card">
                 <v-card class="mx-auto card-info" max-width="500" height="180" variant="flat">
-                    <v-btn class="icon-info" icon="mdi mdi-map-marker-radius" variant="text"></v-btn>
+                    <v-icon class="icon-info" icon="mdi mdi-map-marker-radius"></v-icon>
 
                     <v-card-title>ENVÍOS A TODO MÉXICO</v-card-title>
 
@@ -15,7 +15,7 @@
 
             <div class="envios-card">
                 <v-card class="mx-auto card-info" max-width="500" height="180" variant="flat">
-                    <v-btn class="icon-info" icon="mdi mdi-medical-bag" variant="text"></v-btn>
+                    <v-icon class="icon-info" icon="mdi mdi-medical-bag"></v-icon>
 
                     <v-card-title>TODOS LOS CONSUMIBLES EN UN MISMO LUGAR</v-card-title>
 
@@ -26,14 +26,14 @@
             </div>
         </div>
 
-         <!--Card Mayoreo -->
+        <!--Card Mayoreo -->
         <div class="card-links-mayoreo-tienda">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <!-- Cara frontal: Card Mayoreo -->
                     <div class="flip-card-front">
-                        <v-card class="card-linksMayoTienda">
-                            <v-img :src="cotizacion1" class="align-end"
+                        <v-card class="card-linksMayoTienda w-100 h-100" flat tile>
+                            <v-img :src="cotizacion1" class="align-end w-100"
                                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="300px" cover>
                                 <v-card-title class="text-white">Mayoreo</v-card-title>
                             </v-img>
@@ -42,12 +42,12 @@
 
                     <!-- Cara trasera: Mayoreo-->
                     <div class="flip-card-back">
-                        <v-card class="card-linksMayoTienda align-center justify-center" >
+                        <v-card class="card-linksMayoTienda align-center justify-center">
                             <v-img class="align-center text-white" :src="cotizacion2"
                                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="300px" cover>
                                 <v-card-text class="text-center text-white">
-                                    <v-btn class="ms-2" size="small" text="Cotizacion" variant="outlined"
-                                        color="white" @click="goToContacto()"></v-btn>
+                                    <v-btn class="ms-2" size="small" text="Cotizacion" variant="outlined" color="white"
+                                        @click="goToContacto()"></v-btn>
                                 </v-card-text></v-img>
 
                         </v-card>
@@ -61,8 +61,8 @@
                     <!-- Cara frontal: Card Mayoreo -->
                     <div class="flip-card-front">
                         <v-card class="card-linksMayoTienda">
-                            <v-img :src="tienda1" class="align-end"
-                                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="300px" cover>
+                            <v-img :src="tienda1" class="align-end" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                                height="300px" cover>
                                 <v-card-title class="text-white">Tienda</v-card-title>
                             </v-img>
                         </v-card>
@@ -70,7 +70,7 @@
 
                     <!-- Cara trasera: Mayoreo-->
                     <div class="flip-card-back">
-                        <v-card class="card-linksMayoTienda align-center justify-center" >
+                        <v-card class="card-linksMayoTienda align-center justify-center">
                             <v-img class="align-center text-white" :src="tienda2"
                                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="300px" cover>
                                 <v-card-text class="text-center text-white">
@@ -91,7 +91,7 @@
 import { onMounted, shallowRef } from 'vue'
 import { useRouter } from 'vue-router'
 
-const cotizacion1 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989088/cotizacion1_xuunb3.png"
+const cotizacion1 = "https://res.cloudinary.com/drkehdimc/image/upload/v1780930789/cotizacion1_keawth.png"
 const cotizacion2 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989089/cotizacion2_v414dh.png"
 const tienda1 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989090/tienda1_olkyzp.png"
 const tienda2 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989089/productos2_scotxz.png"
@@ -100,12 +100,12 @@ const tienda2 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989089/p
 const router = useRouter();
 
 const goToProductos = () => {
-  router.push({ name: 'Productos', query: { cat: "Todos" } })
+    router.push({ name: 'Productos', query: { cat: "Todos" } })
 }
 
 
-const goToContacto = () =>{
-  router.push({ name: 'Contacto' })
+const goToContacto = () => {
+    router.push({ name: 'Contacto' })
 }
 </script>
 
@@ -130,9 +130,10 @@ const goToContacto = () =>{
 }
 
 .icon-info {
-    font-size: 35px !important;
-    padding: 8px;
+    font-size: 45px !important;
+    padding: 3px;
     color: rgb(28, 144, 161) !important;
+    margin: 8px;
 }
 
 .card-info .v-card-title {

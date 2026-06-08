@@ -784,7 +784,15 @@ button:not(:disabled),
 }
 
 
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
 
+/* Evita que los layouts internos de Vuetify fuercen un ancho mayor al de la pantalla */
+.v-application {
+  overflow-x: hidden !important;
+}
 
 
 

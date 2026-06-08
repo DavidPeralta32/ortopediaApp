@@ -1,125 +1,151 @@
 <template>
-  <v-container class="py-12 px-6" fluid style="margin-top: 30px;">
-    <v-row justify="center" class="text-center mb-8">
-      <v-col cols="12" md="8">
-        <h2 class="text-h4 text-md-h3 font-weight-bold mb-2">
-          Contáctanos
-        </h2>
-        <p class="text-subtitle-1 text-grey-darken-1">
-          En <strong>Inquimed</strong> estamos listos para ayudarte con tus necesidades ortopédicas.
-        </p>
-      </v-col>
-    </v-row>
+  <!-- Envolvedor principal con flexbox para empujar el footer hacia abajo -->
+  <div class="page-container">
+    
+    <!-- El contenedor del contenido crece para ocupar el espacio disponible -->
+    <v-container class="py-12 px-6 content-wrap" fluid style="margin-top: 30px;">
+      <v-row justify="center" class="text-center mb-8">
+        <v-col cols="12" md="8">
+          <h2 class="text-h4 text-md-h3 font-weight-bold mb-2">
+            Contáctanos
+          </h2>
+          <p class="text-subtitle-1 text-grey-darken-1">
+            En <strong>Inquimed</strong> estamos listos para ayudarte con tus necesidades ortopédicas.
+          </p>
+        </v-col>
+      </v-row>
 
-    <v-row class="d-flex align-center" align="stretch" justify="center" dense>
-      <!-- Información de contacto -->
-      <v-col cols="12" md="5" class="mb-8 mb-md-0">
-        <v-card class="pa-6 rounded-xl elevation-3">
-          <v-list density="comfortable">
-            <v-list-item prepend-avatar="" title="Teléfono" subtitle="+52 229 368 6761">
-              <template #prepend>
-                <v-icon color="#1C90A1" size="28">mdi-phone</v-icon>
-              </template>
-            </v-list-item>
+      <v-row class="d-flex align-center" align="stretch" justify="center" dense>
+        <!-- Información de contacto -->
+        <v-col cols="12" md="5" class="mb-8 mb-md-0">
+          <v-card class="pa-6 rounded-xl elevation-3">
+            <v-list density="comfortable">
+              <v-list-item prepend-avatar="" title="Teléfono" subtitle="+52 229 368 6761">
+                <template #prepend>
+                  <v-icon color="#1C90A1" size="28">mdi-phone</v-icon>
+                </template>
+              </v-list-item>
 
-            <v-list-item title="Correo electrónico" subtitle="inquimedcomercializadora@gmail.com">
-              <template #prepend>
-                <v-icon color="#1C90A1" size="28">mdi-email</v-icon>
-              </template>
-            </v-list-item>
+              <v-list-item title="Correo electrónico" subtitle="inquimedcomercializadora@gmail.com">
+                <template #prepend>
+                  <v-icon color="#1C90A1" size="28">mdi-email</v-icon>
+                </template>
+              </v-list-item>
 
-            <v-list-item title="Dirección">
-              <template #prepend>
-                <v-icon color="#1C90A1" size="28">mdi-map-marker</v-icon>
-              </template>
+              <v-list-item title="Dirección">
+                <template #prepend>
+                  <v-icon color="#1C90A1" size="28">mdi-map-marker</v-icon>
+                </template>
 
-              <template #subtitle>
-                <div class="text-wrap opacity-80" style="line-height: 1.2rem;">
-                  Avenida Americas número 1465, # interior 'A', codigo postal 91919, fracc reforma, Boca del Rio,
-                  Veracruz
-                </div>
-              </template>
-            </v-list-item>
-          </v-list>
+                <template #subtitle>
+                  <div class="text-wrap opacity-80" style="line-height: 1.2rem;">
+                    Avenida Americas número 1465, # interior 'A', codigo postal 91919, fracc reforma, Boca del Rio,
+                    Veracruz
+                  </div>
+                </template>
+              </v-list-item>
+            </v-list>
 
-          <div class="mt-6 ga-4" style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
-            <v-icon class="vIconProfile" color="#0A66C2">mdi-linkedin</v-icon>
-            <v-icon class="vIconProfile" color="#1877F2">mdi-facebook</v-icon>
-            <v-icon class="vIconProfile" color="#EA4335">mdi-gmail</v-icon>
-          </div>
-        </v-card>
-      </v-col>
+            <!--<div class="mt-6 ga-4" style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
+              <v-icon class="vIconProfile" color="#0A66C2">mdi-linkedin</v-icon>
+              <v-icon class="vIconProfile" color="#1877F2">mdi-facebook</v-icon>
+              <v-icon class="vIconProfile" color="#EA4335">mdi-gmail</v-icon>
+            </div>-->
+          </v-card>
+        </v-col>
 
-      <!-- Formulario -->
-      <v-col cols="12" md="6">
-        <v-card class="pa-6 rounded-xl elevation-3">
-          <v-form>
-            <v-text-field v-model="nombre" label="Nombre completo" variant="outlined" prepend-inner-icon="mdi-account"
-              density="comfortable" color="#98C7C9" class="mb-4" />
+        <!-- Formulario -->
+        <v-col cols="12" md="6">
+          <v-card class="pa-6 rounded-xl elevation-3">
+            <v-form>
+              <v-text-field v-model="nombre" label="Nombre completo" variant="outlined" prepend-inner-icon="mdi-account"
+                density="comfortable" color="#98C7C9" class="mb-4" />
 
-            <v-text-field v-model="correo" label="Correo electrónico" variant="outlined"
-              prepend-inner-icon="mdi-email-outline" density="comfortable" color="#98C7C9" class="mb-4" />
+              <v-text-field v-model="correo" label="Correo electrónico" variant="outlined"
+                prepend-inner-icon="mdi-email-outline" density="comfortable" color="#98C7C9" class="mb-4" />
 
-            <v-textarea v-model="mensaje" label="Mensaje" variant="outlined"
-              prepend-inner-icon="mdi-message-text-outline" rows="4" density="comfortable" color="#98C7C9"
-              class="mb-6" />
+              <v-textarea v-model="mensaje" label="Mensaje" variant="outlined"
+                prepend-inner-icon="mdi-message-text-outline" rows="4" density="comfortable" color="#98C7C9"
+                class="mb-6" />
 
-            <v-btn block color="#1C90A1" size="large" class="text-white" @click="enviarMensaje">
-              <v-icon start>mdi-send</v-icon>
-              Enviar mensaje
-            </v-btn>
-          </v-form>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+              <v-btn block color="#1C90A1" size="large" class="text-white" @click="enviarMensaje">
+                <v-icon start>mdi-send</v-icon>
+                Enviar mensaje
+              </v-btn>
+            </v-form>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <!-- FOOTER fuera del contenedor de contenido, abajo del todo -->
+    <footer class="site-footer">
+      <div class="container small">© {{ year }} INQUIMED. Todos los derechos reservados.</div>
+    </footer>
+  </div>
 </template>
 
 <script setup>
 import { ref } from "vue"
-import {useEnviarCotizacion} from "@/composables/useEnviarCotizacion"
+import { useEnviarCotizacion } from "@/composables/useEnviarCotizacion"
 
 const nombre = ref("")
 const correo = ref("")
 const mensaje = ref("")
+const year = new Date().getFullYear()
 
 const enviarMensaje = async () => {
   try {
-        const { ejecutar } = await useEnviarCotizacion()
-        
-        // Ejecutamos pasándole solo los campos del formulario de contacto
-        const resultado = await ejecutar({
-            email: correo.value,
-            nombre: nombre.value,
-            mensaje: mensaje.value
-            // 💡 Nota: Aquí omitimos "productos", lo cual es perfectamente válido ahora
-        })
+    const { ejecutar } = await useEnviarCotizacion()
 
-        if (resultado.enviadoAutomatico) {
-            alert('¡Mensaje enviado con éxito!')
-        }
-    } catch (error) {
-      console.log(error);
-      
-        alert('Ocurrió un error al enviar el formulario.')
+    // Ejecutamos pasándole solo los campos del formulario de contacto
+    const resultado = await ejecutar({
+      email: correo.value,
+      nombre: nombre.value,
+      mensaje: mensaje.value
+      // 💡 Nota: Aquí omitimos "productos", lo cual es perfectamente válido ahora
+    })
+
+    if (resultado.enviadoAutomatico) {
+      alert('¡Mensaje enviado con éxito!')
     }
+  } catch (error) {
+    console.log(error);
+
+    alert('Ocurrió un error al enviar el formulario.')
+  }
 }
 </script>
 
 <style scoped>
+/* --- Truco Flexbox para el Footer --- */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Fuerza a que ocupe todo el alto de la pantalla */
+}
+
+.content-wrap {
+  flex: 1; /* Esto hace que el contenido se estire y empuje al footer al fondo */
+}
+
+.site-footer {
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  background-color: #f5f5f5; /* Opcional: añade un fondo para distinguirlo */
+}
+
+/* Tus estilos anteriores */
 .text-blue-darken-3 {
   color: #0d47a1 !important;
 }
 
 .custom-subtitle {
   white-space: normal !important;
-  /* Forza el salto de línea */
   display: block !important;
-  /* Evita que el flexbox lo recorte */
   overflow: visible !important;
-  /* Quita los puntos suspensivos */
   line-height: 1.4;
-  /* Mejora la lectura al separarse */
   padding-top: 4px;
 }
 </style>

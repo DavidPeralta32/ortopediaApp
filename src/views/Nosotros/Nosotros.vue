@@ -5,26 +5,20 @@
       <div class="overlay"></div>
       <div class="hero-inner">
         <svg viewBox="0 0 200 60" class="swoosh" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M5 45 C55 10, 120 0, 195 5"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="6"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+          <path d="M5 45 C55 10, 120 0, 195 5" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"
+            stroke-linejoin="round" />
         </svg>
 
         <h1 class="title">Comprometidos con tu bienestar</h1>
         <p class="subtitle">
-          En <strong>INQUIMED</strong> somos aliados del sector salud.  
-          Distribuimos y proveemos insumos médicos de alta calidad,  
+          En <strong>INQUIMED</strong> somos aliados del sector salud.
+          Distribuimos y proveemos insumos médicos de alta calidad,
           con compromiso, eficiencia y empatía.
         </p>
 
         <div class="cta-row">
           <v-btn color="#1C90A1" variant="flat" rounded @click="goToContacto()">Contactanos</v-btn>
-          <v-btn color="white" variant="outlined" rounded @click="scrollToMision">Valores</v-btn>
+          <!--<v-btn color="white" variant="outlined" rounded @click="scrollToMision">Valores</v-btn>-->
         </div>
       </div>
     </header>
@@ -35,10 +29,15 @@
         <div class="mission">
           <h2>Nuestra misión</h2>
           <p style="text-align: justify;">
-            En INQUIMED entendemos que en el área de la salud no hay margen de error, por eso priorizamos la calidad, la disponibilidad oportuna y la atención personalizada en cada uno de nuestros procesos. Nuestro objetivo es convertirnos en un aliado estratégico para nuestros clientes, garantizando confianza, eficiencia y precios competitivos.
+            En INQUIMED entendemos que en el área de la salud no hay margen de error, por eso priorizamos la calidad, la
+            disponibilidad oportuna y la atención personalizada en cada uno de nuestros procesos. Nuestro objetivo es
+            convertirnos en un aliado estratégico para nuestros clientes, garantizando confianza, eficiencia y precios
+            competitivos.
             <br>
 
-            Creemos firmemente que la salud es una causa que nos involucra a todos por lo que nos  consideramos más que una comercializadora, somos un equipo comprometido con el bienestar y la salud de quienes confían en nosotros.
+            Creemos firmemente que la salud es una causa que nos involucra a todos por lo que nos consideramos más que
+            una comercializadora, somos un equipo comprometido con el bienestar y la salud de quienes confían en
+            nosotros.
           </p>
         </div>
 
@@ -120,7 +119,7 @@ const equipo = [
   }
 ]
 
-const goToContacto = () =>{
+const goToContacto = () => {
   router.push({ name: 'Contacto' })
 }
 
