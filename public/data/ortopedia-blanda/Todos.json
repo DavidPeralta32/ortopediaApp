@@ -8,7 +8,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907879/mentonera_ag42kj.png",
     "descripcion": "Para uso en estiramiento facial, cirugía facial, implante de mentón, mentoplastia, cirugía de cuello y cirugía oral o maxilofacial.",
-    "area": "APARATOS ORTOPÉDICOS"
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 2,
@@ -18,8 +19,9 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907878/Callari%CC%81n_Cervical_Universal_Blando_bx2vzd.png",
-    "descripcion": "Modelo: NK-005, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: NK-005",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 3,
@@ -29,8 +31,9 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907876/Collari%CC%81n_Semiri%CC%81gido_Perfil_Bajo_e7swke.png",
-    "descripcion": "Modelo: NK-014, Talla: CH, M, G y EG",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: NK-014",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G", "EG"]
   },
   {
     "id": 4,
@@ -40,8 +43,9 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907875/collarin_cervical_blando_infantil_vymmoa.png",
-    "descripcion": "Modelo: NK-016, Talla: CH, M, G y EG",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: NK-016",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G", "EG"]
   },
   {
     "id": 5,
@@ -52,7 +56,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907874/Collari%CC%81n_Cervical_jlux1p.png",
     "descripcion": "Esta diseñado para lesiones de cuello y estabilización. Proporciona un design de talla única con cierre de velcro seguro para el ajuste del ancho del cuello y un sistema especial de altura ajustable para obtener un ajuste rapido y confiable que los médicos necesitan para administrar la estabilización de la columna cevical.",
-    "area": "APARATOS ORTOPÉDICOS"
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 6,
@@ -62,8 +67,9 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907873/Callari%CC%81n_Cervical_Blando_Azul_Marino_zqw7gf.png",
-    "descripcion": "Modelo: NK-013, Talla: CH, M, G y EG",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: NK-013",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G", "EG"]
   },
   {
     "id": 7,
@@ -73,8 +79,9 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907872/collarin_philadelphia_txyeny.png",
-    "descripcion": "Modelo: NK-007, Talla: CH, M, G",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: NK-007",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G"]
   },
   {
     "id": 8,
@@ -84,8 +91,9 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907871/Collari%CC%81n_Ortesi%CC%81s_Tipo_Miami_tiv0no.png",
-    "descripcion": "Modelo: NK-019, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: NK-019",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 9,
@@ -95,8 +103,9 @@
     "zona": "cuello",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907870/collarin_para_traccion_servical_d6xlpf.png",
-    "descripcion": "Modelo: NK-015, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: NK-015",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 10,
@@ -107,7 +116,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907806/Mun%CC%83equera_ela%CC%81stica_de_banda_orojzv.png",
     "descripcion": "Genera apoyo adicional al músculo de la muñeca. Alivia el dolor y mantiene la muñeca flexible para su movimiento natural.",
-    "area": "APARATOS ORTOPÉDICOS"
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 11,
@@ -118,7 +128,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907805/Fe%CC%81rula_para_Mun%CC%83eca_wkfsyz.png",
     "descripcion": "Soporte para dolor en muñeca, túnel carpiano, artritis, tendinitis, esguince o distensión de muñeca.",
-    "area": "APARATOS ORTOPÉDICOS"
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 12,
@@ -128,8 +139,9 @@
     "zona": "mano",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907800/mun%CC%83equera_neopreno_tipo_deportiva_de_pulgar_apmrq1.png",
-    "descripcion": "Modelo: WT-046, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: WT-046",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 13,
@@ -139,8 +151,9 @@
     "zona": "mano",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907798/Fe%CC%81rula_para_Mun%CC%83eca_Ambidiestra_ysj3t1.png",
-    "descripcion": "Férula para muñeca que genera soporte y compresión a la misma. Ideal para después del enyesado, tendinitis y lesiones de tejidos blandos. Se puede utilizar en mano izquierda o derecha. Es transpirable, ligera y duradera. Tiene un soporte removible y es fácil de ajustar por medio de velcros.",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Férula para muñeca que genera soporte y compresión a la misma. Ideal para después del enyesado, tendinitis y lesiones de tejidos blandos. Es transpirable, ligera y duradera. Tiene un soporte removible y es fácil de ajustar por medio de velcros.",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Ambidiestra"]
   },
   {
     "id": 15,
@@ -150,8 +163,9 @@
     "zona": "mano",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907797/ferula_mun%CC%83eca_infantil_ambidiestra_qluq1j.png",
-    "descripcion": "Modelo: WT-0033K, Talla: CH-M / G-EG",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: WT-0033K",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH-M", "G-EG"]
   },
   {
     "id": 15,
@@ -161,8 +175,9 @@
     "zona": "brazo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907804/protector_nin%CC%83o_brazo_corto_xcqvvj.png",
-    "descripcion": "Modelo: 0330, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: 0330",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 16,
@@ -172,8 +187,9 @@
     "zona": "brazo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907803/Protector_Nin%CC%83o_Brazo_Largo_fuga58.png",
-    "descripcion": "Modelo: 0230, Talla: Universal, Ambidiestra",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: 0230",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal", "Ambidiestra"]
   },
   {
     "id": 17,
@@ -183,8 +199,9 @@
     "zona": "brazo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907802/protector_adulto_brazo_largo_yi2iw4.png",
-    "descripcion": "Modelo: 0331, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: 0331",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 18,
@@ -194,8 +211,9 @@
     "zona": "brazo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907799/protector_adulto_brazo_corto_z47hr2.png",
-    "descripcion": "Modelo: 0231, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: 0231",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 19,
@@ -205,8 +223,9 @@
     "zona": "torzo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907803/Inmovilizador_hombro_qhnxys.png",
-    "descripcion": "deal para la inmovilización del hombro después de cirugía o luxación, lesión o después de quitar el yeso. Muy cómodo por sus materiales suaves y se puede utilizar para el hombro derecho o izquierdo.",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Ideal para la inmovilización del hombro después de cirugía o luxación, lesión o después de quitar el yeso. Muy cómodo por sus materiales suaves.",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Ambidiestra"]
   },
   {
     "id": 20,
@@ -217,7 +236,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907795/faja_industrial_kjqrvk.png",
     "descripcion": "Genera un mayor soporte y protección a la espalda para el levantamiento de objetos de peso considerable, también usado como cinturón de protección para el dolor lumbar.",
-    "area": "APARATOS ORTOPÉDICOS"
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 21,
@@ -228,7 +248,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907801/torniquete_elastico_con_hebilla_color_negro_prjm60.png",
     "descripcion": "Modelo: SC-TR1, Medida: 28 x 2.5 cm",
-    "area": "APARATOS ORTOPÉDICOS"
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Única"]
   },
   {
     "id": 22,
@@ -238,8 +259,9 @@
     "zona": "mano",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907797/ferula_para_dedo_resorte_de_retorno_it5s11.png",
-    "descripcion": "Esta diseñada para enderezar e inmovilizar los nudillos, protegiendo las articulaciones de los dedos y el pulgar. Fabricada en acero inoxidable con junta de EVA suave y forro de esponja transpirable, que brinda comodidad, absorbe el sudor y evita rozaduras. Modelo: MD-1701",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Esta diseñada para enderezar e inmovilizar los nudillos, protegiendo las articulaciones de los dedos y el pulgar. Fabricada en acero inoxidable con junta de EVA suave y forro de esponja transpirable. Modelo: MD-1701",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 23,
@@ -249,8 +271,9 @@
     "zona": "mano",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907796/ferula_tipo_sombrilla_jtmgkl.png",
-    "descripcion": "Modelo: FG-003, Talla: CH, M, G",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: FG-003",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G"]
   },
   {
     "id": 68,
@@ -260,8 +283,9 @@
     "zona": "mano",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907763/Corset_de_jewett_importado_con_caja_a_color_sjqupy.png",
-    "descripcion": "Modelo: BK-115, Talla: CH, M, G",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: BK-115",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G"]
   },
   {
     "id": 24,
@@ -271,8 +295,9 @@
     "zona": "pie",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907777/Zapato_Post-operatorio_epv3mm.png",
-    "descripcion": "Modelo: FT-029, Talla: M y G",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: FT-029",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["M", "G"]
   },
   {
     "id": 25,
@@ -282,8 +307,9 @@
     "zona": "pie",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907776/Zapato_Post-operatorio_Volado_de_Talo%CC%81n_ap4kjs.png",
-    "descripcion": "Modelo: FT-043, Talla: CH, M, G y EG",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: FT-043",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G", "EG"]
   },
   {
     "id": 26,
@@ -293,8 +319,9 @@
     "zona": "pie",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907775/Zapato_Post-operatorio_Volado_de_Antepie_f1tipy.png",
-    "descripcion": "Modelo: FT-043, Talla: CH, M, G y EG",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: FT-043",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G", "EG"]
   },
   {
     "id": 28,
@@ -304,8 +331,9 @@
     "zona": "pie",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907775/Zapato_Post-operatorio_Extra_Chico_para_nin%CC%83o__moral1.png",
-    "descripcion": "Modelo: FT-029K, Talla: CH, M, G y EG",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: FT-029K",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G", "EG"]
   },
   {
     "id": 29,
@@ -316,7 +344,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907774/Tobillera_ela%CC%81stica_en_Banda_r3dwam.png",
     "descripcion": "Para dar apoyo y protección adicional al músculo del tobillo, reduciendo el riesgo de lesiones. Para lesiones crónicas y agudas del tobillo.",
-    "area": "APARATOS ORTOPÉDICOS"
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 30,
@@ -326,8 +355,9 @@
     "zona": "pie",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907773/rodilleras_con_magnetos_wbr8o3.png",
-    "descripcion": "Modelo: MG-006, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: MG-006",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 31,
@@ -336,9 +366,10 @@
     "sub_categoria": "baja",
     "zona": "rodilla",
     "stock": true,
-    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907772/Rodillera_Post-operatoria_Graduable_fbubsd.png",
-    "descripcion": "Diseñada para inestabilidad media/lateral, incluida la laxitud del ligamento cruzado anterior (ACL) y ligamento cruzado posterior (PCL), usada como post-operatoria y de rehabilitación. Las bisagras de control de movimiento de doble eje almohadillas de espuma proporcionan un rango de movimiento completo y limitado con posiciones de flexión / extensión de con 0 ° a 90 °. Esto con un diseño ligero, rígido y cómodo.",
-    "area": "APARATOS ORTOPÉDICOS"
+    "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907772/Rodillera_Post-operatorio_Graduable_fbubsd.png",
+    "descripcion": "Diseñada para inestabilidad media/lateral, incluida la laxitud del ligamento cruzado anterior (ACL) y ligamento cruzado posterior (PCL). Las bisagras de control de movimiento de doble eje almohadillas de espuma proporcionan un rango de movimiento completo y limitado con posiciones de flexión / extensión de con 0 ° a 90 °.",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 32,
@@ -348,8 +379,9 @@
     "zona": "rodilla",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907771/Rodillera_Larga_Abierta_Plig_Cruzado_rtml7j.png",
-    "descripcion": "Modelo: KN-014, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: KN-014",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 33,
@@ -359,8 +391,9 @@
     "zona": "rodilla",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907770/rodillera_elastica_deportiva_premium_epwxxp.png",
-    "descripcion": "Proporciona compresión, soporte a la articulación y al músculo de la rodilla. Para dolor en las articulaciones, desgarro de menisco, artritis, distensión e hinchazón. Talla: CH, M, G.",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Proporciona compresión, soporte a la articulación y al músculo de la rodilla. Para dolor en las articulaciones, desgarro de menisco, artritis, distensión e hinchazón.",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G"]
   },
   {
     "id": 34,
@@ -370,8 +403,9 @@
     "zona": "rodilla",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907769/Rodillera_Corta_Abierta_Plig_Cruzado_wenwru.png",
-    "descripcion": "Modelo: KN-015, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: KN-015",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 35,
@@ -381,8 +415,9 @@
     "zona": "rodilla",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907769/rodillera_ajustable_doble_soporte_lateral_flexible_jgwhn0.png",
-    "descripcion": "Para dolor de rodilla, lesiones de ACL (ligamento cruzado anterior) / PCL (ligamento cruzado posterior), soporte de rótula y esguinces. Talla: CH, M, G.",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Para dolor de rodilla, lesiones de ACL (ligamento cruzado anterior) / PCL (ligamento cruzado posterior), soporte de rótula y esguinces.",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G"]
   },
   {
     "id": 36,
@@ -392,8 +427,9 @@
     "zona": "rodilla",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907768/inmovilizadora_de_rodilla_infantil_hyctuw.png",
-    "descripcion": "Modelo: KN-041K, Talla: 8 Y 12",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: KN-041K",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Talla 8", "Talla 12"]
   },
   {
     "id": 37,
@@ -403,8 +439,9 @@
     "zona": "rodilla",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907767/Inmovilizador_de_Rodilla_Negro_ynj6yq.png",
-    "descripcion": "Modelo: KN-040, Talla: 18",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: KN-040",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Talla 18"]
   },
   {
     "id": 38,
@@ -414,8 +451,9 @@
     "zona": "rodilla",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907759/anillo_subrotuliano_xy0oxh.png",
-    "descripcion": "Ideal para Tendinitis rotuliana, condromalacia, rastreo rotuliano y enfermedad de Osgood-Schlatter. Su suaves materiales lo hacen muy confortable y fácil de colocar en el tendón debido a su forma y materiales. Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Ideal para Tendinitis rotuliana, condromalacia, rastreo rotuliano y enfermedad de Osgood-Schlatter. Su suaves materiales lo hacen muy confortable.",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 39,
@@ -425,8 +463,9 @@
     "zona": "tobillo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907766/Fe%CC%81rula_para_Tobillo_con_Gel_jcle2t.png",
-    "descripcion": "Modelo: AK-051, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: AK-051",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 40,
@@ -436,8 +475,9 @@
     "zona": "tobillo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907766/Ferula_para_Tobillo_con_foamy_gh310q.png",
-    "descripcion": "Modelo: AK-023, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: AK-023",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 41,
@@ -447,8 +487,9 @@
     "zona": "tobillo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907765/ferula_para_tobillo_con_aire_uvj6ev.png",
-    "descripcion": "Modelo: AK-022, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: AK-022",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 42,
@@ -458,8 +499,9 @@
     "zona": "tobillo",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907764/Fe%CC%81rula_para_Tobillo_con_Aire_Gel_w5qfl0.png",
-    "descripcion": "Modelo: AK-052, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: AK-052",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 43,
@@ -469,8 +511,9 @@
     "zona": "pie",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907763/Fe%CC%81rula_Estabilizadora_de_Juanete_qoah7w.png",
-    "descripcion": "Modelo: FT-064, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: FT-064",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 44,
@@ -480,8 +523,9 @@
     "zona": "pie",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907762/Bota_Walker_Neuma%CC%81tica_de_Lujo_Gris_fdwgiy.png",
-    "descripcion": "Modelo: FT-052, Talla: CH, M, G y EG",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: FT-052",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G", "EG"]
   },
   {
     "id": 45,
@@ -491,8 +535,9 @@
     "zona": "pie",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907761/Bota_Walker_Corta_con_Aire_Graduada_ir5ojs.png",
-    "descripcion": "Modelo: FT-012, Talla: CH, M, G y EG",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: FT-012",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G", "EG"]
   },
   {
     "id": 46,
@@ -502,8 +547,9 @@
     "zona": "pie",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907760/Bota_Corta_Walker_Neuma%CC%81tica_hxpubu.png",
-    "descripcion": "Modelo: FT-018, Talla: CH, M, G",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: FT-018",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G"]
   },
   {
     "id": 47,
@@ -513,8 +559,9 @@
     "zona": "pie",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1779907760/Bota_Larga_Walker_Neuma%CC%81tica_bfgf6d.png",
-    "descripcion": "Modelo: FT-013, Talla: CH, M y G",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: FT-013",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G"]
   },
   {
     "id": 48,
@@ -524,8 +571,9 @@
     "zona": "otros",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602263/Muletas_Auxiliar_pruolw.png",
-    "descripcion": "Modelo: SC801, Talla: CH, M y G",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: SC801",
+    "area": "APARATOS ORTOPÉCIPOS",
+    "tallas": ["CH", "M", "G"]
   },
   {
     "id": 49,
@@ -536,7 +584,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602257/Banco_Silla_Ducha_con_Respaldo_Reforzado_q5ewvl.png",
     "descripcion": "Modelo: SC-404B, Limite de peso: 180 kg.",
-    "area": "EQUIPOS MÉDICOS"
+    "area": "EQUIPOS MÉDICOS",
+    "tallas": ["Única"]
   },
   {
     "id": 50,
@@ -547,7 +596,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602260/Comoda_con_Cubeta_Extra_ancho_de_Acero_fg9s2z.png",
     "descripcion": "Modelo: SC-597B, Limite de peso: 220 kg.",
-    "area": "EQUIPOS MÉDICOS"
+    "area": "EQUIPOS MÉDICOS",
+    "tallas": ["Única"]
   },
   {
     "id": 51,
@@ -558,7 +608,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602259/Colchon_de_Presion_Alterna_vh00ws.png",
     "descripcion": "Modelo: SC-485",
-    "area": "EQUIPOS MÉDICOS"
+    "area": "EQUIPOS MÉDICOS",
+    "tallas": ["Individual"]
   },
   {
     "id": 52,
@@ -568,8 +619,9 @@
     "zona": "otros",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602261/Ferula_Estroboscpica_Post-operatoria_Izq_o_Der_zst3wq.png",
-    "descripcion": "Modelo: EB-026I / EB-026D, Talla: Universal,Ambidiestra",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: EB-026I / EB-026D",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal", "Izquierda", "Derecha"]
   },
   {
     "id": 53,
@@ -579,8 +631,9 @@
     "zona": "otros",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602265/Soporte_de_Cadera_Post-operatorio_Graduable_isw4hm.png",
-    "descripcion": "Modelo: HP-003DER / HP-003IZQ, Talla: Universal",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: HP-003DER / HP-003IZQ",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Universal", "Izquierda", "Derecha"]
   },
   {
     "id": 54,
@@ -591,7 +644,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602257/Baumano%CC%81metro_Digital_x7csy9.png",
     "descripcion": "Modelo: YK-BPW1 / YK-BPA1",
-    "area": "EQUIPOS MÉDICOS"
+    "area": "EQUIPOS MÉDICOS",
+    "tallas": ["Única"]
   },
   {
     "id": 55,
@@ -602,7 +656,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602264/Oxi%CC%81metro_de_Pulso_Adulto_vkgudq.png",
     "descripcion": "Modelo: BLS-01101",
-    "area": "EQUIPOS MÉDICOS"
+    "area": "EQUIPOS MÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 56,
@@ -613,7 +668,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780607630/Pastillero_Semanal_Circular_aofdbw.png",
     "descripcion": "Modelo: SC-P0005",
-    "area": "MATERIAL DE HOSPITALARIO"
+    "area": "MATERIAL DE HOSPITALARIO",
+    "tallas": ["Única"]
   },
   {
     "id": 57,
@@ -624,7 +680,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602256/Bascula_para_Grasa_Corporal_y_Medicio%CC%81n_de_DIF_od8eh4.png",
     "descripcion": "Modelo: SC-F28, INCLUYE BATERIAS",
-    "area": "EQUIPOS MÉDICOS"
+    "area": "EQUIPOS MÉDICOS",
+    "tallas": ["Única"]
   },
   {
     "id": 58,
@@ -635,7 +692,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602256/Bascula_para_Alimentos_Cocina_urfsoq.png",
     "descripcion": "Modelo: SC-K60, INCLUYE BATERIAS",
-    "area": "EQUIPOS MÉDICOS"
+    "area": "EQUIPOS MÉDICOS",
+    "tallas": ["Única"]
   },
   {
     "id": 59,
@@ -646,7 +704,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602257/Cinta_Cohesiva_Piel_felnao.png",
     "descripcion": "Modelo: SC-C3S/SC-C55",
-    "area": "MATERIAL DE HOSPITALARIO"
+    "area": "MATERIAL DE HOSPITALARIO",
+    "tallas": ["Única"]
   },
   {
     "id": 60,
@@ -657,7 +716,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602266/Vendaje_Under_Tape_Cinta_Cebolla_Color_Piel_hqtjbo.png",
     "descripcion": "Modelo: SC-PT7SK",
-    "area": "MATERIAL DE HOSPITALARIO"
+    "area": "MATERIAL DE HOSPITALARIO",
+    "tallas": ["Única"]
   },
   {
     "id": 61,
@@ -668,7 +728,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602258/Cinta_Kinesiolo%CC%81gica_Color_Piel_epxpjw.png",
     "descripcion": "Modelo: SC-K5SK",
-    "area": "MATERIAL DE HOSPITALARIO"
+    "area": "MATERIAL DE HOSPITALARIO",
+    "tallas": ["Única"]
   },
   {
     "id": 62,
@@ -679,7 +740,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602258/Cinta_Kinesiolo%CC%81gica_Color_Rosa_lkaygs.png",
     "descripcion": "Modelo: SC-K5P",
-    "area": "MATERIAL DE HOSPITALARIO"
+    "area": "MATERIAL DE HOSPITALARIO",
+    "tallas": ["Única"]
   },
   {
     "id": 63,
@@ -690,7 +752,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602257/Cinta_Kinesiolo%CC%81gica_Color_Negro_rnc3bo.png",
     "descripcion": "Modelo: SC-K5BL",
-    "area": "MATERIAL DE HOSPITALARIO"
+    "area": "MATERIAL DE HOSPITALARIO",
+    "tallas": ["Única"]
   },
   {
     "id": 64,
@@ -701,7 +764,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602265/Tijera_de_Boton_Importada_Acero_Inoxidable_llfwdz.png",
     "descripcion": "Modelo: SC-T04, Medida: 18.5 cm",
-    "area": "INSTRUMENTAL QUIRÚRGICO"
+    "area": "INSTRUMENTAL QUIRÚRGICO",
+    "tallas": ["18.5 cm"]
   },
   {
     "id": 65,
@@ -712,7 +776,8 @@
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602262/Ligas_de_Resistencia_5_Diferentes_Densidades_vubryc.png",
     "descripcion": "Modelo: BT-1",
-    "area": "APARATOS ORTOPÉDICOS"
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["Kit"]
   },
   {
     "id": 66,
@@ -722,8 +787,9 @@
     "zona": "otros",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602261/Kit_Mandil_Emplomado_con_Collarin_Emplomado_vjmgsv.png",
-    "descripcion": "Modelo: 0532, Talla: Universal",
-    "area": "EQUIPOS MÉDICOS"
+    "descripcion": "Modelo: 0532",
+    "area": "EQUIPOS MÉDICOS",
+    "tallas": ["Universal"]
   },
   {
     "id": 67,
@@ -733,7 +799,8 @@
     "zona": "otros",
     "stock": true,
     "image": "https://res.cloudinary.com/drkehdimc/image/upload/v1780602259/Cinturon_para_Hernia_Inguinal_Braguero_w0zsry.png",
-    "descripcion": "Modelo: BK-070, Talla: CH, M y G",
-    "area": "APARATOS ORTOPÉDICOS"
+    "descripcion": "Modelo: BK-070",
+    "area": "APARATOS ORTOPÉDICOS",
+    "tallas": ["CH", "M", "G"]
   }
 ]

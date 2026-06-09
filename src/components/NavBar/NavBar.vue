@@ -9,14 +9,15 @@
     <!-- Botones para escritorio -->
     <template v-if="$vuetify.display.mdAndUp">
       <v-btn text @click="abrirDialogNosotros()">Nosotros</v-btn>
-       <v-btn text @click="goToProductos('ortopedia-blanda')" >Productos</v-btn>
-      
+      <v-btn text @click="goToProductos('ortopedia-blanda')">Productos</v-btn>
+
       <v-btn text @click="goToContacto()">Contacto</v-btn>
 
       <v-spacer></v-spacer>
 
       <!--Boton carrito de compra y vista previa-->
-      <v-menu v-model="menuCarrito" open-on-click :close-on-content-click="false" location="bottom end" transition="scale-transition">
+      <v-menu v-model="menuCarrito" open-on-click :close-on-content-click="false" location="bottom end"
+        transition="scale-transition">
         <template v-slot:activator="{ props }">
           <v-btn icon variant="text" style="color:#344767" class="relative" v-bind="props">
             <v-badge :content="cartStore.totalItems" color="red" overlap v-if="cartStore.totalItems > 0">
@@ -37,39 +38,44 @@
             <v-divider></v-divider>
 
             <div style="max-height: 300px; overflow-y: auto;" class="custom-scroll">
-        
-        <v-list-item v-if="cartStore.cart.length === 0" class="text-center py-4">
-          <v-list-item-title class="text-grey-darken-1">No hay productos aún</v-list-item-title>
-        </v-list-item>
 
-        <v-list-item v-for="item in cartStore.cart" :key="item.id" class="mb-2">
-          <template v-slot:prepend>
-            <v-avatar rounded="lg" size="50" border>
-              <v-img :src="item.image" cover></v-img>
-            </v-avatar>
-          </template>
+              <v-list-item v-if="cartStore.cart.length === 0" class="text-center py-4">
+                <v-list-item-title class="text-grey-darken-1">No hay productos aún</v-list-item-title>
+              </v-list-item>
 
-          <v-list-item-title class="text-subtitle-2 font-weight-bold">
-            {{ item.name }}
-          </v-list-item-title>
+              <v-list-item v-for="item in cartStore.cart" :key="item.id" class="mb-2">
+                <template v-slot:prepend>
+                  <v-avatar rounded="lg" size="50" border>
+                    <v-img :src="item.image" cover></v-img>
+                  </v-avatar>
+                </template>
 
-          <v-list-item-subtitle>
-            Cantidad: {{ item.quantity }}
-          </v-list-item-subtitle>
+                <v-list-item-title class="text-subtitle-2 font-weight-bold">
+                  {{ item.name }}
+                </v-list-item-title>
 
-          <template v-slot:append>
-            <v-btn icon="mdi-close-circle-outline" variant="text" size="small" color="red-lighten-1"
-              @click="cartStore.removeFromCart(item.id)"></v-btn>
-          </template>
-        </v-list-item>
-        
-      </div>
-      </v-list>
+                <!-- Muestra de forma compacta la cantidad y la talla asignada -->
+                <v-list-item-subtitle class="mt-1">
+                  <span class="text-grey-darken-2">Cant: <strong>{{ item.quantity }}</strong></span>
+                  <v-chip size="x-small" color="teal-darken-2" variant="tonal" class="font-weight-bold ml-2 px-2">
+                    {{ item.tallaSeleccionada || 'Universal' }}
+                  </v-chip>
+                </v-list-item-subtitle>
+
+                <template v-slot:append>
+                  <v-btn icon="mdi-close-circle-outline" variant="text" size="small" color="red-lighten-1"
+                    @click="cartStore.removeFromCart(item.id, item.tallaSeleccionada || 'Universal')"></v-btn>
+                </template>
+              </v-list-item>
+
+            </div>
+          </v-list>
 
           <v-divider class="mb-2"></v-divider>
 
           <div class="pa-2">
-            <v-btn block color="#1C90A1" variant="elevated" prepend-icon="mdi-eye" :to="{ name: 'Carrito' }" @click="menuCarrito = false">
+            <v-btn block color="#1C90A1" variant="elevated" prepend-icon="mdi-eye" :to="{ name: 'Carrito' }"
+              @click="menuCarrito = false">
               Ver completo
             </v-btn>
           </div>
@@ -284,10 +290,13 @@ const goToContacto = () => {
   color: #344767 !important;
 
   /* --- CORRECCIÓN PARA MÓVILES (Evita el scroll horizontal) --- */
-  margin: 8px auto !important; 
-  left: 12px !important;       /* Deja un margen fijo a la izquierda */
-  right: 12px !important;      /* Deja un margen fijo a la derecha */
-  width: auto !important; /* El ancho exacto restando los márgenes laterales */
+  margin: 8px auto !important;
+  left: 12px !important;
+  /* Deja un margen fijo a la izquierda */
+  right: 12px !important;
+  /* Deja un margen fijo a la derecha */
+  width: auto !important;
+  /* El ancho exacto restando los márgenes laterales */
 }
 
 v-toolbar-subtitle {

@@ -5,19 +5,18 @@
                 <v-col cols="12" lg="11">
                     <header class="mb-8">
                         <h2 class="text-h4 font-weight-bold mb-1 text-grey-darken-4 text-uppercase tracking-wide">
-                            Ortopedia Blanda
+                            Catálogo de Productos
                         </h2>
 
-                        <!-- Sección de Filtros por Zona -->
                         <div class="mt-4 mb-2">
                             <span
                                 class="text-caption font-weight-bold text-grey-darken-1 text-uppercase tracking-wider d-block mb-2">
-                                Filtrar por zona del cuerpo:
+                                Filtrar por área médica:
                             </span>
-                            <v-chip-group v-model="selectedZone" selected-class="bg-teal text-white" mandatory>
-                                <v-chip v-for="zona in zonas" :key="zona.id" :value="zona.id" filter
+                            <v-chip-group v-model="selectedArea" selected-class="bg-teal text-white" mandatory>
+                                <v-chip v-for="area in areas" :key="area.id" :value="area.id" filter
                                     :disabled="isLoading" variant="tonal" class="font-weight-medium px-4">
-                                    {{ zona.name }}
+                                    {{ area.name }}
                                 </v-chip>
                             </v-chip-group>
                         </div>
@@ -29,7 +28,7 @@
                                 </span> productos
                             </p>
                             <v-spacer></v-spacer>
-                            <v-btn v-if="searchQuery || selectedZone !== 'Todos'" variant="text" color="error"
+                            <v-btn v-if="searchQuery || selectedArea !== 'Todos'" variant="text" color="error"
                                 size="small" @click="resetFilters" class="text-none">
                                 Limpiar filtros
                             </v-btn>
@@ -53,7 +52,9 @@
 
                                 <!-- CONTENEDOR DE IMAGEN + HOVER OVERLAY -->
                                 <div class="image-wrapper bg-grey-lighten-5">
-                                    <v-img :src="producto.image" height="200" contain class="product-img pa-4">
+                                    <v-img :src="producto.image" lazy-src="https://picsum.photos/id/11/10/6"
+                                        height="200" contain class="product-img pa-4">
+                                        <!-- Esto se muestra mientras carga (mantiene el esqueleto) -->
                                         <template v-slot:placeholder>
                                             <div
                                                 class="d-flex align-center justify-center fill-height bg-grey-lighten-4">
@@ -63,7 +64,6 @@
                                         </template>
                                     </v-img>
 
-                                    <!-- Esta es la capa que aparecerá en el HOVER -->
                                     <div v-if="producto.descripcion && producto.descripcion.trim() !== ''"
                                         class="description-overlay pa-4 d-flex align-center justify-center">
                                         <p class="text-body-2 text-white text-justify lh-sm mb-0 overflow-y-auto"
@@ -73,29 +73,49 @@
                                     </div>
                                 </div>
 
-                                <!-- CUERPO DE LA TARJETA (Ya sin el v-expand-transition antiguo) -->
-                                <v-card-item class="pa-4 flex-grow-1 d-flex flex-column justify-space-between">
+                                <!-- CUERPO DE LA TARJETA -->
+                                <v-card-item class="pa-3 flex-grow-1 d-flex flex-column justify-space-between">
                                     <div>
-                                        <span
-                                            class="text-caption font-weight-bold text-teal text-uppercase tracking-wider d-block mb-1">
-                                            {{ producto.area }}
-                                        </span>
+                                        <div class="d-flex justify-space-between align-center mb-1">
+                                            <span
+                                                class="text-caption font-weight-bold text-teal text-uppercase tracking-wider">
+                                                {{ producto.area }}
+                                            </span>
+                                        </div>
+
                                         <h3 class="product-title font-weight-bold text-grey-darken-4 mb-2">
                                             {{ producto.name }}
                                         </h3>
+
+                                        <!-- Mapeo visual de tallas + Selección Interactiva -->
+                                        <div v-if="producto.tallas && producto.tallas.length > 0"
+                                            class="d-flex flex-wrap gap-2 mt-3">
+                                            <v-chip v-for="(talla, idx) in producto.tallas" :key="idx" size="small"
+                                                :variant="tallasSeleccionadas[producto.id] === talla ? 'flat' : 'outlined'"
+                                                :color="tallasSeleccionadas[producto.id] === talla ? '#1C90A1' : 'teal-darken-2'"
+                                                :class="[
+                                                    'font-weight-bold px-3 rounded-pill transition-all',
+                                                    tallasSeleccionadas[producto.id] === talla ? 'text-white' : 'bg-teal-lighten-5 border-teal-lighten-3'
+                                                ]" style="font-size: 0.72rem !important; cursor: pointer;"
+                                                @click="seleccionarTalla(producto.id, talla)">
+                                                <!-- Icono de check dinámico si está seleccionado -->
+                                                <v-icon v-if="tallasSeleccionadas[producto.id] === talla" start
+                                                    size="14">mdi-check</v-icon>
+                                                {{ talla }}
+                                            </v-chip>
+                                        </div>
                                     </div>
                                 </v-card-item>
 
                                 <v-divider class="mx-4 opacity-60"></v-divider>
 
-                                <!-- ACCIONES (Removido el botón Detalles porque ya no hace falta hacer click) -->
                                 <v-card-actions class="px-4 py-3 bg-white rounded-b-xl d-flex align-center">
-                                    <span class="text-caption text-grey-darken-1 font-weight-medium">
-
-                                    </span>
+                                    <span class="text-caption text-grey-darken-1 font-weight-medium"></span>
                                     <v-spacer></v-spacer>
+                                    <!-- El botón se deshabilita si requiere talla y no se ha seleccionado ninguna -->
                                     <v-btn icon="mdi-cart-plus" color="#1C90A1" elevation="0" size="small"
-                                        :disabled="!producto.stock" @click="addCart(producto)"></v-btn>
+                                        :disabled="!producto.stock || (tieneMultiplesTallas(producto) && !tallasSeleccionadas[producto.id])"
+                                        @click="addCart(producto)"></v-btn>
                                 </v-card-actions>
                             </v-card>
                         </v-col>
@@ -120,12 +140,10 @@
             </v-row>
         </v-container>
 
-        <!-- FOOTER fuera del contenedor de contenido, abajo del todo -->
         <footer class="site-footer">
             <div class="container small">© {{ year }} INQUIMED. Todos los derechos reservados.</div>
         </footer>
     </div>
-
 </template>
 
 <script setup lang="ts">
@@ -138,53 +156,91 @@ const CATEGORIA_FIJA = "ortopedia-blanda";
 
 const productos = ref<Producto[]>([])
 const searchQuery = ref("")
-const selectedZone = ref("Todos")
+const selectedArea = ref("Todos")
 const itemsPerPage = 12
 const currentPage = ref(1)
 const isLoading = ref(true)
 const productoAbierto = ref<number | null>(null);
 const year = new Date().getFullYear()
 
-const zonas = [
+// Diccionario reactivo para guardar qué talla seleccionó el usuario para cada ID de producto
+const tallasSeleccionadas = ref<Record<number, string>>({})
+
+
+
+const areas = [
     { id: 'Todos', name: 'Ver Todos' },
-    { id: 'miembro superior', name: 'Zona Alta' },
-    { id: 'tronco', name: 'Zona Media' },
-    { id: 'miembro inferior', name: 'Zona Baja' },
-    { id: 'otros', name: 'Otros / Accesorios' }
+    { id: 'material-hospitalario', name: 'Material Hospitalario' },
+    { id: 'aparatos-ortopedicos', name: 'Aparatos Ortopédicos' },
+    { id: 'instrumental-quirurgico', name: 'Instrumental Quirúrgico' },
+    { id: 'equipos-medicos', name: 'Equipos Médicos' },
+    { id: 'anestesiologia', name: 'Anestesiología' },
+    { id: 'material-dental', name: 'Material Dental' },
+    { id: 'materiales-esterilizacion', name: 'Materiales de Esterilización' }
 ]
 
 const cartStore = useCartStore()
 
+// Función utilitaria para evaluar si el producto necesita obligatoriamente que el usuario elija talla
+const tieneMultiplesTallas = (producto: Producto): boolean => {
+    if (!producto.tallas || producto.tallas.length <= 1) return false
 
-const fetchProductos = async (zona: string) => {
+    // Ignoramos si la única o primeras opciones son descriptores genéricos de "Talla Única"
+    const palabrasClaveUnica = ['universal', 'única', 'unica', 'ambidiestra']
+    return !producto.tallas.some(t => palabrasClaveUnica.includes(t.toLowerCase()))
+}
+
+// Trae TODOS los productos de una sola vez
+const fetchTodosLosProductos = async () => {
     isLoading.value = true;
     try {
-        productos.value = await getProductosPorArchivo(CATEGORIA_FIJA, zona);
+        // Pasamos 'Todos' para que tu función API traiga el listado completo
+        productos.value = await getProductosPorArchivo(CATEGORIA_FIJA, "Todos");
     } catch (err) {
-        console.error("Error cargando productos por zona:", err);
+        console.error("Error cargando el catálogo completo:", err);
     } finally {
         isLoading.value = false;
     }
 };
 
 onMounted(() => {
-    fetchProductos(selectedZone.value);
+    fetchTodosLosProductos();
 });
 
-watch(selectedZone, (newZone) => {
+// El filtrado ahora se hace en caliente desde el cliente mediante computed
+const filteredProducts = computed(() => {
+    let resultado = productos.value;
+
+    // 1. Filtrar por Área Médica (si no está en 'Todos')
+    if (selectedArea.value !== 'Todos') {
+        resultado = resultado.filter(p => {
+            // Convierte el área del producto a minúsculas y quita acentos para comparar de forma segura con el ID
+            const areaProductoFormateada = p.area
+                ?.toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "") // Remueve acentos
+                .replace(/\s+/g, "-");           // Reemplaza espacios por guiones
+
+            return areaProductoFormateada === selectedArea.value;
+        });
+    }
+
+    // 2. Filtrar por la barra de búsqueda (texto)
+    const query = searchQuery.value.toLowerCase().trim();
+    if (query) {
+        resultado = resultado.filter(p =>
+            p.name.toLowerCase().includes(query) ||
+            (p.descripcion && p.descripcion.toLowerCase().includes(query))
+        );
+    }
+
+    return resultado;
+});
+
+// Reinicia la paginación si cambias de filtro
+watch(selectedArea, () => {
     currentPage.value = 1;
     productoAbierto.value = null;
-    fetchProductos(newZone);
-});
-
-const filteredProducts = computed(() => {
-    const query = searchQuery.value.toLowerCase().trim();
-    if (!query) return productos.value;
-
-    return productos.value.filter(p =>
-        p.name.toLowerCase().includes(query) ||
-        (p.descripcion && p.descripcion.toLowerCase().includes(query))
-    );
 });
 
 const paginatedProducts = computed(() => {
@@ -212,15 +268,41 @@ watch(currentPage, () => {
 
 const resetFilters = () => {
     searchQuery.value = "";
-    selectedZone.value = "Todos";
+    selectedArea.value = "Todos";
 };
 
 const addCart = (producto: Producto) => {
-    cartStore.addToCart(producto)
+    let tallaFinal = 'Universal'
+
+    if (tieneMultiplesTallas(producto)) {
+        tallaFinal = tallasSeleccionadas.value[producto.id]
+    } else if (producto.tallas && producto.tallas.length > 0) {
+        // Si tiene solo un elemento (ej: ["Universal"] o ["Ambidiestra"]), se asigna ese
+        tallaFinal = producto.tallas[0]
+    }
+
+    // Enviamos el producto junto con su respectiva talla al store
+    cartStore.addToCart(producto, tallaFinal)
+
+    // Opcional: Limpiar el selector de la tarjeta tras agregarlo
+    if (tallasSeleccionadas.value[producto.id]) {
+        tallasSeleccionadas.value[producto.id] = ''
+    }
+}
+
+// Agrega esta función junto a las demás que ya tienes
+const seleccionarTalla = (productoId: number, talla: string) => {
+    // Si vuelve a hacer clic en la misma, la deseleccionamos
+    if (tallasSeleccionadas.value[productoId] === talla) {
+        tallasSeleccionadas.value[productoId] = ''
+    } else {
+        tallasSeleccionadas.value[productoId] = talla
+    }
 }
 </script>
 
 <style scoped>
+/* Tu CSS original se mantiene exactamente igual */
 .product-card {
     border: 1px solid #e2e8f0 !important;
     background-color: #ffffff;
@@ -245,7 +327,6 @@ const addCart = (producto: Producto) => {
     mix-blend-mode: multiply;
 }
 
-/* Capa oscura que contiene la descripción, inicialmente oculta abajo */
 .description-overlay {
     position: absolute;
     top: 0;
@@ -253,22 +334,17 @@ const addCart = (producto: Producto) => {
     width: 100%;
     height: 100%;
     background-color: rgba(69, 151, 164, 0.95);
-    /* Color de fondo teal con opacidad */
     opacity: 0;
     transform: translateY(100%);
-    /* Lo manda hacia abajo, fuera de la vista */
     transition: all 0.3s ease-in-out;
     z-index: 2;
 }
 
-/* Cuando la TARJETA recibe hover, activamos el overlay de la imagen */
 .product-card:hover .description-overlay {
     opacity: 1;
     transform: translateY(0);
-    /* Sube suavemente a su posición original */
 }
 
-/* Opcional: Hacer el scrollbar del texto más estético si la descripción es muy larga */
 .description-overlay p::-webkit-scrollbar {
     width: 4px;
 }
@@ -311,22 +387,35 @@ const addCart = (producto: Producto) => {
     line-height: 1.4;
 }
 
-
-/* --- Truco Flexbox para el Footer --- */
 .page-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Fuerza a que ocupe todo el alto de la pantalla */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .content-wrap {
-  flex: 1; /* Esto hace que el contenido se estire y empuje al footer al fondo */
+    flex: 1;
 }
 
 .site-footer {
-  text-align: center;
-  padding: 20px 0;
-  width: 100%;
-  background-color: #fff; /* Opcional: añade un fondo para distinguirlo */
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    background-color: #fff;
+}
+
+.gap-1 {
+    gap: 4px;
+}
+
+.gap-2 {
+    gap: 8px;
+}
+
+.custom-pill-chip:hover {
+    background-color: #f5f5f5 !important;
+    border-color: #757575 !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 </style>

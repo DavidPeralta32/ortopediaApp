@@ -5,36 +5,44 @@
             <!-- 🔹 Lista de productos: ocupa 8 columnas -->
             <v-col cols="12" md="8">
                 <v-row v-if="cartStore.cart.length > 0" dense>
-                    <v-col cols="12" v-for="item in cartStore.cart" :key="item.id">
+                    <!-- Cambiamos la key para combinar ID y Talla y evitar conflictos en el renderizador de Vue -->
+                    <v-col cols="12" v-for="item in cartStore.cart" :key="`${item.id}-${item.tallaSeleccionada}`">
                         <v-card class="pa-3 mb-3">
                             <v-row align="center">
                                 <v-col cols="2">
                                     <v-img :src="item.image" height="80" contain></v-img>
                                 </v-col>
                                 <v-col cols="4">
-                                    <div>{{ item.name }}</div>
+                                    <div class="font-weight-bold">{{ item.name }}</div>
+                                    <!-- 🌟 NUEVO: Badge de Talla en el Carrito -->
+                                    <div class="my-1">
+                                        <v-chip size="x-small" color="teal-darken-2" variant="tonal"
+                                            class="font-weight-bold">
+                                            Talla: {{ item.tallaSeleccionada }}
+                                        </v-chip>
+                                    </div>
                                     <div>Cantidad: <strong> {{ item.quantity }} </strong></div>
                                 </v-col>
 
                                 <v-col cols="6" style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
                                     <div>
-                                        <v-btn icon @click="decreaseQuantity(item)">
+                                        <v-btn icon size="small" @click="decreaseQuantity(item)">
                                             <v-icon>mdi-minus</v-icon>
                                         </v-btn>
                                     </div>
 
                                     <div>
-                                        <v-btn icon @click="increaseQuantity(item)">
+                                        <v-btn icon size="small" @click="increaseQuantity(item)">
                                             <v-icon>mdi-plus</v-icon>
                                         </v-btn>
                                     </div>
 
                                     <div>
-                                        <v-btn color="red" icon @click="removeItem(item.id)">
+                                        <v-btn color="red" icon size="small"
+                                            @click="removeItem(item.id, item.tallaSeleccionada || 'Universal')">
                                             <v-icon>mdi-delete</v-icon>
                                         </v-btn>
                                     </div>
-
                                 </v-col>
                             </v-row>
                         </v-card>
@@ -99,8 +107,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useCartStore } from '../../stores/CartStore'
-import type { Producto } from '@/views/Productos/types/Producto'
-import {useEnviarCotizacion} from '@/composables/useEnviarCotizacion'
+import { useEnviarCotizacion } from '@/composables/useEnviarCotizacion'
+import type { Producto } from '@/views/Productos/types/Producto';
 
 const cartStore = useCartStore()
 
@@ -127,13 +135,13 @@ const decreaseQuantity = (item: Producto) => {
     if ((item.quantity ?? 1) > 1) {
         item.quantity!--
     } else {
-        removeItem(item.id)
+        removeItem(item.id, item.tallaSeleccionada || 'Universal')
     }
     cartStore.saveCart()
 }
 
-const removeItem = (id: number) => {
-    cartStore.removeFromCart(id)
+const removeItem = (id: number, talla: string) => {
+    cartStore.removeFromCart(id, talla)
 }
 
 
@@ -150,7 +158,7 @@ const checkout = async () => {
 
     try {
         isSending.value = true
-        
+
         const { ejecutar } = await useEnviarCotizacion()
         // Ejecutamos el caso de uso
         const resultado = await ejecutar({

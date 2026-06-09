@@ -2,6 +2,8 @@ import { defineStore } from 'pinia'
 import type { Producto } from '@/views/Productos/types/Producto'
 import { ref, computed, watch } from 'vue'
 
+
+
 export const useCartStore = defineStore('cart', () => {
     const cart = ref<Producto[]>([])
     const animateCart = ref(false)
@@ -25,26 +27,27 @@ export const useCartStore = defineStore('cart', () => {
         },
         { deep: true }
     )
+    
+    // 🔹 Agrega validando la combinación ID + Talla seleccionada
+    const addToCart = (product: Producto, talla: string) => {
+        const existing = cart.value.find((p) => p.id === product.id && p.tallaSeleccionada === talla)
 
-    // 🔹 Agregar al carrito con animación
-    const addToCart = (product: Producto) => {
-        const existing = cart.value.find((p) => p.id === product.id)
         if (existing) {
             existing.quantity = (existing.quantity ?? 1) + 1
         } else {
-            cart.value.push({ ...product, quantity: 1 })
+            // Guardamos la copia del producto asegurando su talla en este registro
+            cart.value.push({ ...product, quantity: 1, tallaSeleccionada: talla })
         }
 
-        // Animación rápida
         animateCart.value = true
         setTimeout(() => {
             animateCart.value = false
         }, 400)
     }
 
-    // 🔹 Eliminar un producto del carrito
-    const removeFromCart = (productId: number) => {
-        cart.value = cart.value.filter((p) => p.id !== productId)
+    // 🔹 Remueve discriminando por ID y Talla exacta
+    const removeFromCart = (productId: number, talla: string) => {
+        cart.value = cart.value.filter((p) => !(p.id === productId && p.tallaSeleccionada === talla))
     }
 
     // 🔹 Vaciar carrito

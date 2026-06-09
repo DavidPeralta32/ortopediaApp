@@ -9,4 +9,6 @@ export interface Producto {
   quantity?: number
   descripcion: string
   area?: string
+  tallas?: string[]
+  tallaSeleccionada?: string
 }
