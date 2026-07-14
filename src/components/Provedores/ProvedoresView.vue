@@ -1,6 +1,6 @@
 <template>
   <div class="proveedores-container"> 
-     <h2 class="text-h3 font-weight-bold mb-2 primary--text">Nuestros Proveedores</h2>
+     <h2 class="text-h3 font-weight-bold mb-2 primary--text">Nuestros Colaboradores</h2>
     <p class="section-subtitle">Trabajamos con las mejores marcas del sector médico</p>
 
     <v-sheet class="mx-auto bg-transparent" elevation="0" max-width="95%">
@@ -17,8 +17,8 @@
         >
           <v-card 
             :class="['proveedor-card', { 'is-selected': isSelected }]" 
-            height="145" 
-            width="220"
+            height="150" 
+            width="250"
             variant="flat"
             @click="toggle"
           >
@@ -28,8 +28,8 @@
               <v-img
                 :src="proveedor.logo"
                 contain
-                max-height="105"
-                max-width="170"
+                max-height="120"
+                max-width="200"
                 class="mx-auto proveedor-img"
               >
                 <template v-slot:placeholder>
