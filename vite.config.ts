@@ -9,11 +9,7 @@ export default defineConfig({
     vue(),
     vuetify({ autoImport: true })
   ],
-  base: '/ortopediaApp/',
-  server: {
-    allowedHosts: ['.ngrok-free.app'],
-    port: 4000
-  },
+  base: '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
