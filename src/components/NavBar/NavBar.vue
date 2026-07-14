@@ -4,7 +4,14 @@
     <!-- Botón Home -->
     <v-btn class="btnHome" icon="mdi-home" variant="text" :to="{ name: 'Home' }"></v-btn>
 
-    <v-toolbar-title>INQUIMED</v-toolbar-title>
+    <v-toolbar-title>
+      <div class="d-flex align-center h-100">
+        <!-- Envolvemos el SVG en un contenedor para controlar su espacio -->
+        <div class="logo-wrapper mr-1">
+          <img src="https://res.cloudinary.com/drkehdimc/image/upload/v1774989087/ic_inquimed_oamsek.svg" alt="Logo Inquimed" class="nav-logo" style="width: 200px;" />
+        </div>
+      </div>
+    </v-toolbar-title>
 
     <!-- Botones para escritorio -->
     <template v-if="$vuetify.display.mdAndUp">
