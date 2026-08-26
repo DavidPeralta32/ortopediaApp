@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-carousel show-arrows="hover" hide-delimiters class="carrusel-header">
+        <v-carousel show-arrows="hover" hide-delimiters class="carrusel-header" height="85vh">
             <v-carousel-item :src="portada1" cover></v-carousel-item>
 
             <v-carousel-item :src="portada3" cover></v-carousel-item>
@@ -40,9 +40,13 @@ import CategoriasHome from '../components/Categorias/CategoriasHome.vue';
 import FooterHome from '../components/Footer/FooterHome.vue';
 import ProvedoresView from '../components/Provedores/ProvedoresView.vue';
 
-const portada1 ="https://res.cloudinary.com/drkehdimc/image/upload/v1774989086/portada1_d3yrub.jpg"
-const portada3 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989089/portada3_nh5xcu.png"
-const portada4 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989086/portada4_hut51v.jpg"
+//const portada1 ="https://res.cloudinary.com/drkehdimc/image/upload/v1774989086/portada1_d3yrub.jpg"
+//const portada3 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989089/portada3_nh5xcu.png"
+//const portada4 = "https://res.cloudinary.com/drkehdimc/image/upload/v1774989086/portada4_hut51v.jpg"
+
+const portada1 ="https://res.cloudinary.com/drkehdimc/image/upload/v1787753186/2_vazcty.jpg"
+const portada3 = "https://res.cloudinary.com/drkehdimc/image/upload/v1787753186/3_mtexx0.jpg"
+const portada4 = "https://res.cloudinary.com/drkehdimc/image/upload/v1787753188/1_kl0z6l.jpg"
 
 
 
@@ -83,6 +87,20 @@ const whatsappUrl = computed(() => {
 
 
 <style scoped>
+
+/* Altura fluida con fallback para móviles */
+.carrusel-header {
+  /* En móviles se adapta entre 60vh y 85vh para no cortar contenido */
+  height: 90vh !important; 
+}
+
+/* Fuerza a que el recuadre priorice la parte superior o central */
+:deep(.v-img__img--cover) {
+  object-position: top center !important; /* Muestra desde arriba */
+  /* o usa: object-position: center center !important; */
+}
+
+
 .cardPrincipal {
     z-index: 100;
     background: rgba(255, 255, 255, 0.8) !important;
@@ -142,11 +160,50 @@ footer {
     z-index: 100;
 }
 
+
+
+/* Posicionamiento del contenido */
+:deep(.v-carousel-item__content) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fondo con blur */
+.blur-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px) brightness(0.7); /* Desenfoca y oscurece un poco el fondo */
+  transform: scale(1.1); /* Evita bordes blancos por el blur */
+  z-index: 1;
+}
+
+/* Imagen principal sin recortes */
+.imagen-vertical {
+  position: relative;
+  z-index: 2;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Sombra elegante */
+}
+
 /* Ajuste para móviles (opcional) */
 @media (max-width: 600px) {
   .boton-flotante {
     bottom: 20px;
     right: 20px;
+  }
+
+  .carrusel-header {
+    height: 60vh !important; /* Altura más cómoda para no empujar la vista del móvil */
   }
 }
 </style>
